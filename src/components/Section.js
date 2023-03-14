@@ -18,7 +18,7 @@ const Section = () => {
           <div className="inner">
             <Swiper
               slidesPerView={2}
-              spaceBetween={20}
+              spaceBetweengit={20}
               freeMode={true}
               pagination={{
                 clickable: true,

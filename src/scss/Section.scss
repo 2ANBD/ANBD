@@ -1,1 +1,9 @@
 @import "./Variable";
+
+#section1 {
+    & #container {
+        & .inner {
+            padding: $inner_padding;
+        }
+    }
+}

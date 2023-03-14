@@ -1,5 +1,5 @@
 import "./scss/Style.scss";
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Section from "./components/Section";

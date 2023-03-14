@@ -2,6 +2,6 @@ import React from "react";
 import "../scss/Style.scss";
 
 function Footer() {
-  return <div>Footer 형섭 test</div>;
+  return <div>second test hs</div>;
 }
 export default Footer;

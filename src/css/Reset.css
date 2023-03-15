@@ -8,7 +8,7 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 /* 여백 초기화 */
@@ -33,7 +33,7 @@ body {
 body, input, textarea, select, button, table {
   font-family: "Noto Sans KR", "Roboto", sans-serif;
   color: #333333;
-  line-height: 1.75;
+  line-height: 1.618;
 }
 
 /* 제목태그 초기화 */

@@ -6,7 +6,8 @@ import "../scss/Style.scss";
 
 function Header() {
   return (
-    <section className="header">
+    <section id="header">
+      <div id="container">
       <div className="header_gnb">
       <div className="header_gnb_menu">
         <img src={menu} alt=""></img>
@@ -19,7 +20,8 @@ function Header() {
        </div>
       </div>
       <div className="header_search">
-        <input type="search" value="원하시는 상품을 검색해보세요"></input>
+        <input type="text" value="원하시는 상품을 검색해보세요"></input>
+      </div>
       </div>
     </section>
   );

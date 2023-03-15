@@ -1,12 +1,9 @@
 import React from "react";
 import "../scss/Style.scss";
 import { Button, Space } from "antd";
-import { FacebookFilled, InstagramOutlined, GoogleOutlined } from "@ant-design/icons";
+import { FacebookFilled, InstagramOutlined, TwitterOutlined, GoogleOutlined } from "@ant-design/icons";
 
 function Footer() {
-<<<<<<< HEAD
-  return <div>second test hs</div>;
-=======
   return (
     <>
       <footer>
@@ -27,6 +24,7 @@ function Footer() {
             <Space size={20}>
               <Button ghost /* type="danger" */ size={"middle"} shape="circle" icon={<FacebookFilled />}></Button>
               <Button ghost size="middle" shape="circle" icon={<InstagramOutlined />}></Button>
+              <Button ghost size="middle" shape="circle" icon={<TwitterOutlined />}></Button>
               <Button ghost size="middle" shape="circle" icon={<GoogleOutlined />}></Button>
             </Space>
             <p className="copyright">Copyrightⓒ ANBD Inc. All rights reserved.</p>
@@ -35,6 +33,5 @@ function Footer() {
       </footer>
     </>
   );
->>>>>>> 5a9735a0687f69f3237eabe0c50103287739d941
 }
 export default Footer;

@@ -7,6 +7,8 @@ import Section2 from "./components/Section2";
 import Section3 from "./components/Section3";
 import Section4 from "./components/Section4";
 import Footer from "./components/Footer";
+import FloatButton from "./components/FloatBtn";
+import BottomNav from "./components/BottomNav";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
       <Section3 />
       <Section4 />
       <Footer />
+      <FloatButton />
+      <BottomNav />
     </div>
   );
 }

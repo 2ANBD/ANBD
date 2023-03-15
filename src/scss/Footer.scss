@@ -23,3 +23,7 @@ footer {
     @include size_color;
   }
 }
+.ant-btn-default:not(:disabled):hover {
+  color: $primary;
+  border-color: $primary;
+}

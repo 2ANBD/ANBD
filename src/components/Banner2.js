@@ -1,5 +1,5 @@
-import React from "react";
 import "../scss/Style.scss";
+import React from "react";
 import { Carousel } from 'antd';
 
 

@@ -1,10 +1,23 @@
 @import "./Variable";
+
 .inner1{
-    padding: $inner_padding;
+  margin-top:30px;
+  margin-bottom:30px;
 }
 
+%contentStyle1{
+    padding: $inner_padding;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin: 0px auto;
+    width: 450px;
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 
-%contentStyle{
+  %contentStyle2{
   border-radius: 10px; 
   margin-bottom: 10px;
   margin: 0px;
@@ -16,34 +29,30 @@
   background-repeat: no-repeat;
 }
 .contentStyle1{
-  @extend %contentStyle;
-  background-image: url("../components/img/Banner_img_1.png")
+  @extend %contentStyle1;
 }
 .contentStyle2{
-  @extend %contentStyle;
-  background-image: url("../components/img/Banner_img_2.png")
+  @extend %contentStyle1;
 }
 .contentStyle3{
-  @extend %contentStyle;
-  background-image: url("../components/img/Banner_img_3.png")
+  @extend %contentStyle1;
 }
 .contentStyle4{
-  @extend %contentStyle;
-  background-image: url("../components/img/Banner_img_4.png")
+  @extend %contentStyle1;
 }
 .contentStyle5{
-    @extend %contentStyle;
-    background-image: url("../components/img/Banner_img_5.png")
+    @extend %contentStyle2;
+    background-image: url("../../public/images/banner/Banner_img_5.png")
   }
   .contentStyle6{
-    @extend %contentStyle;
-    background-image: url("../components/img/Banner_img_6.png")
+    @extend %contentStyle2;
+    background-image: url("../../public/images/banner/Banner_img_6.png")
   }
   .contentStyle7{
-    @extend %contentStyle;
-    background-image: url("../components/img/Banner_img_7.png")
+    @extend %contentStyle2;
+    background-image: url("../../public/images/banner/Banner_img_7.png")
   }
   .contentStyle8{
-    @extend %contentStyle;
-    background-image: url("../components/img/Banner_img_8.png")
+    @extend %contentStyle2;
+    background-image: url("../../public/images/banner/Banner_img_8.png")
   }

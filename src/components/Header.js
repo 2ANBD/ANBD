@@ -1,6 +1,7 @@
 import menu from './img/menu.png';
 import logo from './img/main-logo.png';
 import alarm from './img/alarm.png';
+import logo from './img/menu.png';
 import React from "react";
 import "../scss/Style.scss";
 

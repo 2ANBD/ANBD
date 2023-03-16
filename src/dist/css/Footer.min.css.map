@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../scss/Variable.scss"],"names":[],"mappings":"AACQ,mJAAA,CAGR,MAAA,wBAAA,CACA,WAAA,UAAA,CAAA,eAAA,CAAA,aAAA,CAAA,qBAAA","file":"Footer.min.css"}
+{"version":3,"sourceRoot":"","sources":["../../scss/Variable.scss","../../scss/Footer.scss"],"names":[],"mappings":"AACQ,oJAGR,MACE,yBAEF,WACE,WACA,gBACA,cACA,sBCHA,kBACE,yBACA,yBACE,kBAKJ,aACE,cAdF,UDYY,KCXZ,cAgBA,kBACE,mBAlBF,UDYY,KCXZ,cAqBF,sCACE,MDFQ,QCGR,aDHQ","file":"Footer.min.css"}

@@ -21,7 +21,7 @@ function Footer() {
               <br />
               대표번호: 1234-5678 ㅣ 메일: was7894@gmail.com
             </p>
-            <Space size={20}>
+            <Space size={30}>
               <Button ghost /* type="danger" */ size={"middle"} shape="circle" icon={<FacebookFilled />}></Button>
               <Button ghost size="middle" shape="circle" icon={<InstagramOutlined />}></Button>
               <Button ghost size="middle" shape="circle" icon={<TwitterOutlined />}></Button>

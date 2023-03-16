@@ -1,4 +1,5 @@
 import "./scss/Style.scss";
+import Banner0 from "./components/Banner0";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Section1 from "./components/Section1";

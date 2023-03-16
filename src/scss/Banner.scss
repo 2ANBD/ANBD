@@ -1,8 +1,12 @@
 @import "./Variable";
 
 .inner1{
-  margin-top:30px;
-  margin-bottom:30px;
+  padding-top:50px;
+  padding-bottom:50px;
+}
+.inner2{
+  padding-top:30px;
+  padding-bottom:50px;
 }
 
 %contentStyle1{

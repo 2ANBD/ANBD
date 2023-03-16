@@ -11,25 +11,25 @@ const Banner = () => {
   <div id="banner_content">
     <div id="container">
       <div className="inner1">
-    <Carousel afterChange={onChange}>
+    <Carousel afterChange={onChange} className= "Carousel">
       <div>
         <a href="">
-          <h3 className="contentStyle1"> </h3>
+          <h3 className="contentStyle1" style={{backgroundImage: "url('../images/banner/Banner_img_1.png')"}}> </h3>
         </a>
       </div>
       <a href="">
         <div>
-          <h3 className="contentStyle2"> </h3>
+          <h3 className="contentStyle2" style={{backgroundImage: "url('../images/banner/Banner_img_2.png')"}}> </h3>
         </div>
       </a>
       <a href="">
         <div>
-          <h3 className="contentStyle3"> </h3>
+          <h3 className="contentStyle3" style={{backgroundImage: "url('../images/banner/Banner_img_3.png')"}}> </h3>
         </div>
       </a>
       <a href="">
         <div>
-          <h3 className="contentStyle4"> </h3>
+          <h3 className="contentStyle4" style={{backgroundImage: "url('../images/banner/Banner_img_4.png')"}}> </h3>
         </div>
       </a>
     </Carousel>

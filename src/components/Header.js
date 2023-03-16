@@ -1,5 +1,4 @@
 
-// import logo from './img/main-logo.png';
 import React from "react";
 import "../scss/Style.scss";
 import { Button, Space } from "antd";

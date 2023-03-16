@@ -1,6 +1,7 @@
 import React from "react";
 // import {Link} from "react-router-dom";
 import "../scss/Style.scss";
+import { RightOutlined } from '@ant-design/icons';
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,8 +16,8 @@ const Section2 = () => {
                 <div id="container">
                     <div className="inner">
                         <div className="product_container">
-                            <h2 className="title"><span>무료나눔</span>을 해보세요</h2>
-                            <p className="product_link"><a href="/">전체보기</a></p>
+                            <h2 className="title"><span>나</span>눔을 해보세요</h2>
+                            <p className="product_link"><a href="/">전체보기<RightOutlined /></a></p>
                             <Swiper
                                 slidesPerView={2}
                                 spaceBetween={20}
@@ -25,7 +26,7 @@ const Section2 = () => {
                                 className="swiper_slide_wrap"
                             >
                                 <SwiperSlide id="product_card1" className="swiper_slide">
-                                    <div className="img_product"></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/n/img_n11.jpg')"}}></div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -39,7 +40,7 @@ const Section2 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card2" className="swiper_slide">
-                                    <div className="img_product"></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/n/img_n21.jpg')"}}></div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -53,7 +54,7 @@ const Section2 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card3" className="swiper_slide">
-                                    <div className="img_product"></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/n/img_n31.jpg')"}}></div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -67,7 +68,7 @@ const Section2 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card4" className="swiper_slide">
-                                    <div className="img_product"></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/n/img_n41.jpg')"}}></div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -81,7 +82,7 @@ const Section2 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card5" className="swiper_slide">
-                                    <div className="img_product"></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/n/img_n51.jpg')"}}></div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>

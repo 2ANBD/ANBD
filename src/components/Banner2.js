@@ -1,5 +1,5 @@
-import React from "react";
 import "../scss/Style.scss";
+import React from "react";
 import { Carousel } from 'antd';
 
 
@@ -10,7 +10,7 @@ const Banner2 = () => {
   return (
     <div id="banner_content">
     <div id="container">
-      <div className="inner1">
+      <div className="inner2">
     <Carousel afterChange={onChange}>
       <div>
         <a href="">

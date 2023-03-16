@@ -1,33 +1,41 @@
 import React from "react";
 import "../scss/Style.scss";
-import { Carousel } from "antd";
-// const contentStyle = {
-//   margin: "0px",
-//   height: "160px",
-//   color: "#fff",
-//   lineHeight: "160px",
-//   textAlign: "center",
-//   background: "#364d79"
-// };
+import { Carousel } from 'antd';
+
+
 const Banner = () => {
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
   return (
-    <Carousel afterChange={onChange}>
+  <div id="banner_content">
+    <div id="container">
+      <div className="inner1">
+    <Carousel afterChange={onChange} className= "Carousel">
       <div>
-        <h3 className="contentStyle">1</h3>
+        <a href="">
+          <h3 className="contentStyle1" style={{backgroundImage: "url('../images/banner/Banner_img_1.png')"}}> </h3>
+        </a>
       </div>
-      <div>
-        <h3 className="contentStyle">1</h3>
-      </div>
-      <div>
-        <h3 className="contentStyle"></h3>
-      </div>
-      <div>
-        <h3 className="contentStyle"></h3>
-      </div>
+      <a href="">
+        <div>
+          <h3 className="contentStyle2" style={{backgroundImage: "url('../images/banner/Banner_img_2.png')"}}> </h3>
+        </div>
+      </a>
+      <a href="">
+        <div>
+          <h3 className="contentStyle3" style={{backgroundImage: "url('../images/banner/Banner_img_3.png')"}}> </h3>
+        </div>
+      </a>
+      <a href="">
+        <div>
+          <h3 className="contentStyle4" style={{backgroundImage: "url('../images/banner/Banner_img_4.png')"}}> </h3>
+        </div>
+      </a>
     </Carousel>
+    </div>
+    </div>
+  </div>
   );
 };
 export default Banner;

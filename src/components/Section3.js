@@ -1,7 +1,7 @@
 import React from "react";
 // import {Link} from "react-router-dom";
 import "../scss/Style.scss";
-import { RightOutlined } from '@ant-design/icons';
+import { RightOutlined, HeartOutlined } from '@ant-design/icons';
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,7 +26,9 @@ const Section3 = () => {
                                 className="swiper_slide_wrap"
                             >
                                 <SwiperSlide id="product_card1" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b11.jpg')"}}></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b11.jpg')"}}>
+                                        <span className="heart"><HeartOutlined /></span>
+                                    </div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -40,7 +42,9 @@ const Section3 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card2" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b21.jpg')"}}></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b21.jpg')"}}>
+                                        <span className="heart"><HeartOutlined /></span>
+                                    </div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -54,7 +58,9 @@ const Section3 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card3" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b31.jpg')"}}></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b31.jpg')"}}>
+                                        <span className="heart"><HeartOutlined /></span>
+                                    </div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -68,7 +74,9 @@ const Section3 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card4" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b41.jpg')"}}></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b41.jpg')"}}>
+                                        <span className="heart"><HeartOutlined /></span>
+                                    </div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>
@@ -82,7 +90,9 @@ const Section3 = () => {
                                     </div>
                                 </SwiperSlide>
                                 <SwiperSlide id="product_card5" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b51.jpg')"}}></div>
+                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b51.jpg')"}}>
+                                        <span className="heart"><HeartOutlined /></span>
+                                    </div>
                                     <div className="product_text">
                                         <ul className="product_text_top">
                                             <li className="brand"><span>Nike</span></li>

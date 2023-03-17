@@ -12,8 +12,8 @@ export default function App() {
     <div className="wrap">
       <Header />
       <Routes>
-				{/* <Route path="/" element={<MainPage />}></Route> */}
-				<Route path="/" element={<UploadPage />}></Route>
+				<Route path="/" element={<MainPage />}></Route>
+				{/* <Route path="/" element={<UploadPage />}></Route> */}
 				{/* <Route path="/ProductPage/:id" element={<ProductPage />}></Route> */}
 			</Routes>
 

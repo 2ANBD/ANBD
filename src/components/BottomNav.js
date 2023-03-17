@@ -35,7 +35,6 @@ function BottomNav() {
                 <br />내물건팔기
               </Button>
             </div>
-
             <div className="btn_nav">
               <Button onClick={showDrawer}>
                 <MenuOutlined />

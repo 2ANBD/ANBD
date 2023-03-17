@@ -73,6 +73,11 @@ img, fieldset {
   border: 0 none;
 }
 
+/* 반응형 이미지 */
+img, video {
+  width: 100%;
+}
+
 /* clearfix */
 .clearfix:before, .clearfix:after {
   content: "";

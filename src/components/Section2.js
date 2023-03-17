@@ -1,5 +1,7 @@
 import React from "react";
+// import React, { useState, useEffect } from "react";
 // import {Link} from "react-router-dom";
+// import axios from "axios";
 import "../scss/Style.scss";
 import { RightOutlined, HeartOutlined } from '@ant-design/icons';
 
@@ -13,6 +15,7 @@ const Section2 = () => {
     return (
         <>
             <section id="section3" className="product">
+                <h2 className="ir_so">나눔을 해보세요</h2>
                 <div id="container">
                     <div className="inner">
                         <div className="product_container">
@@ -111,6 +114,7 @@ const Section2 = () => {
                 </div>
             </section>
             <section id="section4" className="product">
+                <h2 className="ir_so">다시 사용해보세요</h2>
                 <div id="container">
                     <div className="inner">
                         <div className="product_container">

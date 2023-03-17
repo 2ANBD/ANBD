@@ -10,26 +10,26 @@ const Banner2 = () => {
   return (
     <div id="banner_content">
     <div id="container">
-      <div className="inner2">
+      <div className="inner">
     <Carousel afterChange={onChange}>
       <div>
         <a href="">
-          <h3 className="contentStyle5"> </h3>
+          <img className="contentStyle5" src='../images/banner/Banner_img_5.png'/>
         </a>
       </div>
       <a href="">
         <div>
-          <h3 className="contentStyle6"> </h3>
+          <img className="contentStyle6" src='../images/banner/Banner_img_6.png'/>
         </div>
       </a>
       <a href="">
         <div>
-          <h3 className="contentStyle7"> </h3>
+          <img className="contentStyle7" src='../images/banner/Banner_img_7.png'/>
         </div>
       </a>
       <a href="">
         <div>
-          <h3 className="contentStyle8"> </h3>
+          <img className="contentStyle8" src='../images/banner/Banner_img_8.png'/>
         </div>
       </a>
     </Carousel>

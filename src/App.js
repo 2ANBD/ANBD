@@ -1,17 +1,25 @@
 import "./scss/Style.scss";
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link} from "react-router-dom";
 import Header from "./components/Header";
-import Banner from "./components/Banner";
-import Section from "./components/Section";
 import Footer from "./components/Footer";
+import FloatButton from "./components/FloatBtn";
+import BottomNav from "./components/BottomNav";
+import MainPage from "./components/MainPage.js";
 
 export default function App() {
   return (
     <div className="wrap">
       <Header />
-      <Banner />
-      <Section />
+      <Routes>
+				<Route path="/" element={<MainPage />}></Route>
+				{/* <Route path="/ProductPage/:id" element={<ProductPage />}></Route> */}
+				{/* <Route path="/UploadPage" element={<UploadPage />}></Route> */}
+			</Routes>
+      <MainPage />
+
       <Footer />
+      <FloatButton />
+      <BottomNav />
     </div>
   );
 }

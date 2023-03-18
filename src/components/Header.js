@@ -1,6 +1,5 @@
 import React from "react";
 import "../scss/Style.scss";
-import { Button, Space } from "antd";
 import {BellOutlined , SearchOutlined} from "@ant-design/icons";
 
 function Header() {

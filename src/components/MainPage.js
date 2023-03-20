@@ -5,7 +5,6 @@ import Banner2 from "./Banner2";
 import Section2 from "./Section2";
 import "../scss/Style.scss";
 
-
 function MainPage() {
   return (
     <>

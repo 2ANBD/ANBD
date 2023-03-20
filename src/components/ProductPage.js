@@ -3,8 +3,7 @@ import { useNavigate  } from "react-router-dom";
 // import { Link, useParams, useNavigate  } from "react-router-dom";
 // import axios from "axios";
 import "../scss/Style.scss";
-import { Form, Input } from "antd";
-import { SwapLeftOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { LeftOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 const ProductPage = () => {
     const navigate = useNavigate();
@@ -38,15 +37,15 @@ const ProductPage = () => {
                                     }}
                                     className="back_btn"
                                 >
-                                    <SwapLeftOutlined />
+                                    <LeftOutlined className="left_arrow" style={{fontSize: "20px"}} />
                                 </button>
-                                <Form.Item className="search_form">
+                                <form className="search_form">
                                     <div className="search_input">
                                         <label htmlFor="user_search" className="ir_so">품목 검색</label>
-                                        <Input id="user_search"  name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" size="small" />
+                                        <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" />
+                                        <button className="delete_btn"><CloseCircleOutlined /></button>
                                     </div>
-                                    <button className="delete_btn"><CloseCircleOutlined /></button>
-                                </Form.Item>
+                                </form>
                             </div>
                             <nav className="nav">
                                 

@@ -16,6 +16,13 @@
                 .product_link {
                     padding-bottom: 20px;
                     text-align: right;
+                    
+                    p {
+                        padding-bottom: 20px;
+                        text-align: right;
+                        font-size: $font_size_2; 
+                        font-weight: 400;
+                    }
 
                     a { font-size: $font_size_2; font-weight: 400; }
                 }

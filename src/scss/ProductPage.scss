@@ -4,10 +4,47 @@
 .products {
     .header {
         .header_top {
+            height: auto;
             display: flex;
             flex-direction: row;
-            height: 50px;
-            padding: 10px 0;
+            align-items: center;
+            padding: 20px 0;
+
+            .back_btn {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+                text-align-last: left;
+                background-color: transparent;
+                
+                .left_arrow { vertical-align: middle; }
+            }
+            .search_form {
+                width: 100%;
+
+                .search_input {
+                    position: relative;
+                    .search {
+                        width: 100%;
+                        height: 40px;
+                        padding-left: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        &:hover, &:focus { outline: 0 none; }
+                        &::placeholder { 
+                            font-size: $font_size_2;
+                            font-weight: 300;
+                            color: #ccc; 
+                        }
+                    }
+                    .delete_btn {
+                        position: absolute;
+                        top: 8px;
+                        right: 10px;
+                        background-color: transparent;
+                    }
+                }
+            }
         }
     }
 }

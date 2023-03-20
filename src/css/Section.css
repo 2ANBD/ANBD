@@ -24,6 +24,12 @@
   padding-bottom: 20px;
   text-align: right;
 }
+.product #container .inner .product_container .product_link p {
+  padding-bottom: 20px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 400;
+}
 .product #container .inner .product_container .product_link a {
   font-size: 14px;
   font-weight: 400;

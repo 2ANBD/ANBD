@@ -1,8 +1,6 @@
-// import menu from './img/menu.png';
-// import logo from './img/main-logo.png';
-// import alarm from './img/alarm.png';
 import { Button, Space } from "antd";
 import React from "react";
+// import { Link } from "react-router-dom";
 import "../scss/Style.scss";
 import { BellOutlined, SearchOutlined } from "@ant-design/icons";
 

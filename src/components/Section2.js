@@ -1,6 +1,6 @@
 import React from "react";
 // import React, { useState, useEffect } from "react";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 // import axios from "axios";
 import "../scss/Style.scss";
 import { RightOutlined, HeartOutlined } from '@ant-design/icons';
@@ -19,8 +19,10 @@ const Section2 = () => {
                 <div id="container">
                     <div className="inner">
                         <div className="product_container">
-                            <h2 className="title"><span>바</span>꿔서 사용해보세요</h2>
-                            <p className="product_link"><a href="/">전체보기<RightOutlined /></a></p>
+                            <h2 className="prooduct_title"><span>바</span>꿔서 사용해보세요</h2>
+                            <Link className="product_link" to="/products">
+                                <p>전체보기<RightOutlined /></p>
+                            </Link>
                             <Swiper
                                 slidesPerView={2}
                                 spaceBetween={20}
@@ -29,20 +31,22 @@ const Section2 = () => {
                                 className="swiper_slide_wrap"
                             >
                                 <SwiperSlide id="productCard1" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b11.jpg')"}}>
-                                        <span className="heart"><HeartOutlined /></span>
-                                    </div>
-                                    <div className="product_text">
-                                        <ul className="product_text_top">
-                                            <li className="brand"><span>Nike</span></li>
-                                            <li className="name">나이키 숏패딩</li>
-                                            <li className="price">150,000원</li>
-                                        </ul>
-                                        <div className="product_text_bottom">
-                                            <p className="size"><span>XL</span></p>
-                                            <p className="time">4시간 전</p>
+                                    <Link to="/payment">
+                                        <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b11.jpg')"}}>
+                                            <span className="heart"><HeartOutlined /></span>
                                         </div>
-                                    </div>
+                                        <div className="product_text">
+                                            <ul className="product_text_top">
+                                                <li className="brand"><span>Nike</span></li>
+                                                <li className="name">나이키 숏패딩</li>
+                                                <li className="price">150,000원</li>
+                                            </ul>
+                                            <div className="product_text_bottom">
+                                                <p className="size"><span>XL</span></p>
+                                                <p className="time">4시간 전</p>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </SwiperSlide>
                                 <SwiperSlide id="productCard2" className="swiper_slide">
                                     <div className="img_product" style={{backgroundImage: "url('../images/products/b/img_b21.jpg')"}}>
@@ -118,8 +122,10 @@ const Section2 = () => {
                 <div id="container">
                     <div className="inner">
                         <div className="product_container">
-                            <h2 className="title"><span>다</span>시 사용해보세요</h2>
-                            <p className="product_link"><a href="/">전체보기<RightOutlined /></a></p>
+                            <h2 className="prooduct_title"><span>다</span>시 사용해보세요</h2>
+                            <Link className="product_link" to="/products">
+                                <p>전체보기<RightOutlined /></p>
+                            </Link>
                             <Swiper
                                 slidesPerView={2}
                                 spaceBetween={20}
@@ -128,20 +134,22 @@ const Section2 = () => {
                                 className="swiper_slide_wrap"
                             >
                                 <SwiperSlide id="productCard1" className="swiper_slide">
-                                    <div className="img_product" style={{backgroundImage: "url('../images/products/d/img_d1.jpg')"}}>
-                                        <span className="heart"><HeartOutlined /></span>
-                                    </div>
-                                    <div className="product_text">
-                                        <ul className="product_text_top">
-                                            <li className="brand"><span>Nike</span></li>
-                                            <li className="name">나이키 숏패딩</li>
-                                            <li className="price">150,000원</li>
-                                        </ul>
-                                        <div className="product_text_bottom">
-                                            <p className="size"><span>XL</span></p>
-                                            <p className="time">4시간 전</p>
+                                    <Link to="/payment">
+                                        <div className="img_product" style={{backgroundImage: "url('../images/products/d/img_d1.jpg')"}}>
+                                            <span className="heart"><HeartOutlined /></span>
                                         </div>
-                                    </div>
+                                        <div className="product_text">
+                                            <ul className="product_text_top">
+                                                <li className="brand"><span>Nike</span></li>
+                                                <li className="name">나이키 숏패딩</li>
+                                                <li className="price">150,000원</li>
+                                            </ul>
+                                            <div className="product_text_bottom">
+                                                <p className="size"><span>XL</span></p>
+                                                <p className="time">4시간 전</p>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </SwiperSlide>
                                 <SwiperSlide id="productCard2" className="swiper_slide">
                                     <div className="img_product" style={{backgroundImage: "url('../images/products/d/img_d21.jpg')"}}>

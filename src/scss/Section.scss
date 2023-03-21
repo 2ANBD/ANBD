@@ -7,7 +7,7 @@
             padding: $inner_padding;
 
             .product_container {
-                .title {
+                .prooduct_title {
                     font-size: $font_size_7;
                     font-weight: 500;
 
@@ -40,7 +40,6 @@
                             margin-bottom: 10px;
                             border-radius: 10px;
                             box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.15);
-                            background-color: #ccc;
                             background-repeat: no-repeat;
                             background-position: center center;
                             background-size: cover;
@@ -60,6 +59,7 @@
                             .product_text_top {
                                 .brand {
                                     padding-bottom: 5px;
+
                                     span {
                                         padding: 2px 8px 3px;
                                         border-radius: 5px;

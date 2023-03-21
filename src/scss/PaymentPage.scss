@@ -1,14 +1,11 @@
 @import "./Variable";
 
-//input size
 $input_width: 100%;
 $imput_height: 30px;
 
-//padding right
 #container {
   & .inner {
     padding: $inner_padding;
-    height: 1500px;
   }
 }
 
@@ -252,6 +249,7 @@ $imput_height: 30px;
   & button {
     width: 100%;
     height: 70px;
+    margin-bottom: 50px;
     border-radius: 5px;
     background-color: #c3eb89;
     color: $secondary;

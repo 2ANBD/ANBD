@@ -1,6 +1,6 @@
 import React from "react";
 import "../scss/Style.scss";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Drawer } from "antd";
 import { HomeOutlined, UploadOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState } from 'react';
@@ -31,10 +31,12 @@ function BottomNav() {
               </Button>
             </div>
             <div className="btn_nav">
+            <Link className="upload-link" to={`/UploadImage`}>
               <Button>
                 <UploadOutlined />
                 <br />내물건팔기
               </Button>
+            </Link>
             </div>
             <div className="btn_nav">
               <Button onClick={showDrawer}>

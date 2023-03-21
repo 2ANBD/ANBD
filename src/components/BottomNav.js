@@ -19,10 +19,12 @@ function BottomNav() {
         <div className="inner">
           <div className="nav_btns">
             <div className="btn_nav">
+            <Link to={`/`}>
               <Button>
                 <HomeOutlined />
                 <br />홈
               </Button>
+            </Link>
             </div>
 
             <div className="btn_nav">

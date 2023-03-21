@@ -59,12 +59,15 @@ const UploadImage = () => {
   );
   return (
     <>
+    <div id="upload-container">
       <div id="container">
+      <Divider />
       <div className="inner">
+      <Form name="uploadForm" onFinish={onFinish}>
       <Form.Item
         label={<span className="upload-label">상품 이미지</span>}
         name="product-name"
-        rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}
+        rules={[{ required: true, message: "상품 이미지는 필수 입력 사항입니다." }]}
       ></Form.Item>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -73,7 +76,7 @@ const UploadImage = () => {
         onPreview={handlePreview}
         onChange={handleChange}
       >
-        {fileList.length >= 8 ? null : uploadButton}
+        {fileList.length >= 3 ? null : uploadButton}
       </Upload>
       <Modal
         open={previewOpen}
@@ -81,20 +84,28 @@ const UploadImage = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <img
-          alt="example"
-          style={{
-            width: "100%"
-          }}
-          src={previewImage}
-        />
       </Modal>
+      <Divider />
+      <Form.Item
+            label={<span className="upload-label">상품 브랜드</span>}
+            name="product-name"
+            rules={[
+              { required: true, message: "상품 브랜드는 필수 입력 사항입니다." }
+            ]}
+          >
+            <Input
+              className="upload-name"
+              placeholder="상품 브랜드를 입력해주세요"
+              size="large"
+            />
+      </Form.Item>
       <Divider />
       <Form.Item
       label={<span className="upload-label">상품 카테고리</span>}
       name="Category"
-      rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}
+      rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}
     ></Form.Item>
+    
     <Select
       showSearch
       placeholder="상품 카테고리를 선택해주세요"
@@ -107,24 +118,23 @@ const UploadImage = () => {
       options={[
         {
           value: "A",
-          label: "A"
+          label: "A(아껴쓴 물건을 팔아보세요)"
         },
         {
           value: "N",
-          label: "N"
+          label: "N(나눔을 해보세요)"
         },
         {
           value: "B",
-          label: "B"
+          label: "B(바꿔서 사용해보세요)"
         },
         {
           value: "D",
-          label: "D"
+          label: "D(다시 사용해보세요)"
         }
       ]}
     />
-    <div id="upload-container">
-        <Form name="uploadForm" onFinish={onFinish}>
+        
           <Divider></Divider>
           <Form.Item
             label={<span className="upload-label">상품명</span>}

@@ -3,7 +3,7 @@ import "../scss/Style.scss";
 import { Link } from "react-router-dom";
 import { Button, Drawer } from "antd";
 import { HomeOutlined, UploadOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
-import { useState } from 'react';
+import { useState } from "react";
 
 function BottomNav() {
   const [open, setOpen] = useState(false);
@@ -19,31 +19,37 @@ function BottomNav() {
         <div className="inner">
           <div className="nav_btns">
             <div className="btn_nav">
-            <Link to={`/`}>
-              <Button>
-                <HomeOutlined />
-                <br />홈
-              </Button>
-            </Link>
+              <Link to={`/`}>
+                <Button>
+                  <HomeOutlined />
+                  <br />홈
+                </Button>
+              </Link>
             </div>
 
             <div className="btn_nav">
-              <Button>
-                <UserOutlined /><br />로그인
-              </Button>
+              <Link className="login-link" to={`/LoginPage`}>
+                <Button>
+                  <UserOutlined />
+                  <br />
+                  로그인
+                </Button>
+              </Link>
             </div>
             <div className="btn_nav">
-            <Link className="upload-link" to={`/UploadImage`}>
-              <Button>
-                <UploadOutlined />
-                <br />내물건팔기
-              </Button>
-            </Link>
+              <Link className="upload-link" to={`/UploadImage`}>
+                <Button>
+                  <UploadOutlined />
+                  <br />
+                  내물건팔기
+                </Button>
+              </Link>
             </div>
             <div className="btn_nav">
               <Button onClick={showDrawer}>
                 <MenuOutlined />
-                <br />더보기
+                <br />
+                더보기
               </Button>
               <Drawer title="더보기" placement="bottom" onClose={onClose} open={open}>
                 <p>로그인 하러가기</p>

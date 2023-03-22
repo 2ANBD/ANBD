@@ -20,9 +20,11 @@ const Section1 = () => {
                     <div className="inner">
                         <div className="product_container">
                             <h2 className="prooduct_title"><span>아</span>껴쓴 물건을 팔아보세요</h2>
-                            <Link className="product_link" to="/products">
-                                <p>전체보기<RightOutlined /></p>
-                            </Link>
+                            <p>
+                                <Link className="product_link" to="/products">
+                                    전체보기<RightOutlined />
+                                </Link>
+                            </p>
                             <Swiper
                                 slidesPerView={2}
                                 spaceBetween={20}
@@ -123,9 +125,11 @@ const Section1 = () => {
                     <div className="inner">
                         <div className="product_container">
                             <h2 className="prooduct_title"><span>나</span>눔을 해보세요</h2>
-                            <Link className="product_link" to="/products">
-                                <p>전체보기<RightOutlined /></p>
-                            </Link>
+                            <p>
+                                <Link className="product_link" to="/products">
+                                    전체보기<RightOutlined />
+                                </Link>
+                            </p>
                             <Swiper
                                 slidesPerView={2}
                                 spaceBetween={20}

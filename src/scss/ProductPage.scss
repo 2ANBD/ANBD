@@ -13,13 +13,15 @@
         padding: 20px 0 10px;
 
         .back_btn {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             margin-right: 10px;
-            text-align-last: left;
-            background-color: transparent;
+            text-align-last: center;
+            background-color: #eee;
+            border-radius: 5px;
+            cursor: pointer;
 
-            .left_arrow { vertical-align: middle; }
+            .left_arrow { vertical-align: middle; color: #ccc;}
         }
         .search_form {
             width: 100%;
@@ -42,9 +44,11 @@
                 }
                 .delete_btn {
                     position: absolute;
-                    top: 8px;
-                    right: 20px;
+                    top: 5px;
+                    right: 10px;
+                    padding: 5px 10px;
                     background-color: transparent;
+                    cursor: pointer;
                 }
             }
         }
@@ -56,20 +60,21 @@
             justify-content: center;
             text-align: center;
 
-            .categories {
+            li {
                 width: 50px;
                 margin: 0 22px;
                 padding: 5px 0 5px 0;
                 color: #999;
                 font-size: $font_size_1;
                 font-weight: 500;
+                cursor: pointer;
                 
                 &:hover {
                     color: $primary;
                     border-bottom: 2px solid $primary;
                 }
             }
-            .active {
+            li.active {
                 color: $primary;
                 border-bottom: 2px solid $primary;
             }
@@ -79,6 +84,7 @@
 
 #productItem {
     .product_container {
+        height: 874px;
         padding: 20px 0;
 
         .swiper_slide_wrap {

@@ -7,8 +7,10 @@ import Footer from "./components/Footer";
 import FloatButton from "./components/FloatBtn";
 import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
+import LoginPage from "./components/LoginPage";
 import UploadImage from "./components/UploadImage";
 import UploadPage from "./components/UploadPage";
+
 
 export default function App() {
   return (
@@ -20,6 +22,9 @@ export default function App() {
         <Route path="/payment" element={<PaymentPage />}></Route>
         <Route path="/UploadImage" element={<UploadImage />}></Route>
         <Route path="/UploadPage" element={<UploadPage />}></Route>
+        <Route path="/loginPage" element={<LoginPage />}></Route>
+        
+
       </Routes>
       <Footer />
       <FloatButton />

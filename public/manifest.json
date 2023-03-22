@@ -1,0 +1,25 @@
+{
+  "background_color": "#ffffff",
+  "description": "중고샵",
+  "dir": "auto",
+  "display": "standalone",
+  "name": "ANBD",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "ANBD",
+  "start_url": "/index.html",
+  "theme_color": "#000000",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/favicon.ico"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [],
+  "lang": "ko"
+}

@@ -8,18 +8,19 @@ import FloatButton from "./components/FloatBtn";
 import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
 import UploadImage from "./components/UploadImage";
-
+import UploadPage from "./components/UploadPage";
 
 export default function App() {
   return (
     <div className="wrap">
       <Header />
       <Routes>
-				<Route path="/" element={<MainPage />}></Route>
-				<Route path="/products" element={<ProductPage />}></Route>
-				<Route path="/payment" element={<PaymentPage />}></Route>
-				<Route path="/UploadImage" element={<UploadImage />}></Route>
-			</Routes>
+        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/products" element={<ProductPage />}></Route>
+        <Route path="/payment" element={<PaymentPage />}></Route>
+        <Route path="/UploadImage" element={<UploadImage />}></Route>
+        <Route path="/UploadPage" element={<UploadPage />}></Route>
+      </Routes>
       <Footer />
       <FloatButton />
       <BottomNav />

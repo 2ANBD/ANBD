@@ -21,7 +21,9 @@ function LoginPage() {
               <a href={KAKAO_AUTH_URL}>카카오 계정으로 로그인</a>
             </li>
             <li className="naver_btn">
-              <a href={NAVER_AUTH_URL}>네이버 계정으로 로그인</a>
+              <a href={NAVER_AUTH_URL}>
+                <span>NAVER</span> 계정으로 로그인
+              </a>
             </li>
           </ul>
         </div>

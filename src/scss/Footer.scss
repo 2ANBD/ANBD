@@ -6,19 +6,22 @@
 }
 
 footer {
-  & #container {
+  #container {
     background-color: #1f1f1f;
-    & .inner {
+    .inner {
       padding: 20px 15px;
     }
   }
 }
 .inner {
-  & .info {
+  .logo {
+    width: 85px;
+  }
+  .info {
     margin: 20px 0;
     @include size_color;
   }
-  & .copyright {
+  .copyright {
     margin: 30px 0 60px;
     @include size_color;
   }

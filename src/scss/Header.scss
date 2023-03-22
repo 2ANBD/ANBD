@@ -1,34 +1,28 @@
 @import "./Variable";
 
 #header {
-    #container {
-      .inner {
-        padding: $inner_padding;
-      }
+  #container {
+    .inner {
+      padding: $inner_padding;
     }
   }
-  .inner{
-    .content_wrap{
-        display:flex;
-        padding: 15px 12px;
-        justify-content: space-between;
-        align-items: center;
-        .logo{
-            width:85px;
-          }
-        }
+}
+.inner {
+  .content_wrap {
+    display: flex;
+    padding: 15px 12px;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 85px;
     }
- 
-
-/* 
-.header_gnb{display: flex; position: relative; width: 100%; height: 80px; }
-.header_gnb::before{position: absolute; content: ""; width: 100%;height: 1px; top: 80px; background-color:darkgray;}
-.header_gnb_menu{ padding:28px 0px 28px 16px; cursor: pointer;}
-.header_gnb_logo{ margin: 28px 138px; cursor: pointer; }
-.header_gnb_alarm{padding: 28px 0px; cursor: pointer;}
-.header_search{display: flex; position: relative; width: 480px; height: 80px;}
-.header_search::before{ position: absolute; content:""; width: 30px; height: 30px; top: 34%; left: 90%; background-image: url(../components/img/searchIcon.png); background-repeat: no-repeat; cursor: pointer; }
-.header_search input{width: 460px;height: 40px; margin: 20px auto; padding-left: 21px; border: none;  border-radius: 30px; box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.15); background-color: rgba(238, 238, 238, 1);   color: rgb(199, 198, 198);}
-
- */
-
+  }
+}
+/* 버튼이미지사이즈 */
+.ant-btn.ant-btn-lg {
+  font-size: 19px;
+}
+/* 버튼 음영 */
+.ant-btn-default {
+  box-shadow: none;
+}

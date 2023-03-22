@@ -9,7 +9,7 @@ function Footer() {
       <footer>
         <div id="container">
           <div className="inner">
-            <img src="/images/icons/img_footer_logo.png" alt="" />
+            <img src="/images/icons/img_footer_logo.png" alt="" className="logo" />
             <p className="info">
               (주)ANBD | 대표: 호문섭건 | 개인정보관리자: 기명섭
               <br />
@@ -22,7 +22,7 @@ function Footer() {
               대표번호: 1234-5678 ㅣ 메일: was7894@gmail.com
             </p>
             <Space size={30}>
-              <Button ghost /* type="danger" */ size={"middle"} shape="circle" icon={<FacebookFilled />}></Button>
+              <Button ghost size="middle" shape="circle" icon={<FacebookFilled />}></Button>
               <Button ghost size="middle" shape="circle" icon={<InstagramOutlined />}></Button>
               <Button ghost size="middle" shape="circle" icon={<TwitterOutlined />}></Button>
               <Button ghost size="middle" shape="circle" icon={<GoogleOutlined />}></Button>

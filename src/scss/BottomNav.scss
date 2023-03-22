@@ -26,6 +26,7 @@
           font-size: $font_size_1;
         } */
         .ant-btn {
+        width: 94px;
           height: 55px;
         }
       }
@@ -44,4 +45,7 @@
   &:not(:disabled):hover {
     border-color: #fff;
   }
+}
+.ant-drawer .ant-drawer-header-title {
+  flex-direction: row-reverse;
 }

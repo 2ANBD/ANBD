@@ -56,6 +56,16 @@
     background-color: #1ec800;
     border: 1px solid #1ec800;
     border-radius: 4px;
+    ::before {
+      position: absolute;
+      content: "";
+      width: 30px;
+      height: 30px;
+      top: 14px;
+      left: 129px;
+      background-image: url("../../public/images/icons/img_login_naver.png");
+      background-repeat: no-repeat;
+    }
     span {
       font-weight: bold;
     }

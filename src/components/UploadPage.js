@@ -25,18 +25,13 @@ const UploadPage = () => {
 
     axios
       .post(`${API_URL}/products`, {
-        /* name: val.name,
-        description: val.description,
-        price: val.price,
-        seller: val.seller,
-        imageUrl: imageUrl, */
         product_id: val.category,
         name: val.name,
         brand: val.brand,
         kind: val.size,
         price: val.price,
         description: val.description,
-        image: imageUrl,
+        imageUrl: imageUrl,
         seller: val.seller,
       })
       .then((result) => {

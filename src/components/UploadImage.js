@@ -1,8 +1,12 @@
 import React from "react";
 import "../scss/Style.scss";
 import { PlusOutlined } from "@ant-design/icons";
-import { Form,Select,Input,Button, Modal, Upload, Divider, InputNumber } from "antd";
+import { Form,Select,Input,Button, Modal, Upload, Divider, InputNumber,message } from "antd";
 import { useState } from "react";
+import { API_URL } from "../config/constants";
+
+
+
 const { TextArea } = Input;
 const onChange = (value) => {
   console.log(`selected ${value}`);
@@ -17,10 +21,23 @@ const getBase64 = (file) =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
+  const beforeUpload = (file) => {
+    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+    if (!isJpgOrPng) {
+      message.error("You can only upload JPG/PNG file!");
+    }
+    const isLt2M = file.size / 1024 / 1024 < 2;
+    if (!isLt2M) {
+      message.error("Image must smaller than 2MB!");
+    }
+    return isJpgOrPng && isLt2M;
+  };
 const UploadImage = () => {
   const onFinish = (val) => {
     console.log(val);
   };
+  const [loading, setLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState(null);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -44,35 +61,40 @@ const UploadImage = () => {
       file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
     );
   };
-  const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
-  const uploadButton = (
-    <div>
-      <PlusOutlined />
-      <div
-        style={{
-          marginTop: 8
-        }}
-      >
-        Upload
-      </div>
-    </div>
-  );
+  const onChangeImage = function (info) {
+    if (info.file.status === "uploading") {
+      return;
+    } else if (info.file.status === "done") {
+      const reponse = info.file.response;
+      const imageUrl = reponse.imageUrl;
+      console.log(imageUrl);
+      setImageUrl(imageUrl);
+    }
+  };
+
+  
+
+
   return (
     <>
     <div id="upload-container">
       <div id="container">
         <Divider />
           <div className="inner">
+            <Form.Item name="upload" valuePropName="image">
+        {/* 모든것들은 form item 안에 있어야 한다. */}
+        <Upload name="image" action="http://localhost:8080/image" listType="picture" showUploadList={true} onChange={onChangeImage}>
+          {imageUrl ? (<img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />) 
+          : (
+            <div id="upload-img-placeholder">
+              <img src="/images/icons/camera.png" alt="" />
+              <span>이미지를 업로드 해주세요</span>
+            </div>
+            )}
+        </Upload>
+      </Form.Item>      
             <Form className="inner-form" name="uploadForm" onFinish={onFinish}>
-              <Form.Item label={<span className="upload-label">상품 이미지</span>} name="product-name" rules={[{ required: true, message: "상품 이미지는 필수 입력 사항입니다." }]}>
-              </Form.Item>
-
-              <Upload listType="picture-card" fileList={fileList} onPreview={handlePreview} onChange={handleChange}>{fileList.length >= 1 ? null : uploadButton}
-              </Upload>
-
-              <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
-              </Modal>{/* imageupload */}
-
+                  
                 <Divider />
 
               <Form.Item label={<span className="upload-label">상품 브랜드</span>} name="product-name" rules={[ { required: true, message: "상품 브랜드는 필수 입력 사항입니다." }]}><br/>

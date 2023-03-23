@@ -40,9 +40,11 @@ function BottomNav() {
             </Link>
             </div>
             <div className="btn_nav">
+            <Link className="login-link" to={`/LoginPage`}>
               <Button>
                 <UserOutlined /><br />로그인
               </Button>
+              </Link>
             </div>
             <div className="btn_nav">
             <Link className="upload-link" to={`/UploadImage`}>

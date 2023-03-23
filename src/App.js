@@ -1,4 +1,5 @@
 import "./scss/Style.scss";
+import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
@@ -13,6 +14,7 @@ import UploadImage from "./components/UploadImage";
 export default function App() {
   return (
     <div className="wrap">
+      <AnimatePresence>
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
@@ -24,6 +26,7 @@ export default function App() {
       <Footer />
       <FloatButton />
       <BottomNav />
+      </AnimatePresence>
     </div>
   );
 }

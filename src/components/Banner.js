@@ -1,13 +1,13 @@
 import React from "react";
+import { motion } from "framer-motion";
 // import {Link} from "react-router-dom";
 import "../scss/Style.scss";
 /* import axios from "axios"; */
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import {  Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
-
 
 const Banner0 = () => {
     /* const [banners, setBanners] = useState([]);

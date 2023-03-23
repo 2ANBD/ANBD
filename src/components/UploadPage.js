@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Divider, Upload } from "antd";
 import "../scss/Style.scss";
-import "./UploadPage.css";
+// import "./UploadPage.css";
 import axios from "axios";
 import { API_URL } from "../config/constants";
 const UploadPage = () => {

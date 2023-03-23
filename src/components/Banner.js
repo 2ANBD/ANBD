@@ -1,6 +1,7 @@
 import React from "react";
 // import {Link} from "react-router-dom";
 import "../scss/Style.scss";
+/* import axios from "axios"; */
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +10,19 @@ import "swiper/css";
 
 
 const Banner0 = () => {
+    /* const [banners, setBanners] = useState([]);
+    useEffect(() => {
+        axios
+      .get(`${API_URL}/banners`)
+      .then((result) => {
+        const banners = result.data.banners;
+        setBanners(banners);
+        console.log("data:", banners);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }, []); */
     return (
         <>
             <section id="banner1" className="banner1">

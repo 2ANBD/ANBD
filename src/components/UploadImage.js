@@ -67,7 +67,7 @@ const UploadImage = () => {
               <Form.Item label={<span className="upload-label">상품 이미지</span>} name="product-name" rules={[{ required: true, message: "상품 이미지는 필수 입력 사항입니다." }]}>
               </Form.Item>
 
-              <Upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" listType="picture-card" fileList={fileList} onPreview={handlePreview} onChange={handleChange}>{fileList.length >= 3 ? null : uploadButton}
+              <Upload listType="picture-card" fileList={fileList} onPreview={handlePreview} onChange={handleChange}>{fileList.length >= 1 ? null : uploadButton}
               </Upload>
 
               <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>

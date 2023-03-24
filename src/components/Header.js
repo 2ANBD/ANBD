@@ -1,6 +1,7 @@
 import { Button, Space } from "antd";
 import { motion } from "framer-motion";
 import React from "react";
+import {Link} from "react-router-dom";
 // import { Link } from "react-router-dom";
 import "../scss/Style.scss";
 import { BellOutlined, SearchOutlined } from "@ant-design/icons";
@@ -29,9 +30,11 @@ function Header() {
         <div className="inner">
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>
+              <Link to="/UploadPage">
               <Button size="large">
                 <BellOutlined />
               </Button>
+              </Link>
             </motion.div>
             <motion.img variants={item} src="/images/icons/img_header_logo.png" alt="" className="logo" />
             <motion.div variants={item}>

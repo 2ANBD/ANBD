@@ -56,6 +56,8 @@ const UploadPage = () => {
   };
   return (
     <div id="upload-container">
+      <div id="container">
+      <div className="inner">
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
         <Form.Item name="upload" valuePropName="image">
@@ -146,6 +148,8 @@ const UploadPage = () => {
           </Button>
         </Form.Item>
       </Form>
+      </div>
+      </div>
     </div>
   );
 };

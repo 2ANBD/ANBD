@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import "./Variable";
+
+#upload-container{
+    #container{
+            .inner{}
+                }
+            }
+#upload-img-placeholder{
+    width: 150px;
+    height: 150px;
+    img{
+        width: 150px;
+    height: 150px;
+    }
+}
+
+#submit-button{
+    background-color: $primary;
+    font-size: $font_size_4;
+    color: $text;
+    border-color: $background;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.12);
+    height: 49px;
+    width: 100%;
+    margin-bottom: 40px;
+}

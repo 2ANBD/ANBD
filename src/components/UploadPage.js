@@ -28,7 +28,7 @@ const UploadPage = () => {
         product_id: val.category,
         name: val.name,
         brand: val.brand,
-        kind: val.size,
+        size: val.size,
         price: val.price,
         description: val.description,
         imageUrl: imageUrl,

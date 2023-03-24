@@ -48,7 +48,8 @@ const UploadPage = () => {
       return;
     } else if (info.file.status === "done") {
       const reponse = info.file.response;
-      const imageUrl = reponse.imageUrl;
+      // const imageUrl = reponse.image;
+      const imageUrl = reponse.imageUrl; /* 0324변경 */
       console.log(imageUrl);
       setImageUrl(imageUrl);
     }
@@ -58,7 +59,7 @@ const UploadPage = () => {
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
         <Form.Item name="upload" valuePropName="image">
-          <Upload name="image" action="http://localhost:8080/image" listType="picture" showUploadList={false} onChange={onChangeImage}>
+          <Upload name="image" action={`${API_URL}/image`} listType="picture" showUploadList={false} onChange={onChangeImage}>
             {imageUrl ? (
               <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />
             ) : (
@@ -70,10 +71,6 @@ const UploadPage = () => {
           </Upload>
         </Form.Item>
         <Divider></Divider>
-        {/* 카테고리 */}
-        {/* <Form.Item label={<span className="upload_label">카테고리</span>} name="category" rules={[{ required: true, message: "카테고리는 필수 선택 사항입니다." }]}>
-          <Input className="upload_category" placeholder="카테고리를 선택하세요" size="large" />
-        </Form.Item> */}
 
         <Form.Item className="category" label={<span className="upload_label">상품 카테고리</span>} name="category" rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}>
           {/* category */}
@@ -106,16 +103,12 @@ const UploadPage = () => {
         </Form.Item>
         <Divider></Divider>
         {/* 사이즈 */}
-        {/* <Form.Item label={<span className="upload_label">사이즈</span>} name="size" rules={[{ required: true, message: "사이즈는 필수 입력 사항입니다." }]}>
-          <Input className="upload_name" placeholder="사이즈를 입력해주세요" size="large" />
-        </Form.Item> */}
 
-        <Form.Item className="upload_size" label={<span className="upload-label">사이즈</span>} name="size" /* rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]} */>
+        <Form.Item className="upload_size" label={<span className="upload-label">사이즈</span>} name="size">
           {/* category */}
-
           <Select
             showSearch
-            placeholder="상품 카테고리를 선택해주세요"
+            placeholder="상품 사이즈를 선택해주세요"
             optionFilterProp="children"
             onChange={onChange}
             onSearch={onSearch}
@@ -130,7 +123,7 @@ const UploadPage = () => {
         </Form.Item>
         <Divider></Divider>
         {/* 상품가격 */}
-        <Form.Item label={<span className="upload_price">판매가</span>} name="price" rules={[{ required: true, message: "판매가는 필수 입력 사항입니다." }]}>
+        <Form.Item label={<span className="upload_price">판매가</span>} name="price" rules={[{ required: true, message: "상품가격는 필수 입력 사항입니다." }]}>
           {/* err initioalvalue=0 */}
           <InputNumber className="upload_price" size="large" min={0} defaultValue={0} />
         </Form.Item>
@@ -143,7 +136,6 @@ const UploadPage = () => {
         {/* 판매자명 */}
         <Form.Item label={<span className="upload-seller">판매자명</span>} name="seller" rules={[{ required: true, message: "판매자명은 필수 입력 사항입니다." }]}>
           <Input className="upload-name" placeholder="판매자명을 입력해주세요" size="large" />
-          {/*   <TextArea size="large" id="description" showCount maxLength={300} placeholder="판매자명을 작성해주세요"></TextArea> */}
         </Form.Item>
         <Divider></Divider>
         <Form.Item>

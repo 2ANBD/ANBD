@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "../scss/Style.scss";
 import { Link } from "react-router-dom";
 import { Button, Drawer, Collapse, Input, Card } from "antd";
-import { HomeOutlined, UploadOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
+import { HomeOutlined, UploadOutlined, CompassOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 import "swiper/css";
@@ -56,11 +56,11 @@ function BottomNav() {
               </Link>
             </motion.div>
             <motion.div variants={item} className="btn_nav">
-              <Link className="login-link" to={`/LoginPage`}>
+              <Link className="login-link" to={`/`}>
                 <Button>
-                  <UserOutlined />
+                  <CompassOutlined />
                   <br />
-                  로그인
+                  장소찾기
                 </Button>
               </Link>
             </motion.div>

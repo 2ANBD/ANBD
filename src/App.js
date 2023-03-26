@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./scss/Style.scss";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
@@ -10,27 +11,28 @@ import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
 import LoginPage from "./components/LoginPage";
 import UploadImage from "./components/UploadImage";
+/* test */
 import UploadPage from "./components/UploadPage";
-
 
 export default function App() {
   return (
     <div className="wrap">
       <AnimatePresence>
-      <Header />
-      <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/products" element={<ProductPage />}></Route>
-        <Route path="/payment" element={<PaymentPage />}></Route>
-        <Route path="/UploadImage" element={<UploadImage />}></Route>
-        <Route path="/UploadPage" element={<UploadPage />}></Route>
-        <Route path="/loginPage" element={<LoginPage />}></Route>
-        
+        <Header />
 
-      </Routes>
-      <Footer />
-      <FloatButton />
-      <BottomNav />
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/products" element={<ProductPage />}></Route>
+          <Route path="/payment" element={<PaymentPage />}></Route>
+          <Route path="/UploadImage" element={<UploadImage />}></Route>
+          <Route path="/loginPage" element={<LoginPage />}></Route>
+          {/* test */}
+          <Route path="/UploadPage" element={<UploadPage />}></Route>
+        </Routes>
+
+        <Footer />
+        <FloatButton />
+        <BottomNav />
       </AnimatePresence>
     </div>
   );

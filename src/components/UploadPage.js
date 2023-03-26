@@ -25,7 +25,7 @@ const UploadPage = () => {
 
     axios
       .post(`${API_URL}/products`, {
-        product_id: val.category,
+        category: val.category,
         name: val.name,
         brand: val.brand,
         size: val.size,
@@ -98,7 +98,7 @@ const UploadPage = () => {
         </Form.Item>
         <Divider></Divider>
         {/* 브랜드 */}
-        <Form.Item label={<span className="upload_label">브랜드명</span>} name="brand" rules={[{ required: true, message: "브랜드명은 필수 입력 사항입니다." }]}>
+        <Form.Item label={<span className="upload_label">브랜드명</span>} name="brand">
           <Input className="upload_name" placeholder="브랜드명을 입력해주세요" size="large" />
         </Form.Item>
         <Divider></Divider>
@@ -123,7 +123,7 @@ const UploadPage = () => {
         </Form.Item>
         <Divider></Divider>
         {/* 상품가격 */}
-        <Form.Item label={<span className="upload_price">판매가</span>} name="price" rules={[{ required: true, message: "상품가격는 필수 입력 사항입니다." }]}>
+        <Form.Item label={<span className="upload_price">판매가</span>} name="price">
           {/* err initioalvalue=0 */}
           <InputNumber className="upload_price" size="large" min={0} defaultValue={0} />
         </Form.Item>

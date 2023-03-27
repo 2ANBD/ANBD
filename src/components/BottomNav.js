@@ -63,23 +63,6 @@ function BottomNav() {
                 </Link>
                 <motion.div variants={list} initial="hidden" animate="visible" className="nav_btns">
                 <motion.div variants={item} className="btn_nav">
-                  <Link to={`/`}>
-                    <Button>
-                      <HomeOutlined />
-                      <br />홈
-                    </Button>
-                  </Link>
-                </motion.div>
-                <motion.div variants={item} className="btn_nav">
-                  <Link className="login-link" to={`/`}>
-                    <Button>
-                      <CompassOutlined />
-                      <br />
-                      장소찾기
-                    </Button>
-                  </Link>
-                </motion.div>
-                <motion.div variants={item} className="btn_nav">
                   <Link className="login-link" to={`/`}>
                     <Button>
                       <CompassOutlined />

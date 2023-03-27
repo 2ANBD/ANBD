@@ -1,13 +1,10 @@
-import { Button, Space } from "antd";
+import { Button } from "antd";
 import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import "../scss/Style.scss";
 import { BellOutlined, UserOutlined } from "@ant-design/icons";
-{
-  /* <CompassOutlined /> */
-}
+
 function Header() {
   const list = {
     hidden: {
@@ -30,6 +27,17 @@ function Header() {
     <header id="header">
       <div id="container">
         <div className="inner">
+          <div className="content_wrap">
+            <Button size="large">
+              <BellOutlined />
+            </Button>
+            <Link to="/">
+              <img src="/images/icons/img_header_logo.png" alt="" className="logo" />
+            </Link>
+              <Button size="large">
+              <UserOutlined />
+            </Button>
+          </div>
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>
               <Link to="/UploadPage">

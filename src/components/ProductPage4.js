@@ -49,7 +49,7 @@ const ProductPage4 = () => {
                                 <div className="search_input">
                                     <label htmlFor="user_search" className="ir_so">품목 검색</label>
                                     <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" />
-                                    <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
+                                    <button className="search_btn" type="button"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
                         </div>
@@ -66,7 +66,7 @@ const ProductPage4 = () => {
             </header>
             <main>
                 <section id="productItem">
-                    <h2 className="ir_so">아껴사용</h2>
+                    <h2 className="ir_so">다시쓰기</h2>
                     <div id="container">
                         <div className="inner">
                             <div className="product_container">
@@ -77,31 +77,35 @@ const ProductPage4 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products.map((product) => {
-                                        return(
-                                            <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                                                <Link className="payment_link" to="/payment">
-                                                    <div className="img_product">
-                                                        <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                        <span className="heart"><HeartOutlined /></span>
-                                                    </div>
-                                                    <div className="product_text">
-                                                        <ul className="product_text_top">
-                                                            <li className="name">{product.name}</li>
-                                                            {product.price === null ? null : <li className="price">{product.price}원</li>}
-                                                        </ul>
-                                                        <ul className="product_text_center">
-                                                            <li className="brand"><span>{product.brand}</span></li>
-                                                            {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
-                                                        </ul>
-                                                        <div className="product_text_bottom">
-                                                            <p className="time">4시간 전</p>
+                                    {products
+                                        .filter((category) => category.category === "D")
+                                        .map((product) => {
+                                            return(
+                                                <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                                                    <Link className="payment_link" to="/payment">
+                                                        <div className="img_product">
+                                                            {product.soldout === 1 ? <div className="sold_out"></div> : null }
+                                                            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                                                            <button className="heart_btn"><HeartOutlined className="heart"/></button>
                                                         </div>
-                                                    </div>
-                                                </Link>
-                                            </SwiperSlide>
-                                        );
-                                    })}
+                                                        <div className="product_text">
+                                                            <ul className="product_text_top">
+                                                                <li className="name">{product.name}</li>
+                                                                {product.price === null ? null : <li className="price">{product.price}원</li>}
+                                                            </ul>
+                                                            <ul className="product_text_center">
+                                                                <li className="brand"><span>{product.brand}</span></li>
+                                                                {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
+                                                            </ul>
+                                                            <div className="product_text_bottom">
+                                                                <p className="time">4시간 전</p>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                </SwiperSlide>
+                                            );
+                                        })
+                                    }
                                 </Swiper>
                             </div>
                         </div>

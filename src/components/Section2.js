@@ -62,29 +62,32 @@ const Section2 = () => {
                 </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                {products.map((product) => {
-                  return(
-                    <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                        <Link className="payment_link" to="/payment">
-                          <div className="img_product">
-                            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                            <span className="heart"><HeartOutlined /></span>
-                          </div>
-                          <div className="product_text">
-                            <ul className="product_text_top">
-                              <li className="brand"><span>{product.brand}</span></li>
-                              <li className="name">{product.name}</li>
-                              {product.price === null ? null : <li className="price">{product.price}원</li>}
-                            </ul>
-                            <div className="product_text_bottom">
-                              {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
-                              <p className="time">4시간 전</p>
+                {products
+                  .filter((category) => category.category === "B")
+                  .map((product) => {
+                    return(
+                      <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                          <Link className="payment_link" to="/payment">
+                            <div className="img_product">
+                              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                              <span className="heart"><HeartOutlined /></span>
                             </div>
-                          </div>
-                        </Link>
-                    </SwiperSlide>
-                  );
-                })}
+                            <div className="product_text">
+                              <ul className="product_text_top">
+                                <li className="brand"><span>{product.brand}</span></li>
+                                <li className="name">{product.name}</li>
+                                {product.price === null ? null : <li className="price">{product.price}원</li>}
+                              </ul>
+                              <div className="product_text_bottom">
+                                {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
+                                <p className="time">4시간 전</p>
+                              </div>
+                            </div>
+                          </Link>
+                      </SwiperSlide>
+                    );
+                  })
+                }
               </Swiper>
             </div>
           </div>
@@ -105,29 +108,32 @@ const Section2 = () => {
                 </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                {products.map((product) => {
-                  return(
-                    <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                        <Link className="payment_link" to="/payment">
-                          <div className="img_product">
-                            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                            <span className="heart"><HeartOutlined /></span>
-                          </div>
-                          <div className="product_text">
-                            <ul className="product_text_top">
-                              <li className="brand"><span>{product.brand}</span></li>
-                              <li className="name">{product.name}</li>
-                              {product.price === null ? null : <li className="price">{product.price}원</li>}
-                            </ul>
-                            <div className="product_text_bottom">
-                              {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
-                              <p className="time">4시간 전</p>
+                {products
+                  .filter((category) => category.category === "D")
+                  .map((product) => {
+                    return(
+                      <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                          <Link className="payment_link" to="/payment">
+                            <div className="img_product">
+                              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                              <span className="heart"><HeartOutlined /></span>
                             </div>
-                          </div>
-                        </Link>
-                    </SwiperSlide>
-                  );
-                })}
+                            <div className="product_text">
+                              <ul className="product_text_top">
+                                <li className="brand"><span>{product.brand}</span></li>
+                                <li className="name">{product.name}</li>
+                                {product.price === null ? null : <li className="price">{product.price}원</li>}
+                              </ul>
+                              <div className="product_text_bottom">
+                                {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
+                                <p className="time">4시간 전</p>
+                              </div>
+                            </div>
+                          </Link>
+                      </SwiperSlide>
+                    );
+                  })
+                }
               </Swiper>
             </div>
           </div>

@@ -4,7 +4,10 @@ import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
-import ProductPage from "./components/ProductPage";
+import ProductPage1 from "./components/ProductPage1";
+import ProductPage2 from "./components/ProductPage2";
+import ProductPage3 from "./components/ProductPage3";
+import ProductPage4 from "./components/ProductPage4";
 import Footer from "./components/Footer";
 import FloatButton from "./components/FloatBtn";
 import BottomNav from "./components/BottomNav";
@@ -22,25 +25,30 @@ export default function App() {
   return (
     <div className="wrap">
       <AnimatePresence>
-        <Header />
 
-        <Routes>
-          <Route path="/" element={<MainPage />}></Route>
-          <Route path="/products" element={<ProductPage />}></Route>
-          <Route path="/payment" element={<PaymentPage />}></Route>
-          <Route path="/UploadImage" element={<UploadImage />}></Route>
-          <Route path="/loginPage" element={<LoginPage />}></Route>
-          {/* test */}
+      <Header />
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/products1" element={<ProductPage1 />}></Route>
+        <Route path="/products2" element={<ProductPage2 />}></Route>
+        <Route path="/products3" element={<ProductPage3 />}></Route>
+        <Route path="/products4" element={<ProductPage4 />}></Route>
+        <Route path="/payment" element={<PaymentPage />}></Route>
+        <Route path="/UploadImage" element={<UploadImage />}></Route>
+        <Route path="/UploadPage" element={<UploadPage />}></Route>
+        <Route path="/loginPage" element={<LoginPage />}></Route>
+        {/* test */}
           <Route path="/UploadPage" element={<UploadPage />}></Route>
           <Route path="/UploadPage2" element={<UploadPage2 />}></Route>
           <Route path="/UploadPage3" element={<UploadPage3 />}></Route>
           <Route path="/UploadPage4" element={<UploadPage4 />}></Route>
           <Route path="/Category" element={<Category />}></Route>
-        </Routes>
+      </Routes>
+      <Footer />
+      <FloatButton />
+      <BottomNav />
 
-        <Footer />
-        <FloatButton />
-        <BottomNav />
       </AnimatePresence>
     </div>
   );

@@ -1,8 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
-// import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { API_URL } from "../config/constants";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import { motion } from "framer-motion";
 import "../scss/Style.scss";
 import { RightOutlined, HeartOutlined } from "@ant-design/icons";
 
@@ -13,6 +14,20 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 const Section1 = () => {
+  const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+		axios
+			.get(`${API_URL}/products`)
+			.then((result) => {
+				const products = result.data.product;
+				setProducts(products);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
   const list = {
     hidden: {
       opacity: 0,
@@ -40,124 +55,38 @@ const Section1 = () => {
                 <span>아</span>껴쓴 물건을 팔아보세요
               </motion.h2>
               <p>
-                <motion.Link variants={item} className="product_link" to="/products">
+                <Link className="product_link" to={"/products1"}>
                   전체보기
                   <RightOutlined />
-                </motion.Link>
+                </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                <SwiperSlide id="productCard1" className="swiper_slide">
-                  <Link to="/payment">
-                    <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a11.jpg')" }}>
-                      <span className="heart">
-                        <HeartOutlined />
-                      </span>
-                    </motion.div>
-                    <div className="product_text">
-                      <ul className="product_text_top">
-                        <li className="brand">
-                          <span>Nike</span>
-                        </li>
-                        <li className="name">나이키 숏패딩</li>
-                        <li className="price">150,000원</li>
-                      </ul>
-                      <div className="product_text_bottom">
-                        <p className="size">
-                          <span>XL</span>
-                        </p>
-                        <p className="time">4시간 전</p>
-                      </div>
-                    </div>
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide id="productCard2" className="swiper_slide">
-                  <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a21.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </motion.div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide id="productCard3" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a31.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide id="productCard4" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a41.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide id="productCard5" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a41.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
+                {products
+                  .filter((category) => category.category === "A")
+                  .map((product) => {
+                    return(
+                      <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                          <Link className="payment_link" to="/payment">
+                            <div className="img_product">
+                              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                              <span className="heart"><HeartOutlined /></span>
+                            </div>
+                            <div className="product_text">
+                              <ul className="product_text_top">
+                                <li className="brand"><span>{product.brand}</span></li>
+                                <li className="name">{product.name}</li>
+                                {product.price === null ? null : <li className="price">{product.price}원</li>}
+                              </ul>
+                              <div className="product_text_bottom">
+                                {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
+                                <p className="time">4시간 전</p>
+                              </div>
+                            </div>
+                          </Link>
+                      </SwiperSlide>
+                    );
+                  })
+                }
               </Swiper>
             </motion.div>
           </div>
@@ -172,124 +101,38 @@ const Section1 = () => {
                 <span>나</span>눔을 해보세요
               </motion.h2>
               <p>
-                <motion.Link className="product_link" to="/products">
+                <Link className="product_link" to={"/products1"}>
                   전체보기
                   <RightOutlined />
-                </motion.Link>
+                </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                <SwiperSlide id="productCard1" className="swiper_slide">
-                  <Link to="/payment">
-                    <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n11.jpg')" }}>
-                      <span className="heart">
-                        <HeartOutlined />
-                      </span>
-                    </motion.div>
-                    <div className="product_text">
-                      <ul className="product_text_top">
-                        <li className="brand">
-                          <span>Nike</span>
-                        </li>
-                        <li className="name">나이키 숏패딩</li>
-                        <li className="price">150,000원</li>
-                      </ul>
-                      <div className="product_text_bottom">
-                        <p className="size">
-                          <span>XL</span>
-                        </p>
-                        <p className="time">4시간 전</p>
-                      </div>
-                    </div>
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide id="productCard2" className="swiper_slide">
-                  <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n21.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </motion.div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide id="productCard3" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n31.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide id="productCard4" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n41.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide id="productCard5" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n51.jpg')" }}>
-                    <span className="heart">
-                      <HeartOutlined />
-                    </span>
-                  </div>
-                  <div className="product_text">
-                    <ul className="product_text_top">
-                      <li className="brand">
-                        <span>Nike</span>
-                      </li>
-                      <li className="name">나이키 숏패딩</li>
-                      <li className="price">150,000원</li>
-                    </ul>
-                    <div className="product_text_bottom">
-                      <p className="size">
-                        <span>XL</span>
-                      </p>
-                      <p className="time">4시간 전</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
+                {products
+                  .filter((category) => category.category === "N")
+                  .map((product) => {
+                    return(
+                      <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                          <Link className="payment_link" to="/payment">
+                            <div className="img_product">
+                              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                              <span className="heart"><HeartOutlined /></span>
+                            </div>
+                            <div className="product_text">
+                              <ul className="product_text_top">
+                                <li className="brand"><span>{product.brand}</span></li>
+                                <li className="name">{product.name}</li>
+                                {product.price === null ? null : <li className="price">{product.price}원</li>}
+                              </ul>
+                              <div className="product_text_bottom">
+                                {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
+                                <p className="time">4시간 전</p>
+                              </div>
+                            </div>
+                          </Link>
+                      </SwiperSlide>
+                    );
+                  })
+                }
               </Swiper>
             </div>
           </div>

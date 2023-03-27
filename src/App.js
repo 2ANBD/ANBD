@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./scss/Style.scss";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
@@ -13,6 +14,7 @@ import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
 import LoginPage from "./components/LoginPage";
 import UploadImage from "./components/UploadImage";
+/* test */
 import UploadPage from "./components/UploadPage";
 
 export default function App() {

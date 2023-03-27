@@ -30,6 +30,7 @@ function Header() {
               <p className="addres_text">이름</p>
               <input type="text" className="addres_inputbox" value="이름을 입력하세요" />
             </div>
+
             <div className="addres_box">
               <p className="addres_text">연락처</p>
               <input type="text" className="addres_inputbox" value="숫자만 입력하세요" />

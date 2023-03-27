@@ -1,7 +1,7 @@
 import React from "react";
 import "../scss/Style.scss";
 import { Button, Space } from "antd";
-import { FacebookFilled, InstagramOutlined, TwitterOutlined, GoogleOutlined } from "@ant-design/icons";
+import { FacebookFilled, TwitterOutlined, YoutubeFilled, InstagramOutlined, FacebookOutlined, YoutubeOutlined } from "@ant-design/icons";
 
 function Footer() {
   return (
@@ -23,9 +23,9 @@ function Footer() {
             </p>
             <Space size={30}>
               <Button ghost size="middle" shape="circle" icon={<FacebookFilled />}></Button>
-              <Button ghost size="middle" shape="circle" icon={<InstagramOutlined />}></Button>
               <Button ghost size="middle" shape="circle" icon={<TwitterOutlined />}></Button>
-              <Button ghost size="middle" shape="circle" icon={<GoogleOutlined />}></Button>
+              <Button ghost size="middle" shape="circle" icon={<YoutubeOutlined />}></Button>
+              <Button ghost size="middle" shape="circle" icon={<InstagramOutlined />}></Button>
             </Space>
             <p className="copyright">Copyrightⓒ ANBD Inc. All rights reserved.</p>
           </div>

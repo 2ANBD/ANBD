@@ -2,7 +2,7 @@ import React from "react";
 import "../scss/Style.scss";
 import { Link } from "react-router-dom";
 import { Button, Drawer,Collapse, Input, Card} from "antd";
-import { HomeOutlined, UploadOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
+import { HomeOutlined, UploadOutlined, LoginOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState } from 'react';
 
 import "swiper/css";
@@ -42,7 +42,7 @@ function BottomNav() {
             <div className="btn_nav">
             <Link className="login-link" to={`/LoginPage`}>
               <Button>
-                <UserOutlined /><br />로그인
+              <LoginOutlined /><br />로그인
               </Button>
               </Link>
             </div>

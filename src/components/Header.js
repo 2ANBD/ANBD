@@ -1,8 +1,8 @@
-import { Button, Space } from "antd";
+import { Button } from "antd";
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../scss/Style.scss";
-import { BellOutlined, SearchOutlined } from "@ant-design/icons";
+import { BellOutlined, UserOutlined } from "@ant-design/icons";
 
 function Header() {
   return (
@@ -13,9 +13,11 @@ function Header() {
             <Button size="large">
               <BellOutlined />
             </Button>
-            <img src="/images/icons/img_header_logo.png" alt="" className="logo" />
-            <Button size="large">
-              <SearchOutlined />
+            <Link to="/">
+              <img src="/images/icons/img_header_logo.png" alt="" className="logo" />
+            </Link>
+              <Button size="large">
+              <UserOutlined />
             </Button>
           </div>
         </div>

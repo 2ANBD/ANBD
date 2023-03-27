@@ -40,19 +40,20 @@ const Section1 = () => {
                 <span>아</span>껴쓴 물건을 팔아보세요
               </motion.h2>
               <p>
-                <motion.Link variants={item} className="product_link" to="/products">
+                <Link className="product_link" to={"/products1"}>
                   전체보기
                   <RightOutlined />
-                </motion.Link>
+                </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
                 <SwiperSlide id="productCard1" className="swiper_slide">
                   <Link to="/payment">
-                    <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a11.jpg')" }}>
+                    <div className="img_product">
+                      <img src="../images/products/a/img_a11.jpg" alt="" />
                       <span className="heart">
                         <HeartOutlined />
                       </span>
-                    </motion.div>
+                    </div>
                     <div className="product_text">
                       <ul className="product_text_top">
                         <li className="brand">
@@ -71,11 +72,12 @@ const Section1 = () => {
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide id="productCard2" className="swiper_slide">
-                  <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a21.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/a/img_a21.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
-                  </motion.div>
+                  </div>
                   <div className="product_text">
                     <ul className="product_text_top">
                       <li className="brand">
@@ -93,7 +95,8 @@ const Section1 = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide id="productCard3" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a31.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/a/img_a31.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
@@ -115,7 +118,8 @@ const Section1 = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide id="productCard4" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a41.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/a/img_a41.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
@@ -137,7 +141,8 @@ const Section1 = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide id="productCard5" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/a/img_a41.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/a/img_a41.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
@@ -172,19 +177,20 @@ const Section1 = () => {
                 <span>나</span>눔을 해보세요
               </motion.h2>
               <p>
-                <motion.Link className="product_link" to="/products">
+                <Link className="product_link" to={"/products1"}>
                   전체보기
                   <RightOutlined />
-                </motion.Link>
+                </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
                 <SwiperSlide id="productCard1" className="swiper_slide">
                   <Link to="/payment">
-                    <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n11.jpg')" }}>
+                    <div className="img_product">
+                      <img src="../images/products/n/img_n11.jpg" alt="" />
                       <span className="heart">
                         <HeartOutlined />
                       </span>
-                    </motion.div>
+                    </div>
                     <div className="product_text">
                       <ul className="product_text_top">
                         <li className="brand">
@@ -203,11 +209,12 @@ const Section1 = () => {
                   </Link>
                 </SwiperSlide>
                 <SwiperSlide id="productCard2" className="swiper_slide">
-                  <motion.div variants={item} className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n21.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/n/img_n21.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
-                  </motion.div>
+                  </div>
                   <div className="product_text">
                     <ul className="product_text_top">
                       <li className="brand">
@@ -225,7 +232,8 @@ const Section1 = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide id="productCard3" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n31.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/n/img_n31.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
@@ -247,7 +255,8 @@ const Section1 = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide id="productCard4" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n41.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/n/img_n41.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>
@@ -269,7 +278,8 @@ const Section1 = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide id="productCard5" className="swiper_slide">
-                  <div className="img_product" style={{ backgroundImage: "url('../images/products/n/img_n51.jpg')" }}>
+                  <div className="img_product">
+                    <img src="../images/products/n/img_n51.jpg" alt="" />
                     <span className="heart">
                       <HeartOutlined />
                     </span>

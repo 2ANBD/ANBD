@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../scss/Style.scss";
-import { BellOutlined, UserOutlined } from "@ant-design/icons";
+import { BellOutlined, LoginOutlined } from "@ant-design/icons";
 
 function Header() {
   const list = {
@@ -27,32 +27,24 @@ function Header() {
     <header id="header">
       <div id="container">
         <div className="inner">
-          <div className="content_wrap">
-            <Button size="large">
-              <BellOutlined />
-            </Button>
-            <Link to="/">
-              <img src="/images/icons/img_header_logo.png" alt="" className="logo" />
-            </Link>
-              <Button size="large">
-              <UserOutlined />
-            </Button>
-          </div>
+          
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>
-              <Link to="/UploadPage">
+              <Link to="/Category">
                 <Button size="large">
                   <BellOutlined />
                 </Button>
               </Link>
             </motion.div>
+
             <Link to="/">
               <motion.img variants={item} src="/images/icons/img_header_logo.png" alt="" className="logo" />
             </Link>
+
             <motion.div variants={item}>
               <Link className="login-link" to={`/LoginPage`}>
                 <Button size="large">
-                  <UserOutlined />
+                <LoginOutlined />
                 </Button>
               </Link>
             </motion.div>

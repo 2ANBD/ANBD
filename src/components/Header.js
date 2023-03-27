@@ -40,15 +40,17 @@ function Header() {
           </div>
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>
-              <Link to="/UploadPage">
+              <Link to="/Category">
                 <Button size="large">
                   <BellOutlined />
                 </Button>
               </Link>
             </motion.div>
+
             <Link to="/">
               <motion.img variants={item} src="/images/icons/img_header_logo.png" alt="" className="logo" />
             </Link>
+
             <motion.div variants={item}>
               <Link className="login-link" to={`/LoginPage`}>
                 <Button size="large">

@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import FloatButton from "./components/FloatBtn";
 import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
+import PaymentPageTest from "./components/PaymentPageTest";
 import LoginPage from "./components/LoginPage";
 import UploadImage from "./components/UploadImage";
 /* test */
@@ -28,7 +29,7 @@ export default function App() {
         <Route path="/products2" element={<ProductPage2 />}></Route>
         <Route path="/products3" element={<ProductPage3 />}></Route>
         <Route path="/products4" element={<ProductPage4 />}></Route>
-        <Route path="/payment" element={<PaymentPage />}></Route>
+        <Route path="/PaymentPageTest" element={<PaymentPageTest/>}></Route>
         <Route path="/UploadImage" element={<UploadImage />}></Route>
         <Route path="/UploadPage" element={<UploadPage />}></Route>
         <Route path="/loginPage" element={<LoginPage />}></Route>

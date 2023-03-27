@@ -19,7 +19,6 @@ const UploadPage = () => {
   const onSearch = (value) => {
     console.log("search:", value);
   };
-
   const onFinish = (val) => {
     console.log(val);
 

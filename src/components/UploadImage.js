@@ -19,6 +19,7 @@ const getBase64 = (file) =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
+  
 const UploadImage = () => {
   const onFinish = (val) => {
     console.log(val);

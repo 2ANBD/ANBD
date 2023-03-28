@@ -5,15 +5,18 @@
     #container{
             .inner{
                 .upload_h1{ 
-                    padding: 20px 10px;
+                    text-align:center;
                     font-size: $font_size_7;
                     font-weight: 500;
                     color:$text;
+                    margin-bottom: 15px;
                     }
                 }
             }
         }
 #upload-img-placeholder{
+    
+    margin: auto 0px;
     width: 200px;
     height: 180px;
     border: 1px dashed rgb(153, 153, 153);
@@ -51,4 +54,10 @@
         color: white;
         font-weight: 500;
     }
+}
+
+
+.upload_image{
+    // margin-left:30%;
+    padding: 0 calc((100vw - 480px) / 2);
 }

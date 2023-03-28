@@ -55,7 +55,6 @@ const Detail1 = () => {
         <div className="product_price">{product.price}</div>
         <div className="product_size">{product.size}</div>
         <div className="product_createAt">{product.createAt}</div>
-        
         <pre id="product_description">{product.description}</pre>
         
         <Button siz="large" type="primary" danger={true} className="product_payment" onClick={onClickPurchase} disabled={product.soldout === 1}>

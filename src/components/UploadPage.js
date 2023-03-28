@@ -60,7 +60,7 @@ const UploadPage = () => {
       <h1 className="upload_h1">미개봉 상품 및 A급 물건</h1>
           <Form name="uploadForm" onFinish={onFinish}>
             {/* 이미지업로드 */}
-            <Form.Item name="upload" valuePropName="image">
+            <Form.Item name="upload" valuePropName="image" className="upload_image">
               <Upload name="image" action={`${API_URL}/image`} listType="picture" showUploadList={false} onChange={onChangeImage}>
                 {imageUrl ? (
                   <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />

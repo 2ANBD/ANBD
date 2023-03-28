@@ -62,7 +62,7 @@ const UploadPage2 = () => {
       <h1 className="upload_h1">무료나눔 업로드 페이지</h1>
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
-        <Form.Item name="upload" valuePropName="image">
+        <Form.Item name="upload" valuePropName="image" className="upload_image">
           <Upload name="image" action={`${API_URL}/image`} listType="picture" showUploadList={false} onChange={onChangeImage}>
             {imageUrl ? (
               <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />

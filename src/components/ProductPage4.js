@@ -15,13 +15,15 @@ import "swiper/css/free-mode";
 
 const ProductPage4 = () => {
     const [products, setProducts] = useState([]);
+    const [searchText, setSearchText] = useState(""); // 검색어 추가
 
     useEffect(() => {
 		axios
-			.get(`${API_URL}/products4`)
+			.get(`${API_URL}/products2`)
 			.then((result) => {
-				const products = result.data.product4;
+				const products = result.data.product2;
 				setProducts(products);
+                // console.log(products);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -29,6 +31,12 @@ const ProductPage4 = () => {
 	}, []);
 
     const navigate = useNavigate();
+
+    const filteredProducts = products.filter(
+        (product) =>
+            product.category === "D" &&
+            product.name.toLowerCase().includes(searchText.toLowerCase())
+    );
 	
     return(
         <div>
@@ -48,8 +56,8 @@ const ProductPage4 = () => {
                             <form className="search_form">
                                 <div className="search_input">
                                     <label htmlFor="user_search" className="ir_so">품목 검색</label>
-                                    <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" type={"text"}/>
-                                    <button className="search_btn" type="button"><SearchOutlined style={{fontSize: "16px"}}/></button>
+                                    <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" value={searchText} onChange={(e) =>  setSearchText(e.target.value)} />
+                                    <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
                         </div>
@@ -77,16 +85,14 @@ const ProductPage4 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products
-                                    .filter((category) => category.category === "D")
-                                    .map((product) => {
-                                        return(
+                                    {filteredProducts.length > 0 ? (
+                                        filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
                                                 <Link className="payment_link" to="/payment">
                                                     <div className="img_product">
                                                         {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                        <button className="heart_btn"><HeartOutlined className="heart"/></button>
+                                                        <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
                                                     </div>
                                                     <div className="product_text">
                                                         <ul className="product_text_top">
@@ -103,9 +109,10 @@ const ProductPage4 = () => {
                                                     </div>
                                                 </Link>
                                             </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper>
+                                        ))) : (
+                                        <p>검색하신 상품이 없습니다.</p>
+                                    )}
+                                </Swiper> 
                             </div>
                         </div>
                     </div>

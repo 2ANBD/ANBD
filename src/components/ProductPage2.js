@@ -18,9 +18,9 @@ const ProductPage2 = () => {
 
     useEffect(() => {
 		axios
-			.get(`${API_URL}/products2`)
+			.get(`${API_URL}/products`)
 			.then((result) => {
-				const products = result.data.product2;
+				const products = result.data.product;
 				setProducts(products);
 			})
 			.catch((error) => {

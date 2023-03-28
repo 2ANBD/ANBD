@@ -101,7 +101,7 @@ const Section1 = () => {
                 <span>나</span>눔을 해보세요
               </motion.h2>
               <p>
-                <Link className="product_link" to={"/products1"}>
+                <Link className="product_link" to={"/products2"}>
                   전체보기
                   <RightOutlined />
                 </Link>

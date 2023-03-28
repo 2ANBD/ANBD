@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "../scss/Style.scss";
 import { Link } from "react-router-dom";
 import { Button, Drawer,Collapse, Card} from "antd";
-import { HomeOutlined, UploadOutlined, LoginOutlined, MenuOutlined, CompassOutlined } from "@ant-design/icons";
+import { HomeOutlined, UploadOutlined,  MenuOutlined, CompassOutlined } from "@ant-design/icons";
 import { useState } from 'react';
 
 import "swiper/css";
@@ -81,7 +81,8 @@ function BottomNav() {
                   </Link>
                   </div>
                   <div className="btn_nav">
-                  <Button onClick={showDrawer}>
+                  <Button onClick={showDrawer} >
+                  <MenuOutlined/>
                     <br />
                     더보기
                   </Button>

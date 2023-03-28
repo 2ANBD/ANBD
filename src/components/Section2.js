@@ -18,9 +18,9 @@ const Section2 = () => {
 
     useEffect(() => {
 		axios
-			.get(`${API_URL}/products`)
+			.get(`${API_URL}/products2`)
 			.then((result) => {
-				const products = result.data.product;
+				const products = result.data.product2;
 				setProducts(products);
 			})
 			.catch((error) => {
@@ -56,7 +56,7 @@ const Section2 = () => {
                 <span>바</span>꿔서 사용해보세요
               </motion.h2>
               <p>
-                <Link className="product_link" to={"/products1"}>
+                <Link className="product_link" to={"/products3"}>
                   전체보기
                   <RightOutlined />
                 </Link>
@@ -102,7 +102,7 @@ const Section2 = () => {
                 <span>다</span>시 사용해보세요
               </motion.h2>
               <p>
-                <Link className="product_link" to={"/products1"}>
+                <Link className="product_link" to={"/products4"}>
                   전체보기
                   <RightOutlined />
                 </Link>

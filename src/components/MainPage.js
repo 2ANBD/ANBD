@@ -9,8 +9,6 @@ import "../scss/Style.scss";
 /* test */
 import Testsection from "./Testsection";
 import Testsection2 from "./Testsection2";
-import Testsection3 from "./Testsection3";
-import Testsection4 from "./Testsection4";
 
 function MainPage() {
   return (
@@ -21,8 +19,6 @@ function MainPage() {
       <Section2 />
       <Testsection />
       <Testsection2 />
-      <Testsection3 />
-      <Testsection4 />
     </>
   );
 }

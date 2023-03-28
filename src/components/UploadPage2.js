@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Divider, Upload, message, Input, InputNumber, Button } from "antd";
+import { Form, Divider, Upload, message, Input, InputNumber, Button, Select } from "antd";
 import "../scss/Style.scss";
 import axios from "axios";
 import { API_URL } from "../config/constants";
@@ -26,7 +26,7 @@ const UploadPage2 = () => {
 
     axios
       .post(`${API_URL}/products2`, {
-        category: "N",
+        category: val.category,
         name: val.name,
         brand: val.brand,
         size: val.size,
@@ -71,6 +71,23 @@ const UploadPage2 = () => {
               </div>
             )}
           </Upload>
+        </Form.Item>
+        <Divider></Divider>
+        <Form.Item className="category" label={<span className="upload_label">상품 카테고리</span>} name="category" rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}>
+          {/* category */}
+
+          <Select
+            showSearch
+            placeholder="상품 카테고리를 선택해주세요"
+            optionFilterProp="children"
+            onChange={onChange}
+            onSearch={onSearch}
+            filterOption={(input, option) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase())}
+            options={[
+              { value: "B", label: "B(물물교환)" },
+              { value: "D", label: "D(사용감있는 중고상품)" },
+            ]}
+          />
         </Form.Item>
         <Divider></Divider>
 

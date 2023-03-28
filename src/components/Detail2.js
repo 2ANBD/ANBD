@@ -4,6 +4,7 @@ import axios from "axios";
 // import relativeTime from "dayjs/plugin/relativeTime";
 import { API_URL } from "../config/constants";
 import { Button, message } from "antd";
+
 const Detail2 = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -28,14 +29,16 @@ const Detail2 = () => {
   if (product == null) {
     return <h1>상품정보를 받고 있습니다...</h1>;
   }
+
   const onClickPurchase = () => {
     axios
-      .post(`${API_URL}/purchase/${id}`)
+      .post(`${API_URL}/purchase2/${id}`)
       .then((result) => {
         message.info("결재가 완료 되었습니다.");
         getProduct();
       })
       .catch((error) => {
+        message.info("결재오류.");
         console.log(error);
       });
   };
@@ -62,7 +65,7 @@ const Detail2 = () => {
         <div id="name">{product.name}</div>
         <div id="price">{product.price}</div>
         <div id="createAt">{product.createAt}</div>
-        <Button siz="large" type="primary" danger={true} className="payment" onClick={onClickPurchase} disabled={product.soldout === 1}>
+        <Button size="large" type="primary" danger={true} className="payment" onClick={onClickPurchase} disabled={product.soldout === 1}>
           즉시결재하기
         </Button>
         {/* pre태그 미리 정의된 형식(preformatted)의 텍스트를 정의할 때 사용 */}

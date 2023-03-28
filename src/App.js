@@ -14,6 +14,7 @@ import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
 import LoginPage from "./components/LoginPage";
 import UploadImage from "./components/UploadImage";
+import MapPage from "./components/MapPage";
 /* test */
 import UploadPage from "./components/UploadPage";
 import UploadPage2 from "./components/UploadPage2";
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/UploadImage" element={<UploadImage />}></Route>
         <Route path="/UploadPage" element={<UploadPage />}></Route>
         <Route path="/loginPage" element={<LoginPage />}></Route>
+        <Route path="/MapPage" element={<MapPage />}></Route>
         {/* test */}
           <Route path="/UploadPage" element={<UploadPage />}></Route>
           <Route path="/UploadPage2" element={<UploadPage2 />}></Route>

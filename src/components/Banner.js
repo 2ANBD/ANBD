@@ -23,12 +23,29 @@ const Banner0 = () => {
         console.log(error);
       });
     }, []); */
+    const list = {
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+          transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.5,
+          },
+        },
+      };
+      const item = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+      };
+
     return (
         <>
             <section id="banner1" className="banner1">
                 <div id="container">
                     <div className="inner">
-                        <div className="banner_container">
+                        <motion.div variants={list} initial="hidden" animate="visible"  className="banner_container">
                             <Swiper
                             centeredSlides={true}
                             autoplay={{
@@ -42,7 +59,7 @@ const Banner0 = () => {
                                 className="swiper_banner_slide_wrap"
                             >
                                 <SwiperSlide id="bannerCard1" className="swiper_banner_slide">
-                                    <div className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_1.png')"}}></div>
+                                    <motion.div variants={item} className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_1.png')"}}></motion.div>
                                 </SwiperSlide>
                                 <SwiperSlide id="bannerCard1" className="swiper_banner_slide">
                                     <div className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_2.png')"}}></div>
@@ -54,7 +71,7 @@ const Banner0 = () => {
                                     <div className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_4.png')"}}></div>
                                 </SwiperSlide>
                             </Swiper>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

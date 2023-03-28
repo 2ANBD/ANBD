@@ -19,7 +19,6 @@ const UploadPage = () => {
   const onSearch = (value) => {
     console.log("search:", value);
   };
-
   const onFinish = (val) => {
     console.log(val);
 
@@ -56,7 +55,8 @@ const UploadPage = () => {
   };
   return (
     <div id="upload-container">
-      <h1>아껴쓰는 업로드 페이지</h1>
+      <div id="container">
+      <div className="inner">
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
         <Form.Item name="upload" valuePropName="image">
@@ -147,6 +147,8 @@ const UploadPage = () => {
           </Button>
         </Form.Item>
       </Form>
+      </div>
+      </div>
     </div>
   );
 };

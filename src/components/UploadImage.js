@@ -1,7 +1,6 @@
 import React from "react";
 import "../scss/Style.scss";
-import { PlusOutlined } from "@ant-design/icons";
-import { Form, Select, Input, Button, Modal, Upload, Divider, InputNumber, message } from "antd";
+import { Form, Select, Input, Button, Upload, Divider, InputNumber, message } from "antd";
 import { useState } from "react";
 import { API_URL } from "../config/constants";
 
@@ -9,6 +8,7 @@ const { TextArea } = Input;
 const onChange = (value) => {
   console.log(`selected ${value}`);
 };
+
 const onSearch = (value) => {
   console.log("search:", value);
 };
@@ -19,22 +19,12 @@ const getBase64 = (file) =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
-const beforeUpload = (file) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
-  }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
-  }
-  return isJpgOrPng && isLt2M;
-};
+  
 const UploadImage = () => {
   const onFinish = (val) => {
     console.log(val);
   };
-  const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
   const [imageUrl, setImageUrl] = useState(null);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
@@ -66,6 +56,9 @@ const UploadImage = () => {
       setImageUrl(imageUrl);
     }
   };
+  const info = () => {
+    messageApi.info("Hello, Ant Design!");
+  };
 
   return (
     <>
@@ -73,6 +66,7 @@ const UploadImage = () => {
         <div id="container">
           <Divider />
           <div className="inner">
+          <Form className="inner-form" name="uploadForm" onFinish={onFinish}>
             <Form.Item name="upload" valuePropName="image">
               {/* 모든것들은 form item 안에 있어야 한다. */}
               <Upload name="image" action="http://localhost:8080/image" listType="picture" showUploadList={true} onChange={onChangeImage}>
@@ -86,19 +80,8 @@ const UploadImage = () => {
                 )}
               </Upload>
             </Form.Item>
-            <Form className="inner-form" name="uploadForm" onFinish={onFinish}>
               <Divider />
-
-              <Form.Item label={<span className="upload-label">상품 브랜드</span>} name="product-name" rules={[{ required: true, message: "상품 브랜드는 필수 입력 사항입니다." }]}>
-                <br />
-                <Input className="brand-name" placeholder="상품 브랜드를 입력해주세요" size="large" />
-              </Form.Item>
-              {/* brand */}
-
-              <Divider />
-
-              <Form.Item className="category" label={<span className="upload-label">상품 카테고리</span>} name="Category" rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}></Form.Item>
-              {/* category */}
+              <Form.Item className="category" label={<span className="upload-label">상품 카테고리</span>} name="Category" rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}>
 
               <Select
                 showSearch
@@ -114,36 +97,65 @@ const UploadImage = () => {
                   { value: "D", label: "D(사용감있는 중고상품)" },
                 ]}
               />
+                </Form.Item>
+              {/* category */}
 
               <Divider></Divider>
-
-              <Form.Item label={<span className="upload-label">상품명</span>} name="product-name" rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}>
+              <Form.Item label={<span className="upload-label">상품명</span>} name="name" rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}>
                 <Input className="upload-name" placeholder="상품명을 입력해주세요" size="large" />
               </Form.Item>
               {/* name */}
 
+              <Divider />
+
+              <Form.Item label={<span className="upload-label">브랜드명</span>} name="brand" rules={[{ required: true, message: "브랜드는 필수 입력 사항입니다." }]}>
+                <Input className="brand-name" placeholder="상품 브랜드를 입력해주세요" size="large" />
+              </Form.Item>
+              {/* brand */}
+
+              <Divider />
+              <Form.Item className="upload_size" label={<span className="upload-label">사이즈</span>} name="size" rules={[{ required: true, message: "브랜드는 필수 입력 사항입니다." }]}>
+          {/* category */}
+          <Select
+            showSearch
+            placeholder="상품 사이즈를 선택해주세요"
+            optionFilterProp="children"
+            onChange={onChange}
+            onSearch={onSearch}
+            filterOption={(input, option) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase())}
+            options={[
+              { value: "S", label: "S" },
+              { value: "M", label: "M" },
+              { value: "L", label: "L" },
+              { value: "XL", label: "XL" },
+            ]}
+          />
+        </Form.Item>
               <Divider></Divider>
 
-              <Form.Item label={<span className="upload-label">판매가</span>} name="product-price" rules={[{ required: true, message: "판매가는 필수 입력 사항입니다." }]}>
+              <Form.Item label={<span className="upload-price">판매가</span>} name="price" rules={[{ required: true, message: "판매가는 필수 입력 사항입니다." }]}>
                 <InputNumber className="upload-price" size="large" min={3000} defaultValue={1000} />
               </Form.Item>
               {/*price */}
 
               <Divider></Divider>
 
-              <Form.Item label={<span className="upload-label">상품설명</span>} name="product-description" rules={[{ required: true, message: "상품설명은 필수 입력 사항입니다." }]}>
+              <Form.Item label={<span className="upload-label">상품설명</span>} name="description" rules={[{ required: true, message: "상품설명은 필수 입력 사항입니다." }]}>
                 <TextArea size="large" id="product-description" showCount maxLength={1000} placeholder="상품설명을 작성해주세요"></TextArea>
               </Form.Item>
               {/*explain */}
 
               <Divider></Divider>
-
-              <Form.Item>
-                <Button id="submit-button" htmlType="submit">
-                  상품등록하기
-                </Button>
-              </Form.Item>
-              {/*commit */}
+              <Form.Item label={<span className="upload-seller">판매자명</span>} name="seller" rules={[{ required: true, message: "판매자명은 필수 입력 사항입니다." }]}>
+          <Input className="upload-name" placeholder="판매자명을 입력해주세요" size="large" />
+        </Form.Item>
+        <Divider></Divider>
+        <Form.Item>
+          {contextHolder}
+          <Button id="submit-button" htmlType="submit" onClick={info}>
+            상품등록하기
+          </Button>
+        </Form.Item>
             </Form>
           </div>
         </div>

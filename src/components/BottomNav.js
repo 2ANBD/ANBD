@@ -55,14 +55,14 @@ function BottomNav() {
                   </Button>
                 </Link>
               </div>
-              <div className="btn_nav">
+              {/* <div className="btn_nav">
                 <Link className="login-link" to={`/LoginPage`}>
                   <Button>
                   <LoginOutlined /><br />로그인
                   </Button>
                 </Link>
-                <motion.div variants={list} initial="hidden" animate="visible" className="nav_btns">
-                <motion.div variants={item} className="btn_nav">
+              </div> */}
+              <div className="btn_nav">
                   <Link className="login-link" to={`/`}>
                     <Button>
                       <CompassOutlined />
@@ -70,8 +70,8 @@ function BottomNav() {
                       장소찾기
                     </Button>
                   </Link>
-                </motion.div>
-                <motion.div variants={item} className="btn_nav">
+              </div>
+                  <div className="btn_nav">
                   <Link className="upload-link" to={`/UploadImage`}>
                     <Button>
                       <UploadOutlined />
@@ -79,10 +79,9 @@ function BottomNav() {
                       내물건팔기
                     </Button>
                   </Link>
-                </motion.div>
-                <motion.div variants={item} className="btn_nav">
+                  </div>
+                  <div className="btn_nav">
                   <Button onClick={showDrawer}>
-                    <MenuOutlined />
                     <br />
                     더보기
                   </Button>
@@ -147,12 +146,10 @@ function BottomNav() {
                       </Panel>
                     </Collapse>
                   </Drawer>
-                </motion.div>
-              </motion.div>
+                  </div>
             </div>
           </div>
         </div>
-      </div>
     </nav>
   );
 }

@@ -18,9 +18,9 @@ const ProductPage3 = () => {
 
     useEffect(() => {
 		axios
-			.get(`${API_URL}/products`)
+			.get(`${API_URL}/products3`)
 			.then((result) => {
-				const products = result.data.product;
+				const products = result.data.product3;
 				setProducts(products);
 			})
 			.catch((error) => {
@@ -77,35 +77,32 @@ const ProductPage3 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products
-                                        .filter((category) => category.category === "B")
-                                        .map((product) => {
-                                            return(
-                                                <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                                                    <Link className="payment_link" to="/payment">
-                                                        <div className="img_product">
-                                                            {product.soldout === 1 ? <div className="sold_out"></div> : null }
-                                                            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                            <button className="heart_btn"><HeartOutlined className="heart"/></button>
+                                    {products.map((product) => {
+                                        return(
+                                            <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                                                <Link className="payment_link" to="/payment">
+                                                    <div className="img_product">
+                                                        {product.soldout === 1 ? <div className="sold_out"></div> : null }
+                                                        <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                                                        <button className="heart_btn"><HeartOutlined className="heart"/></button>
+                                                    </div>
+                                                    <div className="product_text">
+                                                        <ul className="product_text_top">
+                                                            <li className="name">{product.name}</li>
+                                                            {product.price === null ? null : <li className="price">{product.price}원</li>}
+                                                        </ul>
+                                                        <ul className="product_text_center">
+                                                            <li className="brand"><span>{product.brand}</span></li>
+                                                            {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
+                                                        </ul>
+                                                        <div className="product_text_bottom">
+                                                            <p className="time">4시간 전</p>
                                                         </div>
-                                                        <div className="product_text">
-                                                            <ul className="product_text_top">
-                                                                <li className="name">{product.name}</li>
-                                                                {product.price === null ? null : <li className="price">{product.price}원</li>}
-                                                            </ul>
-                                                            <ul className="product_text_center">
-                                                                <li className="brand"><span>{product.brand}</span></li>
-                                                                {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
-                                                            </ul>
-                                                            <div className="product_text_bottom">
-                                                                <p className="time">4시간 전</p>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                </SwiperSlide>
-                                            );
-                                        })
-                                    }
+                                                    </div>
+                                                </Link>
+                                            </SwiperSlide>
+                                        );
+                                    })}
                                 </Swiper>
                             </div>
                         </div>

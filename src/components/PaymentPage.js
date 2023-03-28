@@ -1,7 +1,21 @@
 import { Image } from "antd";
-import React from "react";
+import React, { useState } from 'react';
+import PopupDom from './PopupDom';
+import PopupPostCode from './PopupPostCode';
 import "../scss/Style.scss";
 function Header() {
+    // 팝업창 상태 관리
+      const [isPopupOpen, setIsPopupOpen] = useState(false)
+   
+    // 팝업창 열기
+      const openPostCode = () => {
+          setIsPopupOpen(true)
+      }
+   
+    // 팝업창 닫기
+      const closePostCode = () => {
+          setIsPopupOpen(false)
+      }
   return (
     <section id="container">
       <div className="inner">
@@ -38,7 +52,14 @@ function Header() {
             <div className="addres_post_box">
               <p className="addres_text">주소</p>
               <input type="text" className="addres_inputpost" value="우편번호 입력" />
-              <button className="addres_post_button">주소찾기</button>
+              <button className="addres_post_button" onClick={openPostCode} >주소찾기</button>
+            </div>
+            <div id='popupDom'>
+                {isPopupOpen && (
+                    <PopupDom>
+                        <PopupPostCode onClose={closePostCode} />
+                    </PopupDom>
+                )}
             </div>
             <div className="addres-post_box2">
               <input type="text" className="addres_inputpost" value="기본 주소 입력"></input>

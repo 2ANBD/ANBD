@@ -63,7 +63,7 @@ function BottomNav() {
                 </Link>
               </div> */}
               <div className="btn_nav">
-                  <Link className="login-link" to={`/`}>
+                  <Link className="map-link" to={`/MapPage`}>
                     <Button>
                       <CompassOutlined />
                       <br />

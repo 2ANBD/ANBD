@@ -18,38 +18,34 @@ import MapPage from "./components/MapPage";
 /* test */
 import UploadPage from "./components/UploadPage";
 import UploadPage2 from "./components/UploadPage2";
-
 import Category from "./components/Category";
+
+import Detail1 from "./components/Detail1";
+import Detail2 from "./components/Detail2";
 
 export default function App() {
   return (
     <div className="wrap">
       <AnimatePresence>
-
-    
-
-         
-       
-
-
-
-      <Header />
-      <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/products1" element={<ProductPage1 />}></Route>
-        <Route path="/products2" element={<ProductPage2 />}></Route>
-        <Route path="/products3" element={<ProductPage3 />}></Route>
-        <Route path="/products4" element={<ProductPage4 />}></Route>
-        <Route path="/PaymentPage" element={<PaymentPage/>}></Route>
-        <Route path="/UploadImage" element={<UploadImage />}></Route>
-        <Route path="/UploadPage" element={<UploadPage />}></Route>
-        <Route path="/loginPage" element={<LoginPage />}></Route>
-        <Route path="/MapPage" element={<MapPage />}></Route>
-        {/* test */}
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/products1" element={<ProductPage1 />}></Route>
+          <Route path="/products2" element={<ProductPage2 />}></Route>
+          <Route path="/products3" element={<ProductPage3 />}></Route>
+          <Route path="/products4" element={<ProductPage4 />}></Route>
+          <Route path="/PaymentPage" element={<PaymentPage />}></Route>
+          <Route path="/UploadImage" element={<UploadImage />}></Route>
+          <Route path="/UploadPage" element={<UploadPage />}></Route>
+          <Route path="/loginPage" element={<LoginPage />}></Route>
+          <Route path="/MapPage" element={<MapPage />}></Route>
+          {/* test */}
           <Route path="/UploadPage" element={<UploadPage />}></Route>
           <Route path="/UploadPage2" element={<UploadPage2 />}></Route>
-
           <Route path="/Category" element={<Category />}></Route>
+
+          <Route path="/Detail1/:id" element={<Detail1 />}></Route>
+          <Route path="/Detail2/:id" element={<Detail2 />}></Route>
         </Routes>
         <Footer />
         <FloatButton />

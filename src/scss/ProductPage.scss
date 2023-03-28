@@ -1,6 +1,11 @@
 @charset "utf-8";
 @import "./Variable";
 
+@mixin fontSizeWeight($fontSize, $bgColor){
+    font-size: $fontSize;
+    background-color: $bgColor;
+}
+
 #productSearch {
     #container {
         border-bottom: 1px solid #ccc;
@@ -95,7 +100,7 @@
 
 #productItem {
     .product_container {
-        height: 874px;
+        height: 703px;
         padding: 20px 0;
 
         .swiper_slide_wrap {
@@ -114,7 +119,7 @@
                     height: 50px;
                 }
 
-                .payment_link {
+                .detail_link {
                     width: 100%;
                     height: 100%;
                     display: flex;

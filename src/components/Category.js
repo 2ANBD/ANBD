@@ -17,30 +17,14 @@ const Category = () => {
           navigate("/UploadPage");
         }}
       >
-        미개봉상품 or A급상품
+        미개봉상품 or A급상품 <br/><br/> 무료나눔
       </button>
-
       <button class="category_btn"
         onClick={() => {
           navigate("/UploadPage2");
         }}
       >
-        무료나눔
-      </button>
-      <br />
-      <button class="category_btn"
-        onClick={() => {
-          navigate("/UploadPage3");
-        }}
-      >
-        물물교환
-      </button>
-      <button class="category_btn"
-        onClick={() => {
-          navigate("/UploadPage4");
-        }}
-      >
-        사용감 있는 중고상품
+        사용감 있는 중고상품<br/><br/> 물물교환 
       </button>
       </div>
       </div>

@@ -24,7 +24,7 @@ const UploadPage = () => {
 
     axios
       .post(`${API_URL}/products`, {
-        category: "A",
+        category: val.category,
         name: val.name,
         brand: val.brand,
         size: val.size,
@@ -56,99 +56,88 @@ const UploadPage = () => {
   return (
     <div id="upload-container">
       <div id="container">
-      <div className="inner">
+        <div className="inner">
       <h1 className="upload_h1">미개봉 상품 및 A급 물건</h1>
-      <Form name="uploadForm" onFinish={onFinish}>
-        {/* 이미지업로드 */}
-        <Form.Item name="upload" valuePropName="image">
-          <Upload name="image" action={`${API_URL}/image`} listType="picture" showUploadList={false} onChange={onChangeImage}>
-            {imageUrl ? (
-              <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />
-            ) : (
-              <div id="upload-img-placeholder">
-                <img src="/images/icons/camera.png" alt="" />
-                <p>Upload</p>
-              </div>
-            )}
-          </Upload>
-        </Form.Item>
-        <Divider></Divider>
+          <Form name="uploadForm" onFinish={onFinish}>
+            {/* 이미지업로드 */}
+            <Form.Item name="upload" valuePropName="image">
+              <Upload name="image" action={`${API_URL}/image`} listType="picture" showUploadList={false} onChange={onChangeImage}>
+                {imageUrl ? (
+                  <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />
+                ) : (
+                  <div id="upload-img-placeholder">
+                    <img src="/images/icons/camera.png" alt="" />
+                    <p>Upload</p>
+                  </div>
+                )}
+              </Upload>
+            </Form.Item>
+            <Divider></Divider>
 
-        <Form.Item className="category" label={<span className="upload_label">상품 카테고리</span>} name="category" rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}>
-          {/* category */}
+            <Form.Item className="category" label={<span className="upload_label">상품 카테고리</span>} name="category" rules={[{ required: true, message: "상품 카테고리는 필수 선택 사항입니다." }]}>
+              {/* category */}
 
-          <Select
-            showSearch
-            placeholder="상품 카테고리를 선택해주세요"
-            optionFilterProp="children"
-            onChange={onChange}
-            onSearch={onSearch}
-            filterOption={(input, option) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase())}
-            options={[
-              { value: "A", label: "A(미개봉 상품 및 A급 물건)" },
-              { value: "N", label: "N(무료 나눔)" },
-              { value: "B", label: "B(물물교환)" },
-              { value: "D", label: "D(사용감있는 중고상품)" },
-            ]}
-          />
-        </Form.Item>
-        <Divider></Divider>
+              <Select
+                showSearch
+                placeholder="상품 카테고리를 선택해주세요"
+                optionFilterProp="children"
+                onChange={onChange}
+                onSearch={onSearch}
+                filterOption={(input, option) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase())}
+                options={[
+                  { value: "A", label: "A(미개봉 상품 및 A급 물건)" },
+                  { value: "N", label: "N(무료 나눔)" },
+                ]}
+              />
+            </Form.Item>
+            <Divider></Divider>
 
-        {/* 상품명*/}
-        <Form.Item label={<span className="upload_label">상품명</span>} name="name" rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}>
-          <Input className="upload_name" placeholder="상품명을 입력해주세요" size="large" />
-        </Form.Item>
-        <Divider></Divider>
-        {/* 브랜드 */}
-        <Form.Item label={<span className="upload_label">브랜드명</span>} name="brand">
-          <Input className="upload_name" placeholder="브랜드명을 입력해주세요" size="large" />
-        </Form.Item>
-        <Divider></Divider>
-        {/* 사이즈 */}
+            {/* 상품명*/}
+            <Form.Item label={<span className="upload_label">상품명</span>} name="name" rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}>
+              <Input className="upload_name" placeholder="상품명을 입력해주세요" size="large" />
+            </Form.Item>
+            <Divider></Divider>
 
-        <Form.Item className="upload_size" label={<span className="upload-label">사이즈</span>} name="size">
-          {/* category */}
-          <Select
-            showSearch
-            placeholder="상품 사이즈를 선택해주세요"
-            optionFilterProp="children"
-            onChange={onChange}
-            onSearch={onSearch}
-            filterOption={(input, option) => (option?.label ?? "").toLowerCase().includes(input.toLowerCase())}
-            options={[
-              { value: "S", label: "S" },
-              { value: "M", label: "M" },
-              { value: "L", label: "L" },
-              { value: "XL", label: "XL" },
-            ]}
-          />
-        </Form.Item>
-        <Divider></Divider>
-        {/* 상품가격 */}
-        <Form.Item label={<span className="upload_price">판매가</span>} name="price">
-          {/* err initioalvalue=0 */}
-          <InputNumber className="upload_price" size="large" min={0} defaultValue={0} />
-        </Form.Item>
-        <Divider></Divider>
-        {/* 상품설명 */}
-        <Form.Item label={<span className="upload-label">상품설명</span>} name="description" rules={[{ required: true, message: "상품설명은 필수 입력 사항입니다." }]}>
-          <TextArea size="large" id="description" showCount maxLength={300} placeholder="상품설명을 작성해주세요"></TextArea>
-        </Form.Item>
-        <Divider></Divider>
-        {/* 판매자명 */}
-        <Form.Item label={<span className="upload-seller">판매자명</span>} name="seller" rules={[{ required: true, message: "판매자명은 필수 입력 사항입니다." }]}>
-          <Input className="upload-name" placeholder="판매자명을 입력해주세요" size="large" />
-        </Form.Item>
-        <Divider></Divider>
-        <Form.Item>
-          {/* button과 use연결 */}
-          {contextHolder}
-          <Button id="submit-button" htmlType="submit" onClick={info}>
-            상품등록하기
-          </Button>
-        </Form.Item>
-      </Form>
-      </div>
+            {/* 브랜드 */}
+            <Form.Item label={<span className="upload_label">브랜드명</span>} name="brand">
+              <Input className="upload_name" placeholder="브랜드명을 입력해주세요" size="large" />
+            </Form.Item>
+            <Divider></Divider>
+
+            {/* 사이즈 */}
+            <Form.Item label={<span className="upload_size">사이즈</span>} name="size">
+              <Input className="upload_size" placeholder="사이즈를 입력해주세요" size="large" />
+            </Form.Item>
+            <Divider></Divider>
+
+            {/* 상품가격 */}
+            <Form.Item label={<span className="upload_price">판매가</span>} name="price">
+              {/* err initioalvalue=0 */}
+              <InputNumber className="upload_price" size="large" min={0} defaultValue={0} />
+            </Form.Item>
+            <Divider></Divider>
+
+            {/* 상품설명 */}
+            <Form.Item label={<span className="upload-label">상품설명</span>} name="description" rules={[{ required: true, message: "상품설명은 필수 입력 사항입니다." }]}>
+              <TextArea size="large" id="description" showCount maxLength={300} placeholder="상품설명을 작성해주세요"></TextArea>
+            </Form.Item>
+            <Divider></Divider>
+
+            {/* 판매자명 */}
+            <Form.Item label={<span className="upload-seller">판매자명</span>} name="seller" rules={[{ required: true, message: "판매자명은 필수 입력 사항입니다." }]}>
+              <Input className="upload-name" placeholder="판매자명을 입력해주세요" size="large" />
+            </Form.Item>
+            <Divider></Divider>
+
+            <Form.Item>
+              {/* button과 use연결 */}
+              {contextHolder}
+              <Button id="submit-button" htmlType="submit" onClick={info}>
+                상품등록하기
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </div>
   );

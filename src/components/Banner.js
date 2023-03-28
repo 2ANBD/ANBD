@@ -48,6 +48,7 @@ const Banner0 = () => {
                         <motion.div variants={list} initial="hidden" animate="visible"  className="banner_container">
                             <Swiper
                             centeredSlides={true}
+                            loop={true}
                             autoplay={{
                               delay: 2500,
                               disableOnInteraction: false,

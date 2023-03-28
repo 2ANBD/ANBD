@@ -31,6 +31,7 @@ const Banner2 = () => {
         <div className="inner">
           <div className="banner_container">
             <Swiper
+            loop={true}
               centeredSlides={true}
               autoplay={{
                 delay: 2500,

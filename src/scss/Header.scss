@@ -1,12 +1,12 @@
 @import "./Variable";
 
 #header {
-  #container {
+  #container{
+    }
     .inner {
       padding: $inner_padding;
     }
   }
-}
 .inner {
   .content_wrap {
     display: flex;

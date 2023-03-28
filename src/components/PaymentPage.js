@@ -67,31 +67,6 @@ function Header() {
             </div>
           </div>
         </section>
-        <section className="coupon_card">
-          <div className="title_box">쿠폰/포인트 할인</div>
-          <div className="coupon_text_box">
-            <span> 쿠폰</span>
-            <div className="coupon_right">
-              <div className="coupon_right_text">
-                <span>보유 4장</span>
-              </div>
-              <div className="coupon_right_btn">
-                <button className="coupon_btn">쿠폰선택</button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="price_card">
-          <div className="price_title">결제수단</div>
-          <div className="price_btn_box">
-            <div className="price_btn">
-              <button>카카오페이</button>
-              <button>토스결제</button>
-              <button>간편 계좌이체</button>
-              <button>신용카드</button>
-            </div>
-          </div>
-        </section>
         <section className="amount_card">
           <div className="amount_title">최종결제금액</div>
           <div className="amount_box">

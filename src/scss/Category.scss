@@ -1,3 +1,5 @@
+@import "./Variable";
+    
     #container {
       .inner {
         padding: $inner_padding;
@@ -7,12 +9,41 @@
                 padding: 20px 10px;
                 font-size: $font_size_7;
                 font-weight: 500;
-            }
-            .category_btn{ 
-        }
-        }
-        
-        
+              }
+              .category_btn {
+                width: 195px;
+                margin:0px 15px;
+                height: 220px;
+                color: #fff;
+                border-radius: 10px;
+                padding: 10px 25px;
+                font-size: $font_size_7;
+                font-family: 'Lato', sans-serif;
+                font-weight: 900;
+                background: transparent;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                display: inline-block;
+                 box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                 7px 7px 20px 0px rgba(0,0,0,.1),
+                 4px 4px 5px 0px rgba(0,0,0,.1);
+                outline: none;
+                background: $primary;
+                background: linear-gradient(0deg, $secondary 0%, $accent 100%);
+                border: none;
+                &:before {
+                height: 0%;
+                width: 2px;
+                }
+                &:hover {
+                box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                            -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+                  inset -4px -4px 6px 0 rgba(255,255,255,.2),
+                  inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+              }
       }
     }
-  
+    }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Divider, Upload, message, Input, InputNumber, Button, Select } from "antd";
+import { CameraOutlined  } from '@ant-design/icons';
 import "../scss/Style.scss";
 import axios from "axios";
 import { API_URL } from "../config/constants";
@@ -66,7 +67,7 @@ const UploadPage = () => {
                   <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />
                 ) : (
                   <div id="upload-img-placeholder">
-                    <img src="/images/icons/camera.png" alt="" />
+                    <CameraOutlined className="upload-img"/>
                     <p>Upload</p>
                   </div>
                 )}

@@ -37,6 +37,11 @@
         color:$primary;
         font-weight: 500;
     }
+    .upload-img{
+        color:rgb(173, 173, 173);
+        margin-top: 25px;
+        font-size: 120px;
+    }
 }
 
 #submit-button{
@@ -59,5 +64,6 @@
 
 .upload_image{
     // margin-left:30%;
-    padding: 0 calc((100vw - 480px) / 2);
+    display: flex;
+    justify-content: center;
 }

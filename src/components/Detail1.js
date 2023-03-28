@@ -42,6 +42,8 @@ const Detail1 = () => {
 
   return (
     <div>
+      <div id="container">
+        <div className="inner">
       <div className="image_box">
         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
       </div>
@@ -61,6 +63,8 @@ const Detail1 = () => {
           즉시결재하기
         </Button>
         {/* pre태그 미리 정의된 형식(preformatted)의 텍스트를 정의할 때 사용 */}
+      </div>
+      </div>
       </div>
     </div>
   );

@@ -77,7 +77,9 @@ const ProductPage4 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products.map((product) => {
+                                    {products
+                                    .filter((category) => category.category === "D")
+                                    .map((product) => {
                                         return(
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
                                                 <Link className="payment_link" to="/payment">

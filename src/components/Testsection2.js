@@ -50,7 +50,7 @@ const Testsection2 = () => {
               {/* {product.soldout === 1 ? <div className="product-blur" key={idx}></div> : null} */}
 
               {/* 메인 */}
-              <Link className="product-link" to={`/ProductPage/${product.id}`}>
+              <Link className="product-link" to={`/Detail2/${product.id}`}>
                 <div>
                   <img className="product-img" src={`${API_URL}/${product.imageUrl}`} alt={product.imageUrl} />
                 </div>

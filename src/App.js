@@ -17,21 +17,15 @@ import MapPage from "./components/MapPage";
 /* test */
 import UploadPage from "./components/UploadPage";
 import UploadPage2 from "./components/UploadPage2";
-
 import Category from "./components/Category";
+
+import Detail1 from "./components/Detail1";
+import Detail2 from "./components/Detail2";
 
 export default function App() {
   return (
     <div className="wrap">
       <AnimatePresence>
-
-    
-
-         
-       
-
-
-
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
@@ -46,8 +40,10 @@ export default function App() {
         {/* test */}
           <Route path="/UploadPage" element={<UploadPage />}></Route>
           <Route path="/UploadPage2" element={<UploadPage2 />}></Route>
-
           <Route path="/Category" element={<Category />}></Route>
+
+          <Route path="/Detail1/:id" element={<Detail1 />}></Route>
+          <Route path="/Detail2/:id" element={<Detail2 />}></Route>
         </Routes>
         <Footer />
         <FloatButton />

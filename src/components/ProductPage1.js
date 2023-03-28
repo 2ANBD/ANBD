@@ -15,6 +15,7 @@ import "swiper/css/free-mode";
 
 const ProductPage1 = () => {
     const [products, setProducts] = useState([]);
+    const [searchText, setSearchText] = useState(""); // 검색어 추가
 
     useEffect(() => {
 		axios
@@ -22,6 +23,7 @@ const ProductPage1 = () => {
 			.then((result) => {
 				const products = result.data.product;
 				setProducts(products);
+                // console.log(products);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -29,6 +31,12 @@ const ProductPage1 = () => {
 	}, []);
 
     const navigate = useNavigate();
+
+    const filteredProducts = products.filter(
+        (product) =>
+            product.category === "A" &&
+            product.name.toLowerCase().includes(searchText.toLowerCase())
+    );
 	
     return(
         <div>
@@ -46,16 +54,16 @@ const ProductPage1 = () => {
                                 <LeftOutlined className="left_arrow" style={{fontSize: "20px"}} />
                             </button>
                             <form className="search_form">
-                                <div className="search_input">
+                                <div className="search_input_wrap">
                                     <label htmlFor="user_search" className="ir_so">품목 검색</label>
-                                    <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" />
+                                    <input id="user_search" name="user_search" className="search_input" placeholder="구매하고 싶은 상품을 검색하세요" value={searchText} onChange={(e) =>  setSearchText(e.target.value)} />
                                     <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
                         </div>
                         <nav className="nav">
                             <ul className="product_category">
-                                <li className="categories active"><Link to="/products">아껴사용</Link></li>
+                                <li className="categories active"><Link to="/products1">아껴사용</Link></li>
                                 <li className="categories"><Link to="/products2">무료나눔</Link></li>
                                 <li className="categories"><Link to="/products3">바꾸기</Link></li>
                                 <li className="categories"><Link to="/products4">다시쓰기</Link></li>
@@ -77,13 +85,14 @@ const ProductPage1 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products.map((product) => {
-                                        return(
+                                    {filteredProducts.length > 0 ? (
+                                        filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                                                <Link className="payment_link" to="/PaymentPage">
+                                                <Link className="payment_link" to="/payment">
                                                     <div className="img_product">
+                                                        {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                        <span className="heart"><HeartOutlined /></span>
+                                                        <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
                                                     </div>
                                                     <div className="product_text">
                                                         <ul className="product_text_top">
@@ -100,9 +109,10 @@ const ProductPage1 = () => {
                                                     </div>
                                                 </Link>
                                             </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper>
+                                        ))) : (
+                                        <p className="not_have">검색하신 상품이 없습니다.</p>
+                                    )}
+                                </Swiper> 
                             </div>
                         </div>
                     </div>

@@ -14,17 +14,24 @@ import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
 import LoginPage from "./components/LoginPage";
 import UploadImage from "./components/UploadImage";
+import MapPage from "./components/MapPage";
 /* test */
 import UploadPage from "./components/UploadPage";
 import UploadPage2 from "./components/UploadPage2";
-import UploadPage3 from "./components/UploadPage3";
-import UploadPage4 from "./components/UploadPage4";
+
 import Category from "./components/Category";
 
 export default function App() {
   return (
     <div className="wrap">
       <AnimatePresence>
+
+    
+
+         
+       
+
+
 
       <Header />
       <Routes>
@@ -37,17 +44,16 @@ export default function App() {
         <Route path="/UploadImage" element={<UploadImage />}></Route>
         <Route path="/UploadPage" element={<UploadPage />}></Route>
         <Route path="/loginPage" element={<LoginPage />}></Route>
+        <Route path="/MapPage" element={<MapPage />}></Route>
         {/* test */}
           <Route path="/UploadPage" element={<UploadPage />}></Route>
           <Route path="/UploadPage2" element={<UploadPage2 />}></Route>
-          <Route path="/UploadPage3" element={<UploadPage3 />}></Route>
-          <Route path="/UploadPage4" element={<UploadPage4 />}></Route>
-          <Route path="/Category" element={<Category />}></Route>
-      </Routes>
-      <Footer />
-      <FloatButton />
-      <BottomNav />
 
+          <Route path="/Category" element={<Category />}></Route>
+        </Routes>
+        <Footer />
+        <FloatButton />
+        <BottomNav />
       </AnimatePresence>
     </div>
   );

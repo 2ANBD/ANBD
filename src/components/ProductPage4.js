@@ -54,9 +54,9 @@ const ProductPage4 = () => {
                                 <LeftOutlined className="left_arrow" style={{fontSize: "20px"}} />
                             </button>
                             <form className="search_form">
-                                <div className="search_input">
+                                <div className="search_input_wrap">
                                     <label htmlFor="user_search" className="ir_so">품목 검색</label>
-                                    <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" value={searchText} onChange={(e) =>  setSearchText(e.target.value)} />
+                                    <input id="user_search" name="user_search" className="search_input" placeholder="구매하고 싶은 상품을 검색하세요" value={searchText} onChange={(e) =>  setSearchText(e.target.value)} />
                                     <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
@@ -110,7 +110,7 @@ const ProductPage4 = () => {
                                                 </Link>
                                             </SwiperSlide>
                                         ))) : (
-                                        <p>검색하신 상품이 없습니다.</p>
+                                        <p className="not_have">검색하신 상품이 없습니다.</p>
                                     )}
                                 </Swiper> 
                             </div>

@@ -27,7 +27,6 @@ function Header() {
     <header id="header">
       <div id="container">
         <div className="inner">
-          
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>
               <Link to="/Category">
@@ -49,8 +48,8 @@ function Header() {
               </Link>
             </motion.div>
           </motion.div>
+          </div>
         </div>
-      </div>
     </header>
   );
 }

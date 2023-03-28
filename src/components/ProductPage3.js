@@ -15,6 +15,7 @@ import "swiper/css/free-mode";
 
 const ProductPage3 = () => {
     const [products, setProducts] = useState([]);
+    const [searchText, setSearchText] = useState(""); // 검색어 추가
 
     useEffect(() => {
 		axios
@@ -22,6 +23,7 @@ const ProductPage3 = () => {
 			.then((result) => {
 				const products = result.data.product2;
 				setProducts(products);
+                // console.log(products);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -29,6 +31,12 @@ const ProductPage3 = () => {
 	}, []);
 
     const navigate = useNavigate();
+
+    const filteredProducts = products.filter(
+        (product) =>
+            product.category === "B" &&
+            product.name.toLowerCase().includes(searchText.toLowerCase())
+    );
 	
     return(
         <div>
@@ -46,9 +54,9 @@ const ProductPage3 = () => {
                                 <LeftOutlined className="left_arrow" style={{fontSize: "20px"}} />
                             </button>
                             <form className="search_form">
-                                <div className="search_input">
+                                <div className="search_input_wrap">
                                     <label htmlFor="user_search" className="ir_so">품목 검색</label>
-                                    <input id="user_search" name="user_search" className="search" placeholder="구매하고 싶은 상품을 검색하세요" />
+                                    <input id="user_search" name="user_search" className="search_input" placeholder="구매하고 싶은 상품을 검색하세요" value={searchText} onChange={(e) =>  setSearchText(e.target.value)} />
                                     <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
@@ -77,16 +85,14 @@ const ProductPage3 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products
-                                    .filter((category) => category.category === "B")
-                                    .map((product) => {
-                                        return(
+                                    {filteredProducts.length > 0 ? (
+                                        filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
                                                 <Link className="payment_link" to="/payment">
                                                     <div className="img_product">
                                                         {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                        <button className="heart_btn"><HeartOutlined className="heart"/></button>
+                                                        <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
                                                     </div>
                                                     <div className="product_text">
                                                         <ul className="product_text_top">
@@ -103,9 +109,10 @@ const ProductPage3 = () => {
                                                     </div>
                                                 </Link>
                                             </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper>
+                                        ))) : (
+                                        <p className="not_have">검색하신 상품이 없습니다.</p>
+                                    )}
+                                </Swiper> 
                             </div>
                         </div>
                     </div>

@@ -67,7 +67,7 @@ const Section2 = () => {
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                          <Link className="payment_link" to="/payment">
+                          <Link className="payment_link" to="/PaymentPage">
                             <div className="img_product">
                               <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                               <span className="heart"><HeartOutlined /></span>

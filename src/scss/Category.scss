@@ -1,0 +1,24 @@
+    #container {
+      .inner {
+        padding: $inner_padding;
+        .content_box{
+            padding: 40px 0px;
+            h1{
+                padding: 20px 10px;
+                font-size: $font_size_7;
+                font-weight: 500;
+            }
+            .category_btn{ 
+            border-radius: 10px;
+            box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.15);
+            width:200px;
+            height:150px;
+            margin:5px 5px;
+            color:$primary
+        }
+        }
+        
+        
+      }
+    }
+  

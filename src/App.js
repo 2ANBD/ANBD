@@ -13,7 +13,6 @@ import FloatButton from "./components/FloatBtn";
 import BottomNav from "./components/BottomNav";
 import PaymentPage from "./components/PaymentPage";
 import LoginPage from "./components/LoginPage";
-import UploadImage from "./components/UploadImage";
 import MapPage from "./components/MapPage";
 /* test */
 import UploadPage from "./components/UploadPage";
@@ -35,7 +34,6 @@ export default function App() {
         <Route path="/products3" element={<ProductPage3 />}></Route>
         <Route path="/products4" element={<ProductPage4 />}></Route>
         <Route path="/PaymentPage" element={<PaymentPage/>}></Route>
-        <Route path="/UploadImage" element={<UploadImage />}></Route>
         <Route path="/UploadPage" element={<UploadPage />}></Route>
         <Route path="/loginPage" element={<LoginPage />}></Route>
         <Route path="/MapPage" element={<MapPage />}></Route>

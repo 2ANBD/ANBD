@@ -57,7 +57,9 @@ const UploadPage4 = () => {
   };
   return (
     <div id="upload-container">
-      <h1>사용감 있는 중고상품 업로드 페이지</h1>
+      <div id="container">
+      <div className="inner">
+      <h1 className="upload_h1">사용감 있는 중고상품 업로드 페이지</h1>
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
         <Form.Item name="upload" valuePropName="image">
@@ -67,7 +69,8 @@ const UploadPage4 = () => {
             ) : (
               <div id="upload-img-placeholder">
                 <img src="/images/icons/camera.png" alt="" />
-                <span>이미지를 업로드 해주세요</span>
+                <br/>
+                <p>Upload</p>
               </div>
             )}
           </Upload>
@@ -80,7 +83,7 @@ const UploadPage4 = () => {
         </Form.Item>
         <Divider></Divider>
         {/* 브랜드 */}
-        <Form.Item label={<span className="upload_brand">브랜드명</span>} name="brand">
+        <Form.Item label={<span className="upload_brand">브랜드명</span>} name="brand" >
           <Input className="upload_brand" placeholder="브랜드명을 입력해주세요" size="large" />
         </Form.Item>
         <Divider></Divider>
@@ -117,6 +120,8 @@ const UploadPage4 = () => {
           </Button>
         </Form.Item>
       </Form>
+    </div>
+    </div>
     </div>
   );
 };

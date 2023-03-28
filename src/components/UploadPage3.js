@@ -57,7 +57,9 @@ const UploadPage3 = () => {
   };
   return (
     <div id="upload-container">
-      <h1>물물교환 업로드 페이지</h1>
+      <div id="container">
+      <div className="inner">
+      <h1 className="upload_h1">물물교환 업로드 페이지</h1>
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
         <Form.Item name="upload" valuePropName="image">
@@ -67,7 +69,7 @@ const UploadPage3 = () => {
             ) : (
               <div id="upload-img-placeholder">
                 <img src="/images/icons/camera.png" alt="" />
-                <span>이미지를 업로드 해주세요</span>
+                <p>Upload</p>
               </div>
             )}
           </Upload>
@@ -117,6 +119,8 @@ const UploadPage3 = () => {
           </Button>
         </Form.Item>
       </Form>
+    </div>
+    </div>
     </div>
   );
 };

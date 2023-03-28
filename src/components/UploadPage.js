@@ -57,6 +57,7 @@ const UploadPage = () => {
     <div id="upload-container">
       <div id="container">
       <div className="inner">
+      <h1 className="upload_h1">미개봉 상품 및 A급 물건</h1>
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
         <Form.Item name="upload" valuePropName="image">
@@ -66,7 +67,7 @@ const UploadPage = () => {
             ) : (
               <div id="upload-img-placeholder">
                 <img src="/images/icons/camera.png" alt="" />
-                <span>이미지를 업로드 해주세요</span>
+                <p>Upload</p>
               </div>
             )}
           </Upload>

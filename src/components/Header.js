@@ -25,7 +25,7 @@ function Header() {
 
   return (
     <header id="header">
-      <div id="container_mo">
+      <div id="container">
         <div className="inner">
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>

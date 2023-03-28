@@ -17,37 +17,33 @@ import UploadImage from "./components/UploadImage";
 /* test */
 import UploadPage from "./components/UploadPage";
 import UploadPage2 from "./components/UploadPage2";
-import UploadPage3 from "./components/UploadPage3";
-import UploadPage4 from "./components/UploadPage4";
+
 import Category from "./components/Category";
 
 export default function App() {
   return (
     <div className="wrap">
       <AnimatePresence>
-
-      <Header />
-      <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/products1" element={<ProductPage1 />}></Route>
-        <Route path="/products2" element={<ProductPage2 />}></Route>
-        <Route path="/products3" element={<ProductPage3 />}></Route>
-        <Route path="/products4" element={<ProductPage4 />}></Route>
-        <Route path="/PaymentPage" element={<PaymentPage/>}></Route>
-        <Route path="/UploadImage" element={<UploadImage />}></Route>
-        <Route path="/UploadPage" element={<UploadPage />}></Route>
-        <Route path="/loginPage" element={<LoginPage />}></Route>
-        {/* test */}
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/products1" element={<ProductPage1 />}></Route>
+          <Route path="/products2" element={<ProductPage2 />}></Route>
+          <Route path="/products3" element={<ProductPage3 />}></Route>
+          <Route path="/products4" element={<ProductPage4 />}></Route>
+          <Route path="/PaymentPage" element={<PaymentPage />}></Route>
+          <Route path="/UploadImage" element={<UploadImage />}></Route>
+          <Route path="/UploadPage" element={<UploadPage />}></Route>
+          <Route path="/loginPage" element={<LoginPage />}></Route>
+          {/* test */}
           <Route path="/UploadPage" element={<UploadPage />}></Route>
           <Route path="/UploadPage2" element={<UploadPage2 />}></Route>
-          <Route path="/UploadPage3" element={<UploadPage3 />}></Route>
-          <Route path="/UploadPage4" element={<UploadPage4 />}></Route>
-          <Route path="/Category" element={<Category />}></Route>
-      </Routes>
-      <Footer />
-      <FloatButton />
-      <BottomNav />
 
+          <Route path="/Category" element={<Category />}></Route>
+        </Routes>
+        <Footer />
+        <FloatButton />
+        <BottomNav />
       </AnimatePresence>
     </div>
   );

@@ -62,14 +62,14 @@ const Section2 = () => {
                 </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                {products
+                {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> :products
                   .filter((category) => category.category === "B")
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                          {product.soldout === 1 ? <div className="sold_out"></div> : null }
                           <Link className="detail_link" to={`/Detail2/${product.id}`}>
                             <div className="img_product">
-                              {product.soldout === 1 ? <div className="sold_out"></div> : null }
                               <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                               <span className="heart"><HeartOutlined /></span>
                             </div>
@@ -109,7 +109,7 @@ const Section2 = () => {
                 </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                {products
+                {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> :products
                   .filter((category) => category.category === "D")
                   .map((product) => {
                     return(

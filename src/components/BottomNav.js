@@ -72,7 +72,7 @@ function BottomNav() {
                   </Link>
               </div>
                   <div className="btn_nav">
-                  <Link className="upload-link" to={`/UploadImage`}>
+                  <Link className="upload-link" to={`/Category`}>
                     <Button>
                       <UploadOutlined />
                       <br />

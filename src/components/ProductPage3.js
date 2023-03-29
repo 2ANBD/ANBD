@@ -85,12 +85,12 @@ const ProductPage3 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {filteredProducts.length > 0 ? (
+                                    {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
                                         filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                                                {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                 <Link className="detail_link" to={`/Detail2/${product.id}`}>
                                                     <div className="img_product">
-                                                        {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                                                         <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
                                                     </div>
@@ -109,9 +109,8 @@ const ProductPage3 = () => {
                                                     </div>
                                                 </Link>
                                             </SwiperSlide>
-                                        ))) : (
-                                        <p className="not_have">검색하신 상품이 없습니다.</p>
-                                    )}
+                                        )) : <p className="not_have">검색하신 상품이 없습니다.</p> 
+                                    } 
                                 </Swiper> 
                             </div>
                         </div>

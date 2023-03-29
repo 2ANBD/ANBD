@@ -13,10 +13,16 @@ import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 
+// import dayjs
+import dayjs from "dayjs";
+import 'dayjs/locale/ko'; // 한국어 지원 모듈 import
+dayjs.locale('ko'); // 한국어 지원 설정
+
 const ProductPage1 = () => {
     const [products, setProducts] = useState([]);
     const [searchText, setSearchText] = useState(""); // 검색어 추가
 
+    // DB 연결
     useEffect(() => {
 		axios
 			.get(`${API_URL}/products`)
@@ -32,11 +38,17 @@ const ProductPage1 = () => {
 
     const navigate = useNavigate();
 
+    // 필터링 검색 기능
     const filteredProducts = products.filter(
         (product) =>
             product.category === "A" &&
             product.name.toLowerCase().includes(searchText.toLowerCase())
     );
+
+    // 업로드 시간
+    const actualUploadTime = '2023-03-28T15:20:00';
+    const duration = dayjs().to(dayjs(actualUploadTime), true);
+    
 	
     return(
         <div>
@@ -85,12 +97,12 @@ const ProductPage1 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {filteredProducts.length > 0 ? (
+                                    {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
                                         filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                                                {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                 <Link className="detail_link" to={`/Detail1/${product.id}`}>
                                                     <div className="img_product">
-                                                        {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                                                         <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
                                                     </div>
@@ -104,14 +116,13 @@ const ProductPage1 = () => {
                                                             {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
                                                         </ul>
                                                         <div className="product_text_bottom">
-                                                            <p className="time">4시간 전</p>
+                                                            <p className="time">{duration} 전</p>
                                                         </div>
                                                     </div>
                                                 </Link>
                                             </SwiperSlide>
-                                        ))) : (
-                                        <p className="not_have">검색하신 상품이 없습니다.</p>
-                                    )}
+                                        )) : <p className="not_have">검색하신 상품이 없습니다.</p>
+                                    }
                                 </Swiper> 
                             </div>
                         </div>

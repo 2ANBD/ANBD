@@ -1,3 +1,4 @@
+
 # 아나바다 중고 쇼핑몰 프로젝트
 
 > PWA 앱으로 제작한 react(프론트엔드) + node.js(웹서버) 프로젝트 중고 쇼핑몰 입니다.<br>
@@ -96,6 +97,7 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
   - sqlite db (create)
   - [post] "/products" 상품 DB (read)
   - [post] "/image" 이미지업로드 (read)
+
   - [post] "/purchase/:id" 상품구매 (update)
 
   - [get] "/products"

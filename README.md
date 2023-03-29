@@ -1,4 +1,4 @@
-# ANBD(아나바다 중고 쇼핑몰) 프로젝트
+# ANBD(아나바다 중고 쇼핑몰) 프로젝트 (2023년 03월 07일 ~ 2023년 03월 29일)
 
 > <span style="color:red">PWA<span> 앱으로 제작한 react(프론트엔드) + node.js(웹서버) 프로젝트 중고 쇼핑몰 입니다.<br>
 > 프론트는 리액트를 사용하여 제작, 백엔드는 nodejs의 express를 활용하여 구현한 프로젝트입니다.
@@ -94,8 +94,8 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 - SERVER
 
   - sqlite db (create)
-  - [post] "/products" 상품 DB (read)
-  - [post] "/image" 이미지업로드 (read)
+  - [post] "/products" 상품 DB 
+  - [post] "/image" 이미지업로드 
   - [post] "/purchase/:id" 상품구매 (update)
 
   - [get] "/products"
@@ -104,6 +104,7 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 ✔ 업로드 정보 서버 DB저장 후 프론트 페이지 파싱<br>
 ✔ 업로드시 카테고리별 메인페이지에 상품 분할 출력 <br>
 ✔ 배너 자동 슬라이드<br>
+✔ 상품구매시 솔드아웃 처리<br>
 ✔ 카카오, 네이버 로그인API, 카카오오픈채팅API 다음지도 API 가져오기<br>
 ✔ 전체보기 검색 필터 구현<br>
 

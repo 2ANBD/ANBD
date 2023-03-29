@@ -13,6 +13,13 @@ import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko"; // 한국어 가져오기
+
+dayjs.extend(relativeTime);
+dayjs.locale("ko");
+
 const Section1 = () => {
   const [products, setProducts] = useState([]);
 
@@ -87,7 +94,7 @@ const Section1 = () => {
                               </ul>
                               <div className="product_text_bottom">
                                 {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
-                                <p className="time">4시간 전</p>
+                                <p className="time">{dayjs(product.createdAt).fromNow()}</p>
                               </div>
                             </div>
                           </Link>
@@ -136,7 +143,7 @@ const Section1 = () => {
                               </ul>
                               <div className="product_text_bottom">
                                 {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
-                                <p className="time">4시간 전</p>
+                                <p className="time">{dayjs(product.createdAt).fromNow()}</p>
                               </div>
                             </div>
                           </Link>

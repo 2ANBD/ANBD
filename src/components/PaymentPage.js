@@ -1,9 +1,28 @@
 import { Image } from "antd";
+import { motion } from "framer-motion";
 import React, { useState } from 'react';
-import PopupDom from './PopupDom';
-import PopupPostCode from './PopupPostCode';
+import DaumPostcode from "react-daum-postcode";
+
 import "../scss/Style.scss";
 function Header() {
+  const [address, setAddress] = useState(""); // 주소 정보를 저장할 상태
+  const [zipCode, setZipCode] = useState(""); // 우편번호 정보를 저장할 상태
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 창을 열고 닫을 상태
+
+  const handleComplete = (data) => {
+    const { roadAddress, zonecode } = data; // 선택한 주소 정보에서 도로명 주소와 우편번호 추출
+    setAddress(roadAddress); // 상태에 도로명 주소 저장
+    setZipCode(zonecode); // 상태에 우편번호 저장
+    setIsModalOpen(false); // 모달 창 닫기
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
     // 팝업창 상태 관리
       const [isPopupOpen, setIsPopupOpen] = useState(false)
    
@@ -16,11 +35,27 @@ function Header() {
       const closePostCode = () => {
           setIsPopupOpen(false)
       }
+      const list = {
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+          transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.1,
+          },
+        },
+      };
+      const item = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+      };
   return (
     <section id="container">
-      <div className="inner">
-        <p className="title">주문서</p>
-        <div className="item_list">
+      <motion.div variants={list} initial="hidden" animate="visible" className="inner">
+        <motion.p  variants={item} className="title">주문서</motion.p>
+        <motion.div variants={item} className="item_list">
           <div className="item_imgbox">
             <Image
               width={100}
@@ -34,40 +69,63 @@ function Header() {
             <p className="itme_price">15,000원</p>
             <p className="itme_delivery">무료배송</p>
           </div>
-        </div>
-        <section className="main_order">
+        </motion.div>
+        <motion.section variants={item} className="main_order">
           <div className="main_title">
             <p>배송지</p>
           </div>
           <div className="main_address">
             <div className="addres_box">
               <p className="addres_text">이름</p>
-              <input type="text" className="addres_inputbox" value="이름을 입력하세요" />
+              <input type="text" className="addres_inputbox" placeholder="이름을 입력하세요" />
             </div>
 
             <div className="addres_box">
               <p className="addres_text">연락처</p>
-              <input type="text" className="addres_inputbox" value="숫자만 입력하세요" />
+              <input type="text" className="addres_inputbox" placeholder="숫자만 입력하세요" />
             </div>
             <div className="addres_post_box">
               <p className="addres_text">주소</p>
-              <input type="text" className="addres_inputpost" value="우편번호 입력" />
-              <button className="addres_post_button" onClick={openPostCode} >주소찾기</button>
+              <input type="text" placeholder="우편번호" className="addres_inputpost" value={zipCode} onChange={(e) => setZipCode(e.target.value)}  />
+              <button className="addres_post_button" onClick={openModal} >주소찾기</button>
             </div>
-            <div id='popupDom'>
-                {isPopupOpen && (
-                    <PopupDom>
-                        <PopupPostCode onClose={closePostCode} />
-                    </PopupDom>
-                )}
-            </div>
+            {isModalOpen && (
+            <div>
+          <DaumPostcode onComplete={handleComplete} />
+          </div>
+            )}
             <div className="addres-post_box2">
-              <input type="text" className="addres_inputpost" value="기본 주소 입력"></input>
-              <input type="text" className="addres_inputpost2" value="상세 주소 입력"></input>
+              <input type="text" className="addres_inputpost" placeholder="기본주소 입력" value={address} onChange={(e) => setAddress(e.target.value)}></input>
+              <input type="text" className="addres_inputpost2" placeholder="상세 주소 입력"></input>
             </div>
           </div>
-        </section>
-        <section className="amount_card">
+        </motion.section>
+        <motion.section variants={item} className="coupon_card">
+          <div className="title_box">쿠폰/포인트 할인</div>
+          <div className="coupon_text_box">
+            <span> 쿠폰</span>
+            <div className="coupon_right">
+              <div className="coupon_right_text">
+                <span>보유 4장</span>
+              </div>
+              <div className="coupon_right_btn">
+                <button className="coupon_btn">쿠폰선택</button>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+        <motion.section variants={item} className="price_card">
+          <div className="price_title">결제수단</div>
+          <div className="price_btn_box">
+            <div className="price_btn">
+              <button>카카오페이</button>
+              <button>토스결제</button>
+              <button>간편 계좌이체</button>
+              <button>신용카드</button>
+            </div>
+          </div>
+        </motion.section>
+        <motion.section variants={item} className="amount_card">
           <div className="amount_title">최종결제금액</div>
           <div className="amount_box">
             <div className="amount_list_box">
@@ -93,15 +151,15 @@ function Header() {
               </ul>
             </div>
           </div>
-        </section>
+        </motion.section>
         <div className="checkbox">
           <input type="checkbox" />
           결제하기 클릭시 <span>결제시 유의사항</span> 및 <span>반품환불정책</span>을 모두 이해하고 이에동의함을 의미합니다
         </div>
-        <div className="payment_btn">
+        <motion.div variants={item} className="payment_btn">
           <button>결제하기</button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

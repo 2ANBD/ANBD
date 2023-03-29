@@ -51,22 +51,22 @@ const Detail1 = () => {
       </div>
 
       <div id="content_box_detail">
-        <div className="product_name">아이폰 14proMax 중고폰 팝니다{product.name}</div>
+        <div className="product_name">{product.name}</div>
 
-        <div className="product_seller"><span>판매자 &nbsp;&nbsp;</span> 기명서빕니다<span>{product.seller}</span></div>
+        <div className="product_seller"><span>판매자 &nbsp;&nbsp;</span> <span>{product.seller}</span></div>
 
         <hr/>
 
-        <div className="product_brand">Apple{product.brand}</div>
+        <div className="product_brand">{product.brand}</div>
 
-        <span className="product_size">Pro{product.size}</span>
-        <p className="product_createAt"><span>등록일</span>2000-11-11{product.createAt}</p>
-        <div className="product_price"><span>판매가 &nbsp;&nbsp;</span> 1,000,000{product.price}</div>
+        <span className="product_size">{product.size}</span>
+        <p className="product_createAt"><span>등록일&nbsp;&nbsp;</span>{product.createAt}</p>
+        <div className="product_price"><span>판매가 &nbsp;&nbsp;</span>{product.price}</div>
         <hr/>
         <div className="product_description_box">
         <p>상세설명</p>
         <br/>
-        <p id="product_description"> Line 35:79:  Comments sfdinside children secdffddfftion of tag should be placed inside bracesfffffffffffffffff{product.description}</p>
+        <p id="product_description">{product.description}</p>
         </div>
         <hr/>
         <Button siz="large" type="primary" danger={true} className="product_payment" onClick={onClickPurchase} disabled={product.soldout === 1}>

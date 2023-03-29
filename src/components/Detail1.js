@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../scss/Style.scss";
 // import relativeTime from "dayjs/plugin/relativeTime";
 import { API_URL } from "../config/constants";
 import { Button, message } from "antd";

@@ -120,7 +120,7 @@ const Section1 = () => {
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                          {product.soldout === 1 ? <div className="sold_out"></div> : null }
+                          {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
                           <Link className="detail_link" to={`/Detail1/${product.id}`}>
                             <div className="product_img_box">
                               <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />

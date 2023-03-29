@@ -44,39 +44,39 @@ const Detail1 = () => {
 
   return (
     <div>
-      <div id="container">
-        <div className="inner">
-      <div className="image_box">
-        <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-      </div>
-
-      <div id="content_box_detail">
-        <div className="product_name">{product.name}</div>
-
-        <div className="product_seller"><span>판매자 &nbsp;&nbsp;</span> <span>{product.seller}</span></div>
-
-        <hr/>
-
-        <div className="product_brand">{product.brand}</div>
-
-        <span className="product_size">{product.size}</span>
-        <p className="product_createAt"><span>등록일&nbsp;&nbsp;</span>{product.createAt}</p>
-        <div className="product_price"><span>판매가 &nbsp;&nbsp;</span>{product.price}</div>
-        <hr/>
-        <div className="product_description_box">
-        <p>상세설명</p>
-        <br/>
-        <p id="product_description">{product.description}</p>
-        </div>
-        <hr/>
-        <Button siz="large" type="primary" danger={true} className="product_payment" onClick={onClickPurchase} disabled={product.soldout === 1}>
-          즉시결제하기
-        </Button>
-        {/* pre태그 미리 정의된 형식(preformatted)의 텍스트를 정의할 때 사용 */}
-      </div>
-      </div>
-      </div>
+    <div id="container">
+      <div className="inner">
+    <div className="image_box">
+      <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
     </div>
+
+    <div id="content_box_detail">
+      <div className="product_name">{product.name}</div>
+
+      <div className="product_seller"><span>판매자 &nbsp;&nbsp;</span> <span>{product.seller}</span></div>
+
+      <hr/>
+
+      <div className="product_brand">{product.brand}</div>
+
+      <span className="product_size">{product.size}</span>
+      <p className="product_createAt"><span>등록일&nbsp;&nbsp;</span>{product.createAt}</p>
+      <div className="product_price"><span>판매가 &nbsp;&nbsp;</span>{product.price}</div>
+      <hr/>
+      <div className="product_description_box">
+      <p>상세설명</p>
+      <br/>
+      <p id="product_description">{product.description}</p>
+      </div>
+      <hr/>
+      <Button siz="large" type="primary" danger={true} className="product_payment" onClick={onClickPurchase} disabled={product.soldout === 1}>
+        즉시결제하기
+      </Button>
+      {/* pre태그 미리 정의된 형식(preformatted)의 텍스트를 정의할 때 사용 */}
+    </div>
+    </div>
+    </div>
+  </div>
   );
 };
 export default Detail1;

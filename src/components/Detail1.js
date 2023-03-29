@@ -50,20 +50,27 @@ const Detail1 = () => {
         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
       </div>
 
-      <div id="profile_box">
-        <span className="product-seller">{product.seller}</span>
-      </div>
-      <hr/>
-      <div className="content_box">
-        <div className="product_brnad">{product.brand}</div>
-        <div className="product_name">{product.name}</div>
-        <div className="product_price">{product.price}</div>
-        <div className="product_size">{product.size}</div>
-        <div className="product_createAt">{product.createAt}</div>
-        <pre id="product_description">{product.description}</pre>
-        
+      <div id="content_box_detail">
+        <div className="product_name">아이폰 14proMax 중고폰 팝니다{product.name}</div>
+
+        <div className="product_seller"><span>판매자 &nbsp;&nbsp;</span> 기명서빕니다<span>{product.seller}</span></div>
+
+        <hr/>
+
+        <div className="product_brand">Apple{product.brand}</div>
+
+        <span className="product_size">Pro{product.size}</span>
+        <p className="product_createAt"><span>등록일</span>2000-11-11{product.createAt}</p>
+        <div className="product_price"><span>판매가 &nbsp;&nbsp;</span> 1,000,000{product.price}</div>
+        <hr/>
+        <div className="product_description_box">
+        <p>상세설명</p>
+        <br/>
+        <p id="product_description"> Line 35:79:  Comments sfdinside children secdffddfftion of tag should be placed inside bracesfffffffffffffffff{product.description}</p>
+        </div>
+        <hr/>
         <Button siz="large" type="primary" danger={true} className="product_payment" onClick={onClickPurchase} disabled={product.soldout === 1}>
-          즉시결재하기
+          즉시결제하기
         </Button>
         {/* pre태그 미리 정의된 형식(preformatted)의 텍스트를 정의할 때 사용 */}
       </div>

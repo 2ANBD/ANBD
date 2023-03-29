@@ -2,15 +2,9 @@
 >> PWA 앱으로 제작한 풀스택 프로젝트입니다.
 >> 프론트는 리액트를 사용하여 제작하였으며 NodeJs의 Express를 활용하여 백엔드 까지 구현한 풀스택 프로젝트 입니다
 
-## 배포 URL [리액트앱][http://naver.com]
-## 백엔드 서비스 URL [리액트앱][http://naver.com]
-## 백엔드 깃허브 [리액트앱][http://naver.com]
-
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
-한 두 문단으로 프로젝트 소개 글을 작성합니다.
+## 배포 URL [리액트앱][https://anbd.vercel.app/]
+## 백엔드 서비스 URL [리액트앱][https://port-0-anbd-db-sever-6g2llfcbue07.sel3.cloudtype.app/products]
+## 백엔드 깃허브 [리액트앱][https://github.com/2ANBD/ANBD_DB_SEVER]
 
 ![](https://user-images.githubusercontent.com/105581009/228405204-7e20471d-a4a5-4362-8ddf-d523d85df7ae.png)
 

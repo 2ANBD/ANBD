@@ -5,7 +5,7 @@ import { API_URL } from "../config/constants";
 import { useNavigate  } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../scss/Style.scss";
-import { HeartOutlined, LeftOutlined, SearchOutlined } from '@ant-design/icons';
+import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,10 +13,12 @@ import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-// import dayjs
 import dayjs from "dayjs";
-import 'dayjs/locale/ko'; // 한국어 지원 모듈 import
-dayjs.locale('ko'); // 한국어 지원 설정
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko"; // 한국어 가져오기
+
+dayjs.extend(relativeTime);
+dayjs.locale("ko");
 
 const ProductPage1 = () => {
     const [products, setProducts] = useState([]);
@@ -44,11 +46,7 @@ const ProductPage1 = () => {
             product.category === "A" &&
             product.name.toLowerCase().includes(searchText.toLowerCase())
     );
-
-    // 업로드 시간
-    const actualUploadTime = '2023-03-28T15:20:00';
-    const duration = dayjs().to(dayjs(actualUploadTime), true);
-    
+    const productsA = products.filter(product => product.category === "A");
 	
     return(
         <div>
@@ -97,14 +95,16 @@ const ProductPage1 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
+                                    {productsA.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
                                         filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                                                {product.soldout === 1 ? <div className="sold_out"></div> : null }
+                                                {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
                                                 <Link className="detail_link" to={`/Detail1/${product.id}`}>
-                                                    <div className="img_product">
-                                                        <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                        <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
+                                                    <div className="product_img_box">
+                                                        <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                                                        <button className="heart_btn">
+                                                            <img src="../images/icons/heart.png" alt="" />
+                                                        </button>
                                                     </div>
                                                     <div className="product_text">
                                                         <ul className="product_text_top">
@@ -116,7 +116,7 @@ const ProductPage1 = () => {
                                                             {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
                                                         </ul>
                                                         <div className="product_text_bottom">
-                                                            <p className="time">{duration} 전</p>
+                                                            <p className="time">{dayjs(product.createdAt).fromNow()}</p>
                                                         </div>
                                                     </div>
                                                 </Link>

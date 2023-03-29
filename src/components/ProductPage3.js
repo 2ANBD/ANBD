@@ -5,13 +5,20 @@ import { API_URL } from "../config/constants";
 import { useNavigate  } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../scss/Style.scss";
-import { HeartOutlined, LeftOutlined, SearchOutlined } from '@ant-design/icons';
+import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
+
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/ko"; // 한국어 가져오기
+
+dayjs.extend(relativeTime);
+dayjs.locale("ko");
 
 const ProductPage3 = () => {
     const [products, setProducts] = useState([]);
@@ -32,12 +39,14 @@ const ProductPage3 = () => {
 
     const navigate = useNavigate();
 
+    // 필터링 검색 기능
     const filteredProducts = products.filter(
         (product) =>
             product.category === "B" &&
             product.name.toLowerCase().includes(searchText.toLowerCase())
     );
-	
+	const productsB = products.filter(product => product.category === "B");
+
     return(
         <div>
             <header id="productSearch">
@@ -85,14 +94,16 @@ const ProductPage3 = () => {
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
                                 >
-                                    {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
+                                    {productsB.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
                                         filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                                                {product.soldout === 1 ? <div className="sold_out"></div> : null }
+                                                {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
                                                 <Link className="detail_link" to={`/Detail2/${product.id}`}>
-                                                    <div className="img_product">
-                                                        <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                                                        <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
+                                                    <div className="product_img_box">
+                                                        <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                                                        <button className="heart_btn" type="button">
+                                                            <img src="../images/icons/heart.png" alt="" />
+                                                        </button>
                                                     </div>
                                                     <div className="product_text">
                                                         <ul className="product_text_top">
@@ -104,7 +115,7 @@ const ProductPage3 = () => {
                                                             {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
                                                         </ul>
                                                         <div className="product_text_bottom">
-                                                            <p className="time">4시간 전</p>
+                                                            <p className="time">{dayjs(product.createdAt).fromNow()}</p>
                                                         </div>
                                                     </div>
                                                 </Link>

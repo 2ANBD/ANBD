@@ -5,7 +5,7 @@ import { API_URL } from "../config/constants";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../scss/Style.scss";
-import { RightOutlined, HeartOutlined } from "@ant-design/icons";
+import { RightOutlined } from "@ant-design/icons";
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -45,6 +45,10 @@ const Section2 = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  // 상품 필터링 
+  const productsB = products.filter(product => product.category === "B");
+  const productsD = products.filter(product => product.category === "D");
+
   return (
     <>
       <motion.section variants={list} initial="hidden" animate="visible" id="section3" className="product">
@@ -62,16 +66,15 @@ const Section2 = () => {
                 </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> :products
-                  .filter((category) => category.category === "B")
+                {productsB.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> :
+                  products.filter((category) => category.category === "B")
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
                           {product.soldout === 1 ? <div className="sold_out"></div> : null }
                           <Link className="detail_link" to={`/Detail2/${product.id}`}>
-                            <div className="img_product">
-                              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                              <span className="heart"><HeartOutlined /></span>
+                            <div className="product_img_box">
+                              <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                             </div>
                             <div className="product_text">
                               <ul className="product_text_top">
@@ -85,6 +88,9 @@ const Section2 = () => {
                               </div>
                             </div>
                           </Link>
+                          <button className="heart_btn" type="button">
+                            <img src="../images/icons/heart.png" alt="" />
+                          </button>
                       </SwiperSlide>
                     );
                   })
@@ -109,16 +115,18 @@ const Section2 = () => {
                 </Link>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
-                {products.length < 2 ? <p className="not_have">등록된 상품이 없습니다.</p> :products
-                  .filter((category) => category.category === "D")
+                {productsD.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : 
+                  products.filter((category) => category.category === "D")
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                          {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
                           <Link className="detail_link" to={`/Detail2/${product.id}`}>
-                            <div className="img_product">
-                              {product.soldout === 1 ? <div className="sold_out"></div> : null }
-                              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-                              <span className="heart"><HeartOutlined /></span>
+                            <div className="product_img_box">
+                              <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+                              <button className="heart_btn" type="button">
+                                  <img src="../images/icons/heart.png" alt="" />
+                              </button>
                             </div>
                             <div className="product_text">
                               <ul className="product_text_top">

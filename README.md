@@ -77,20 +77,52 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 ## 구현 목록
 
 - MainPage
-  - 상품메인페이지
-- MainPage
-  - 상품메인페이지
 
-✔ 전체 게시글을 가져와서 렌더링 <br>
-✔ 무한스크롤: 첫 렌더링 시 게시글 10개로 제한, 스크롤 시 10장씩 추가 렌더링<br>
-✔ Top 버튼: 일정 높이를 스크롤하면 렌더링, 클릭 시 페이지 최상단으로 이동<br>
+  - Banner
+  - section1
+  - section2
+
+- SubPage
+
+  - 구매페이지
+  - 업로드페이지
+  - 로그인페이지
+  - 카테고리페이지
+  - 상품상세페이지
+  - 위치찾기페이지
+
+- SERVER
+
+  - sqlite db (create)
+  - [post] "/products" 상품 DB (read)
+  - [post] "/image" 이미지업로드 (read)
+  - [post] "/purchase/:id" 상품구매 (update)
+
+  - [get] "/products"
+  - [get] "/products/:id"
+
+✔ 업로드 정보 서버 DB저장 후 프론트 페이지 파싱<br>
+✔ 업로드시 카테고리별 메인페이지에 상품 분할 출력 <br>
+✔ 배너 자동 슬라이드<br>
+✔ 카카오, 네이버 로그인API, 카카오오픈채팅API 다음지도 API 가져오기<br>
+✔ 전체보기 검색 필터 구현<br>
 
 ## 구현중 어려웠던 점
 
+- 팀 프로젝트시 시작시 공동 작업화 ->
+  해결) 스타일 가이드 작성 및 SASS작업<br>
+  [스타일가이드][https://docs.google.com/document/d/1c1fspfmk869sq6rewsgcjt_bwontdh4pxxflxpyi3yy/edit]
+
+- NodeJs 웹 서버 파싱 작업
+
+- 지도api javascript코드 react코드로 변경작업.
+
+- 깃허브 공동작업 -> 해결) 각자 branch 만들어서 push 및 에러없으면 main branch에 merge
+
 ## 정보 및 담당
 
-김형섭 – was7894@naver.com / backend(DB, API)<br>
-정선문 – seonmunjeong95@gmail.com / backend(API)<br>
+김형섭 – was7894@naver.com / backend<br>
+정선문 – seonmunjeong95@gmail.com / backend<br>
 김준호 – dydgnscc6845@gmail.com / frontend<br>
 김종건 – pouneun@naver.com / frontend<br>
 
@@ -98,13 +130,13 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 
 [https://github.com/yourname/github-link](https://github.com/dbader/) -->
 
-## 기여 방법
+<!-- ## 기여 방법
 
 1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
 2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
 3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
 4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요.
-5. 풀리퀘스트를 보내주세요.
+5. 풀리퀘스트를 보내주세요. -->
 
 <!-- Markdown link & img dfn's -->
 

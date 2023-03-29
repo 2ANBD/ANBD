@@ -37,6 +37,7 @@ const Detail1 = () => {
         getProduct();
       })
       .catch((error) => {
+        message.info("결재오류.");
         console.log(error);
       });
   };
@@ -52,6 +53,7 @@ const Detail1 = () => {
       <div id="profile_box">
         <span className="product-seller">{product.seller}</span>
       </div>
+      <hr/>
       <div className="content_box">
         <div className="product_brnad">{product.brand}</div>
         <div className="product_name">{product.name}</div>

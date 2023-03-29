@@ -67,8 +67,9 @@ const Section2 = () => {
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                          <Link className="payment_link" to="/PaymentPage">
+                          <Link className="detail_link" to={`/Detail2/${product.id}`}>
                             <div className="img_product">
+                              {product.soldout === 1 ? <div className="sold_out"></div> : null }
                               <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                               <span className="heart"><HeartOutlined /></span>
                             </div>
@@ -113,8 +114,9 @@ const Section2 = () => {
                   .map((product) => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
-                          <Link className="payment_link" to="/payment">
+                          <Link className="detail_link" to={`/Detail2/${product.id}`}>
                             <div className="img_product">
+                              {product.soldout === 1 ? <div className="sold_out"></div> : null }
                               <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                               <span className="heart"><HeartOutlined /></span>
                             </div>

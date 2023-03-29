@@ -1,79 +1,8 @@
-<<<<<<< HEAD
-# 프로젝트명
->> PWA 앱으로 제작한 풀스택 프로젝트입니다.
->> 프론트는 리액트를 사용하여 제작하였으며 NodeJs의 Express를 활용하여 백엔드 까지 구현한 풀스택 프로젝트 입니다
-
-## 배포 URL [리액트앱][https://anbd.vercel.app/]
-## 백엔드 서비스 URL [리액트앱][https://port-0-anbd-db-sever-6g2llfcbue07.sel3.cloudtype.app/products]
-## 백엔드 깃허브 [리액트앱][https://github.com/2ANBD/ANBD_DB_SEVER]
-
-![](https://user-images.githubusercontent.com/105581009/228405204-7e20471d-a4a5-4362-8ddf-d523d85df7ae.png)
-
-## 설치 방법
-
-npm install 
-
-```sh  <!-- 디펜던시 목록 -->
-npm install my-crazy-module --save
-```
-
-## 사용 예제
-
-스크린 샷과 코드 예제를 통해 사용 방법을 자세히 설명합니다.
-
-_더 많은 예제와 사용법은 [표시되는글자 >> 오른칸은 링크주소][http://naver.com]를 참고하세요._
-
-## 개발 환경 설정
-
-모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
-
-```sh
-npm i react-router-dom  
-npm i axios 
-npm i node-sass ^7.0.3   버전 명시까지
-
-```
-
-## 구현 목록
-
-* MainPage
-    * 상품메인페이지
-    * 모든 카테고리의 상품 리스팅
-* UploadPage
-    * 상품업로드페이지
-    * 상품 업로드 기능 구현
-
-
-## 구현 중 어려웠던 점
-
-## 정보
-
-이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
-
-XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## 기여 방법
-
-1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
-2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
-3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
-4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요. 
-5. 풀리퀘스트를 보내주세요.
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
-=======
 # ANBD(아나바다 중고 쇼핑몰) 프로젝트
-
+ 
 > <span style="color:red">PWA<span> 앱으로 제작한 react(프론트엔드) + node.js(웹서버) 프로젝트 중고 쇼핑몰 입니다.<br>
 > 프론트는 리액트를 사용하여 제작, 백엔드는 nodejs의 express를 활용하여 구현한 프로젝트입니다.
+> 개발기간 :2023년 03월 07일 ~ 2023년 03월 29일
 
 ## 배포URL
 
@@ -149,20 +78,53 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 ## 구현 목록
 
 - MainPage
-  - 상품메인페이지
-- MainPage
-  - 상품메인페이지
 
-✔ 전체 게시글을 가져와서 렌더링 <br>
-✔ 무한스크롤: 첫 렌더링 시 게시글 10개로 제한, 스크롤 시 10장씩 추가 렌더링<br>
-✔ Top 버튼: 일정 높이를 스크롤하면 렌더링, 클릭 시 페이지 최상단으로 이동<br>
+  - Banner
+  - section1
+  - section2
+
+- SubPage
+
+  - 구매페이지
+  - 업로드페이지
+  - 로그인페이지
+  - 카테고리페이지
+  - 상품상세페이지
+  - 위치찾기페이지
+
+- SERVER
+
+  - sqlite db (create)
+  - [post] "/products" 상품 DB 
+  - [post] "/image" 이미지업로드 
+  - [post] "/purchase/:id" 상품구매 (update)
+
+  - [get] "/products"
+  - [get] "/products/:id"
+
+✔ 업로드 정보 서버 DB저장 후 프론트 페이지 파싱<br>
+✔ 업로드시 카테고리별 메인페이지에 상품 분할 출력 <br>
+✔ 배너 자동 슬라이드<br>
+✔ 상품구매시 솔드아웃 처리<br>
+✔ 카카오, 네이버 로그인API, 카카오오픈채팅API 다음지도 API 가져오기<br>
+✔ 전체보기 검색 필터 구현<br>
 
 ## 구현중 어려웠던 점
 
+- 팀 프로젝트시 시작시 공동 작업화 ->
+  해결) 스타일 가이드 작성 및 SASS작업<br>
+  [스타일가이드][https://docs.google.com/document/d/1c1fspfmk869sq6rewsgcjt_bwontdh4pxxflxpyi3yy/edit]
+
+- NodeJs 웹 서버 파싱 작업
+
+- 지도api javascript코드 react코드로 변경작업.
+
+- 깃허브 공동작업 -> 해결) 각자 branch 만들어서 push 및 에러없으면 main branch에 merge
+
 ## 정보 및 담당
 
-김형섭 – was7894@naver.com / backend(DB, API)<br>
-정선문 – seonmunjeong95@gmail.com / backend(API)<br>
+김형섭 – was7894@naver.com / backend<br>
+정선문 – seonmunjeong95@gmail.com / backend<br>
 김준호 – dydgnscc6845@gmail.com / frontend<br>
 김종건 – pouneun@naver.com / frontend<br>
 
@@ -170,13 +132,13 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 
 [https://github.com/yourname/github-link](https://github.com/dbader/) -->
 
-## 기여 방법
+<!-- ## 기여 방법
 
 1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
 2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
 3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
 4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요.
-5. 풀리퀘스트를 보내주세요.
+5. 풀리퀘스트를 보내주세요. -->
 
 <!-- Markdown link & img dfn's -->
 
@@ -188,4 +150,3 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [wiki]: https://github.com/yourname/yourproject/wiki
->>>>>>> 15f5a6f85c1d66fadbfabc7bcfd49e7ac34302ab

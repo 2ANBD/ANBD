@@ -24,6 +24,9 @@
                     a { @include fontSizeWeight($font_size_2, 400); }
                 }
                 .swiper_slide_wrap {
+                    .not_have {
+                        text-align: center;
+                    }
                     .swiper_slide {
                         width: 100%;
                         max-width: 215px !important;

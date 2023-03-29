@@ -109,15 +109,13 @@
                 &:first-child { border-top: none; }
 
                 .sold_out {
+                    width: 100%;
+                    height: 100%;
                     position: absolute;
                     top: 0;
                     left: 0;
+                    z-index: 9;
                     background-color: rgba(255,255,255,.4);
-                    pointer-events: 0 none;
-                }
-                .nothing {
-                    width: 100%;
-                    height: 50px;
                 }
 
                 .detail_link {

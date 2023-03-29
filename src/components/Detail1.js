@@ -60,7 +60,7 @@ const Detail1 = () => {
       <div className="product_brand">{product.brand}</div>
 
       <span className="product_size">{product.size}</span>
-      <p className="product_createAt"><span>등록일&nbsp;&nbsp;</span>{product.createAt}</p>
+      <p className="product_createAt"><span>등록일&nbsp;&nbsp;</span>{product.createdAt}</p>
       <div className="product_price"><span>판매가 &nbsp;&nbsp;</span>{product.price}</div>
       <hr/>
       <div className="product_description_box">

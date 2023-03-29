@@ -110,7 +110,6 @@ const UploadPage = () => {
           />
         </Form.Item>
         <Divider></Divider>
-
         {/* 상품명*/}
         <Form.Item label={<span className="upload_label">상품명</span>} name="name" rules={[{ required: true, message: "상품명은 필수 입력 사항입니다." }]}>
           <Input className="upload_name" placeholder="상품명을 입력해주세요" size="large" />

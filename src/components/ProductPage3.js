@@ -88,9 +88,9 @@ const ProductPage3 = () => {
                                     {filteredProducts.length > 0 ? (
                                         filteredProducts.map((product) => (
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
+                                                {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                 <Link className="detail_link" to={`/Detail2/${product.id}`}>
                                                     <div className="img_product">
-                                                        {product.soldout === 1 ? <div className="sold_out"></div> : null }
                                                         <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
                                                         <button className="heart_btn" type="button"><HeartOutlined className="heart"/></button>
                                                     </div>

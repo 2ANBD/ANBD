@@ -30,3 +30,8 @@ $text: #333333;
 
 // inner padding
 $inner_padding: 0 15px;
+
+@mixin fontSizeWeight($fontSize, $fontWeight){
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+}

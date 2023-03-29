@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Divider, Upload, message, Input, InputNumber, Button, Select } from "antd";
+import { CameraOutlined  } from '@ant-design/icons';
 import "../scss/Style.scss";
 import axios from "axios";
 import { API_URL } from "../config/constants";
@@ -57,17 +58,19 @@ const UploadPage2 = () => {
   };
   return (
     <div id="upload-container">
-      <h1>무료나눔 업로드 페이지</h1>
+      <div id="container">
+      <div className="inner">
+      <h1 className="upload_h1">무료나눔 업로드 페이지</h1>
       <Form name="uploadForm" onFinish={onFinish}>
         {/* 이미지업로드 */}
-        <Form.Item name="upload" valuePropName="image">
+        <Form.Item name="upload" valuePropName="image" className="upload_image">
           <Upload name="image" action={`${API_URL}/image`} listType="picture" showUploadList={false} onChange={onChangeImage}>
             {imageUrl ? (
               <img id="upload-img" src={`${API_URL}/${imageUrl}`} alt="" />
             ) : (
               <div id="upload-img-placeholder">
-                <img src="/images/icons/camera.png" alt="" />
-                <span>이미지를 업로드 해주세요</span>
+                <CameraOutlined className="upload-img"/>
+                <p>Upload</p>
               </div>
             )}
           </Upload>
@@ -133,6 +136,8 @@ const UploadPage2 = () => {
           </Button>
         </Form.Item>
       </Form>
+    </div>
+    </div>
     </div>
   );
 };

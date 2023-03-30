@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function LoginPage() {
   const REST_API_KEY = "dbdb989ca8e076423375424f2e440654";
-  const REDIRECT_URI = "http://localhost:3000";
+  const REDIRECT_URI = "https://anbd.vercel.app";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const NAVER_AUTH_URL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Le9ywWBU613n5i0TBz2U&redirect_uri=http://localhost:3000&response_type=code";
   const list = {

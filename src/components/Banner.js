@@ -44,10 +44,10 @@ const Banner0 = () => {
                                 className="swiper_banner_slide_wrap"
                             >    
                                 <SwiperSlide id="bannerCard1" className="swiper_banner_slide">
-                                    <div className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_2.png')"}}></div>
+                                    <motion.div  variants={item} className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_2.png')"}}></motion.div>
                                 </SwiperSlide>
                                 <SwiperSlide id="bannerCard1" className="swiper_banner_slide">
-                                    <div className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_3.png')"}}></div>
+                                    <div  className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_3.png')"}}></div>
                                 </SwiperSlide>
                                 <SwiperSlide id="bannerCard1" className="swiper_banner_slide">
                                     <div className="img_banner" style={{backgroundImage: "url('../images/banner/Banner_img_4.png')"}}></div>

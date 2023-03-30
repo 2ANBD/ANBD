@@ -67,10 +67,12 @@ const Section2 = () => {
                 <span>바</span>꿔서 사용해보세요
               </motion.h2>
               <p>
+              <motion.div variants={item}>
                 <Link className="product_link" to={"/products3"}>
                   전체보기
                   <RightOutlined />
                 </Link>
+                </motion.div>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
                 {productsB.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> :
@@ -79,6 +81,7 @@ const Section2 = () => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
                           {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
+                          <motion.div variants={item}>
                           <Link className="detail_link" to={`/Detail2/${product.id}`}>
                             <div className="product_img_box">
                               <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
@@ -98,6 +101,7 @@ const Section2 = () => {
                               </div>
                             </div>
                           </Link>
+                          </motion.div>
                       </SwiperSlide>
                     );
                   })
@@ -116,10 +120,12 @@ const Section2 = () => {
                 <span>다</span>시 사용해보세요
               </motion.h2>
               <p>
+              <motion.div variants={item}>
                 <Link className="product_link" to={"/products4"}>
                   전체보기
                   <RightOutlined />
                 </Link>
+                </motion.div>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
                 {productsD.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : 
@@ -128,6 +134,7 @@ const Section2 = () => {
                     return(
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
                           {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
+                          <motion.div variants={item}>
                           <Link className="detail_link" to={`/Detail2/${product.id}`}>
                             <div className="product_img_box">
                               <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
@@ -147,6 +154,7 @@ const Section2 = () => {
                               </div>
                             </div>
                           </Link>
+                          </motion.div>
                       </SwiperSlide>
                     );
                   })

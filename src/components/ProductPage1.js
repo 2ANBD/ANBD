@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; 
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../config/constants";
@@ -47,14 +48,29 @@ const ProductPage1 = () => {
             product.name.toLowerCase().includes(searchText.toLowerCase())
     );
     const productsA = products.filter(product => product.category === "A");
-	
+    const list = {
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+          transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.2,
+          },
+        },
+      };
+      const item = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+      };
     return(
         <div>
             <header id="productSearch">
                 <h2 className="ir_so">제품페이지</h2>
                 <div id="container">
-                    <div className="inner">                    
-                        <div className="header">
+                    <motion.div variants={list} initial="hidden" animate="visible" className="inner">                    
+                        <motion.div  variants={item} className="header">
                             <button
                                 onClick={() => {
                                     navigate(-1);
@@ -70,35 +86,37 @@ const ProductPage1 = () => {
                                     <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
-                        </div>
+                        </motion.div>
                         <nav className="nav">
-                            <ul className="product_category">
+                            <motion.ul  variants={item} className="product_category">
                                 <li className="categories active"><Link to="/products1">아껴사용</Link></li>
                                 <li className="categories"><Link to="/products2">무료나눔</Link></li>
                                 <li className="categories"><Link to="/products3">바꾸기</Link></li>
                                 <li className="categories"><Link to="/products4">다시쓰기</Link></li>
-                            </ul>
+                            </motion.ul>
                         </nav>
-                    </div>
+                    </motion.div>
                 </div>
             </header>
             <main>
                 <section id="productItem">
-                    <h2 className="ir_so">아껴사용</h2>
+                    <motion.h2  variants={item} className="ir_so">아껴사용</motion.h2>
                     <div id="container">
                         <div className="inner">
-                            <div className="product_container">
+                            <motion.div  variants={item} className="product_container">
                                 <Swiper
                                     slidesPerView={5}
                                     direction={"vertical"}
                                     freeMode={true}
                                     modules={[FreeMode]}
                                     className="swiper_slide_wrap"
-                                >
+                                >   
                                     {productsA.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 
                                         filteredProducts.map((product) => (
+                                            
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
                                                 {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
+                                                <motion.div variants={item}>
                                                 <Link className="detail_link" to={`/Detail1/${product.id}`}>
                                                     <div className="product_img_box">
                                                         <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
@@ -120,11 +138,12 @@ const ProductPage1 = () => {
                                                         </div>
                                                     </div>
                                                 </Link>
+                                                </motion.div>
                                             </SwiperSlide>
                                         )) : <p className="not_have">검색하신 상품이 없습니다.</p>
                                     }
                                 </Swiper> 
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </section>

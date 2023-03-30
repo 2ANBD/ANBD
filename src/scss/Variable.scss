@@ -21,19 +21,42 @@ $font_size_5: 20px;
 $font_size_6: 22px;
 $font_size_7: 24px;
 
-@mixin fontSizeWeight($fontSize, $fontWeight){
+@mixin fontSizeWeight($fontSize, $fontWeight) {
   font-size: $fontSize;
   font-weight: $fontWeight;
 }
 
 // color
-$primary: #74BF04;
-$secondary: #558C03;
-$accent: #93F205;
-$background: #FFFFFF;
+$primary: #74bf04;
+$secondary: #558c03;
+$accent: #93f205;
+$background: #ffffff;
 $text: #333333;
 
 // inner padding
 $inner_padding: 0 15px;
 
+//button bradient keyframe
+@mixin btn_keyframe {
+  .category_btn_ani {
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
 
+//중앙정렬.
+@mixin position_center {
+  left: 50%;
+  transform: translateX(-50%);
+}

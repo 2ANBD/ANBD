@@ -8,26 +8,28 @@ const Category = () => {
 
   return (
     <>
-    <div id="container">
-      <div className="inner">                    
-        <div className="content_box">
-      <h1>업로드할 카테고리를 선택하세요</h1>
-      <button  class="category_btn"
-        onClick={() => {
-          navigate("/UploadPage");
-        }}
-      >
-        미개봉상품 or A급상품 <br/><br/> 무료나눔
-      </button>
-      <button class="category_btn"
-        onClick={() => {
-          navigate("/UploadPage2");
-        }}
-      >
-        사용감 있는 중고상품<br/><br/> 물물교환 
-      </button>
-      </div>
-      </div>
+      <div id="container">
+        <div className="inner">
+          <div className="content_box">
+            <h1>업로드할 카테고리를 선택하세요</h1>
+            <button
+              class="btn category_btn category_btn_ani"
+              onClick={() => {
+                navigate("/UploadPage");
+              }}
+            >
+              # 미개봉상품 <br /> # 무료나눔<br></br>
+            </button>
+            <button
+              class="btn category_btn category_btn_ani"
+              onClick={() => {
+                navigate("/UploadPage2");
+              }}
+            >
+              # 중고상품 <br /> # 물물교환
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

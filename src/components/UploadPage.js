@@ -147,9 +147,13 @@ const UploadPage = () => {
             <Form.Item>
               {/* button과 use연결 */}
               {contextHolder}
-              <Button id="submit-button" htmlType="submit" onClick={info}>
+              {/*  <Button id="submit-button" htmlType="submit" onClick={info}>
                 상품등록하기
-              </Button>
+              </Button> */}
+
+              <button class="btn category_btn category_btn_ani" htmlType="submit" onClick={info}>
+                상품등록하기
+              </button>
             </Form.Item>
           </Form>
         </div>

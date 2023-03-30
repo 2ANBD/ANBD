@@ -88,7 +88,7 @@ const Section2 = () => {
                             </div>
                             <div className="product_text">
                               <ul className="product_text_top">
-                                <li className="brand"><span>{product.brand}</span></li>
+                                {product.brand === null ? null : <li className="brand"><span>{product.brand}</span></li>}
                                 <li className="name">{product.name}</li>
                                 {product.price === null ? null : <li className="price">{product.price}원</li>}
                               </ul>

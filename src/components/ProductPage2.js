@@ -112,7 +112,7 @@ const ProductPage2 = () => {
                                                             {product.price === null ? null : <li className="price">{product.price}원</li>}
                                                         </ul>
                                                         <ul className="product_text_center">
-                                                            <li className="brand"><span>{product.brand}</span></li>
+                                                            {product.brand === null ? null : <li className="brand"><span>{product.brand}</span></li>}
                                                             {product.size === null ? null : <li className="size"><span>{product.size}</span></li>}
                                                         </ul>
                                                         <div className="product_text_bottom">

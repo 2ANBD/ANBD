@@ -1,19 +1,21 @@
 @charset "utf-8";
 @import "./Variable";
 
-#upload-container {
-  #container {
-    .inner {
-      .upload_h1 {
-        text-align: center;
-        font-size: $font_size_7;
-        font-weight: 500;
-        color: $text;
-        margin-bottom: 15px;
-      }
+// #upload-container {
+#container {
+  .inner {
+    .upload_h1 {
+      display: flex;
+      border-bottom: 3px solid $primary;
+      // font-size: $font_size_7;
+      font-weight: 500;
+      padding: 38px 9px 5px;
+      justify-content: space-between;
+      align-items: flex-end;
     }
   }
 }
+// }
 #upload-img-placeholder {
   margin: auto 0px;
   width: 200px;
@@ -72,4 +74,44 @@
 .upload_image {
   display: flex;
   justify-content: center;
+}
+.ant-form-item {
+  margin-top: 30px;
+}
+.ant-form-item .ant-form-item-label {
+  text-align: start;
+  > label {
+    font-weight: bold;
+    font-size: 16px;
+    &::after {
+      content: "";
+    }
+  }
+}
+
+.ant-select-single .ant-select-selector {
+  font-size: 16px;
+}
+.ant-row {
+  flex-direction: column;
+}
+.ant-col {
+  min-height: 40px;
+}
+@keyframes blink_effect {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.img_upload {
+  animation: blink_effect 2s infinite cubic-bezier(0.4, 0, 1, 1);
 }

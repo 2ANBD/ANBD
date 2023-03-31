@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import relativeTime from "dayjs/plugin/relativeTime";
 import { API_URL } from "../config/constants";
-import { Button, message } from "antd";
+import { Button, message, Spin } from "antd";
+import dayjs from "dayjs";
 
 const Detail2 = () => {
   const navigate = useNavigate();
@@ -27,7 +28,13 @@ const Detail2 = () => {
   }, []);
 
   if (product == null) {
-    return <h1>상품정보를 받고 있습니다...</h1>;
+    return (
+      <div style={{ height: "150px", paddingTop: "80px" }}>
+        <Spin tip="상품정보를 받아오는 중입니다...." size="large">
+          <div className="content" />
+        </Spin>
+      </div>
+    );
   }
 
   const onClickPurchase = () => {
@@ -45,37 +52,48 @@ const Detail2 = () => {
 
   return (
     <div>
-<div id="container">
+      <div id="container">
         <div className="inner">
-      <div className="image_box">
-        <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-      </div>
+          {/* 이미지 */}
+          <div className="image_box">
+            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
+          </div>
 
-      <div id="content_box_detail">
-        <div className="product_name">{product.name}</div>
+          <div id="content_box_detail">
+            {/* 상품명 */}
+            <div className="product_name">{product.name}</div>
+            {/* 가격 */}
+            <div className="product_price">
+              <div>&#8361; {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              {/* 브랜드 */}
+              <span className="product_brand">{product.brand}</span>
+              {/* 사이즈 */}
+              <span className="product_size">size {product.size}</span>
+            </div>
 
-        <div className="product_seller"><span>판매자 &nbsp;&nbsp;</span><span>{product.seller}</span></div>
+            <hr />
+            {/* 상세설명 */}
+            {/* 판매자 */}
+            <div className="product_description_box">
+              <h3>
+                판매자 <span style={{ color: "#558c03", fontWeight: "bold" }}>{product.seller}</span>의 말
+              </h3>
+              <p className="product_description">{product.description}</p>
+            </div>
 
-        <hr/>
-
-        <div className="product_brand">{product.brand}</div>
-
-        <span className="product_size">{product.size}</span>
-        <p className="product_createAt"><span>등록일 &nbsp;&nbsp;</span>{product.createAt}</p>
-        <div className="product_price"><span>판매가 &nbsp;&nbsp;</span> {product.price}</div>
-        <hr/>
-        <div className="product_description_box">
-        <p>상세설명</p>
-        <br/>
-        <p id="product_description">{product.description}</p>
+            {/* 등록일 */}
+            <p className="product_createAt">
+              <span>등록일 :&nbsp;</span>
+              {dayjs(product.createdAt).format("YYYY.MM.DD HH:mm")}
+            </p>
+            {/* 구매버튼 */}
+            <button siz="large" type="primary" danger={true} className="btn category_btn category_btn_ani" onClick={onClickPurchase} disabled={product.soldout === 1}>
+              즉시결제하기
+            </button>
+          </div>
         </div>
-        <hr/>
-        <Button siz="large" type="primary" danger={true} className="product_payment" onClick={onClickPurchase} disabled={product.soldout === 1}>
-          즉시결제하기
-        </Button>
-        {/* pre태그 미리 정의된 형식(preformatted)의 텍스트를 정의할 때 사용 */}
-      </div>
-      </div>
       </div>
     </div>
   );

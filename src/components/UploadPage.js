@@ -159,7 +159,7 @@ const UploadPage = () => {
                 상품등록하기
               </Button> */}
 
-            <button class="btn category_btn category_btn_ani" htmlType="submit" onClick={info}>
+            <button className="btn category_btn category_btn_ani" htmlType="submit" onClick={info}>
               상품등록하기
             </button>
           </Form.Item>

@@ -44,12 +44,12 @@
 }
 
 .btn {
-  position: relative;
+  // position: relative;
   @include position_center;
   display: inline-block;
   margin-bottom: 30px;
   padding: 15px 30px;
-  width: 350px;
+  width: 100%;
   height: 80px;
   border: none;
   border-radius: 15px;

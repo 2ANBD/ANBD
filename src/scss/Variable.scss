@@ -57,6 +57,9 @@ $inner_padding: 0 15px;
 
 //중앙정렬.
 @mixin position_center {
-  left: 50%;
+  margin-left: 50%;
   transform: translateX(-50%);
+  // margin: 0 calc((100vw - 450px) / 2);
+  /* left: 50%;
+  transform: translateX(-50%); */
 }

@@ -31,7 +31,7 @@
       }
 
       .category_btn {
-        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        background: linear-gradient(45deg, /* #3cb394, #47bd83, #53c774, #60d267, #80dc6e, #a6e67d, #cbf18d, */ $primary, $secondary, $accent /* #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000 */);
         color: white;
 
         &:hover {

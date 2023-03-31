@@ -47,7 +47,7 @@
   position: relative;
   @include position_center;
   display: inline-block;
-  margin: 30px 10px;
+  margin-bottom: 30px;
   padding: 15px 30px;
   width: 350px;
   height: 80px;
@@ -60,7 +60,7 @@
   transition: 0.5s;
 }
 .category_btn {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, $primary, $secondary, $accent /* #ee7752, #e73c7e, #23a6d5, #23d5ab */);
   color: white;
 
   &:hover {
@@ -70,7 +70,6 @@
 @include btn_keyframe;
 
 .upload_image {
-  // margin-left:30%;
   display: flex;
   justify-content: center;
 }

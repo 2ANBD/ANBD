@@ -67,18 +67,22 @@ const Section1 = () => {
                 <span>아</span>껴쓴 물건을 팔아보세요
               </motion.h2>
               <p>
+                <motion.div variants={item}>
                 <Link className="product_link" to={"/products1"}>
                   전체보기
                   <RightOutlined />
                 </Link>
+                </motion.div>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
                 {productsA.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> :
                   products.filter((category) => category.category === "A")
                   .map((product) => {
                     return(
+                      
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
                           {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
+                          <motion.div variants={item}>
                           <Link className="detail_link" to={`/Detail1/${product.id}`}>
                             <div className="product_img_box">
                               <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
@@ -98,6 +102,7 @@ const Section1 = () => {
                               </div>
                             </div>
                           </Link>
+                          </motion.div>
                       </SwiperSlide>
                     );
                   })
@@ -116,18 +121,22 @@ const Section1 = () => {
                 <span>나</span>눔을 해보세요
               </motion.h2>
               <p>
+              <motion.div variants={item}>
                 <Link className="product_link" to={"/products2"}>
                   전체보기
                   <RightOutlined />
                 </Link>
+                </motion.div>
               </p>
               <Swiper slidesPerView={2} spaceBetween={20} freeMode={true} modules={[FreeMode]} className="swiper_slide_wrap">
                 {productsN.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : 
                   products.filter((category) => category.category === "N")
                   .map((product) => {
                     return(
+                      
                       <SwiperSlide className="product_card swiper_slide" key={product.id}>
                           {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
+                          <motion.div variants={item}>
                           <Link className="detail_link" to={`/Detail1/${product.id}`}>
                             <div className="product_img_box">
                               <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
@@ -147,6 +156,7 @@ const Section1 = () => {
                               </div>
                             </div>
                           </Link>
+                          </motion.div>
                       </SwiperSlide>
                     );
                   })

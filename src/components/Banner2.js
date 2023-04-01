@@ -31,7 +31,7 @@ const Banner2 = () => {
         <div className="inner">
           <div className="banner_container">
             <Swiper
-            loop={true}
+              loop={true}
               centeredSlides={true}
               autoplay={{
                 delay: 2500,
@@ -44,10 +44,10 @@ const Banner2 = () => {
               className="swiper_banner_slide_wrap"
             >
               <SwiperSlide id="bannerCard1" className="swiper_banner2_slide">
-                <div className="img_banner" style={{ backgroundImage: "url('../images/banner/Banner_img_6.png')" }}></div>
+                <div className="img_banner" style={{ backgroundImage: "url('../images/banner/img_bban1.svg')" }}></div>
               </SwiperSlide>
               <SwiperSlide id="bannerCard1" className="swiper_banner2_slide">
-                <div className="img_banner" style={{ backgroundImage: "url('../images/banner/Banner_img_5.png')" }}></div>
+                <div className="img_banner" style={{ backgroundImage: "url('../images/banner/img_bban2.svg')" }}></div>
               </SwiperSlide>
             </Swiper>
           </div>

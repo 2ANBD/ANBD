@@ -119,9 +119,9 @@ const UploadPage2 = () => {
           <Divider></Divider>
 
           {/* 상품가격 */}
-          <Form.Item label={<span className="upload_price">판매가</span>} name="price">
+          <Form.Item label={<span className="upload_price">판매가</span>} name="price" rules={[{ required: true, message: "상품가격은 필수 입력 사항입니다." }]}>
             {/* err initioalvalue=0 */}
-            <InputNumber className="upload_price" size="large" min={0} defaultValue={0} />
+            <InputNumber className="upload_price" size="large" min={0} placeholder="0" /* defaultValue={1000} */ />
           </Form.Item>
           <Divider></Divider>
 

@@ -41,11 +41,12 @@ const Detail1 = () => {
     axios
       .post(`${API_URL}/purchase/${id}`)
       .then((result) => {
-        message.info("결재가 완료 되었습니다.");
+        navigate(`/`, { replace: true });
+        message.info("결제가 완료 되었습니다.");
         getProduct();
       })
       .catch((error) => {
-        message.info("결재오류.");
+        message.info("결제오류.");
         console.log(error);
       });
   };

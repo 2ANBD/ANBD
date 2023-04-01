@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import { Form, Divider, Upload, message, Input, InputNumber, Button, Select } from "antd";
 import { CameraOutlined } from "@ant-design/icons";
 import "../scss/Style.scss";
-import { motion } from "framer-motion";
 
 import axios from "axios";
 import { API_URL } from "../config/constants";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const UploadPage = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
+
   const info = () => {
     messageApi.open({
       type: "error",
       content: "상품을 등록할 수 없습니다.",
     });
   };
+
   const { TextArea } = Input;
   const onChange = (value) => {
     console.log(`selected ${value}`);
@@ -25,6 +26,7 @@ const UploadPage = () => {
   const onSearch = (value) => {
     console.log("search:", value);
   };
+  // const { id } = useParams();
   const onFinish = (val) => {
     console.log(val);
 
@@ -40,8 +42,9 @@ const UploadPage = () => {
         seller: val.seller,
       })
       .then((result) => {
-        // console.log(result);
-        navigate("/", { replace: true });
+        navigate(`/`, { replace: true });
+        /* 업로드시 루트 */
+        // navigate(`/Detail1/${val.id}`, { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -58,22 +61,6 @@ const UploadPage = () => {
       setImageUrl(imageUrl);
     }
   };
-  /* const list = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.5,
-      },
-    },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  }; */
 
   return (
     // <div id="upload-container">
@@ -136,9 +123,9 @@ const UploadPage = () => {
           <Divider></Divider>
 
           {/* 상품가격 */}
-          <Form.Item label={<span className="upload_price">판매가</span>} name="price">
+          <Form.Item label={<span className="upload_price">판매가</span>} name="price" rules={[{ required: true, message: "상품가격은 필수 입력 사항입니다." }]}>
             {/* err initioalvalue=0 */}
-            <InputNumber className="upload_price" size="large" min={0} defaultValue={0} />
+            <InputNumber className="upload_price" size="large" min={0} placeholder="0" /* defaultValue={1000} */ />
           </Form.Item>
           <Divider></Divider>
 
@@ -155,9 +142,6 @@ const UploadPage = () => {
           <Form.Item>
             {/* button과 use연결 */}
             {contextHolder}
-            {/*  <Button id="submit-button" htmlType="submit" onClick={info}>
-                상품등록하기
-              </Button> */}
 
             <button className="btn category_btn category_btn_ani" htmlType="submit" onClick={info}>
               상품등록하기
@@ -166,7 +150,6 @@ const UploadPage = () => {
         </Form>
       </div>
     </div>
-    // </div>
   );
 };
 export default UploadPage;

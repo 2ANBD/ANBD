@@ -2,6 +2,7 @@ import { LikeOutlined ,SmileOutlined , SyncOutlined ,SkinOutlined } from '@ant-d
 import { Menu } from 'antd';
 import { useState } from 'react';
 import { motion } from "framer-motion";
+import "../scss/Style.scss";
 
 function getItem(label, key, icon, children, type) {
  
@@ -84,7 +85,7 @@ const App = () => {
       <motion.div  variants={item}className='title'>
         카테고리
         </motion.div>
-      <motion.div  variants={item}>
+      <motion.div className="menus" variants={item}>
         <span className='ant-menu-title-content'></span>
     <Menu
       mode="inline"

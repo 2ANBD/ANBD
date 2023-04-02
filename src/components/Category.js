@@ -2,7 +2,6 @@ import "../scss/Style.scss";
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Button, Space } from "antd";
 
 const Category = () => {
   const navigate = useNavigate();
@@ -25,10 +24,11 @@ const Category = () => {
   return (
     <>
       <div id="container">
-        <motion.div  variants={list} initial="hidden" animate="visible"className="inner">
-          <motion.div  variants={item} className="content_box">
+        <motion.div variants={list} initial="hidden" animate="visible" className="inner">
+          <motion.div variants={item} className="content_box">
             <h1>업로드할 카테고리를 선택하세요</h1>
-            <motion.button  variants={item}
+            <motion.button
+              variants={item}
               class="btn category_btn category_btn_ani"
               onClick={() => {
                 navigate("/UploadPage");
@@ -36,7 +36,8 @@ const Category = () => {
             >
               # 미개봉상품 <br /> # 무료나눔<br></br>
             </motion.button>
-            <motion.button  variants={item}
+            <motion.button
+              variants={item}
               class="btn category_btn category_btn_ani"
               onClick={() => {
                 navigate("/UploadPage2");

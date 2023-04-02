@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Divider, Upload, message, Input, InputNumber, Button, Select } from "antd";
+import { Form, Divider, Upload, message, Input, InputNumber, Select } from "antd";
 import { CameraOutlined } from "@ant-design/icons";
 import "../scss/Style.scss";
 import axios from "axios";

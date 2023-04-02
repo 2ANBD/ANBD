@@ -81,11 +81,13 @@ function BottomNav() {
                   </Link>
                   </div>
                   <div className="btn_nav">
-                  <Button onClick={showDrawer} >
+                  <Link className="menu-link" to={`/MenuPage`}>
+                  <Button >
                   <MenuOutlined/>
                     <br />
                     더보기
                   </Button>
+                  </Link>
                   <Drawer title="더보기" placement="bottom" onClose={onClose} open={open}>
                     <Collapse defaultActiveKey={["1"]} onChange={onChange}>
                       <Panel header="상품카테고리" key="1">

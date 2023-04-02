@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Form, Divider, Upload, message, Input, InputNumber, Button, Select } from "antd";
+import { Form, Divider, Upload, message, Input, InputNumber, Select } from "antd";
 import { CameraOutlined } from "@ant-design/icons";
 import "../scss/Style.scss";
 
 import axios from "axios";
 import { API_URL } from "../config/constants";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UploadPage = () => {
   const [imageUrl, setImageUrl] = useState(null);

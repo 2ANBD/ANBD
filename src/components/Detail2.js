@@ -70,47 +70,47 @@ const Detail2 = () => {
   return (
     <div>
       <div id="container">
-        <motion.div  variants={list} initial="hidden" animate="visible"  className="inner">
+        <motion.div variants={list} initial="hidden" animate="visible" className="inner">
           {/* 이미지 */}
           <motion.div variants={item}>
-          <div className="image_box">
-            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-          </div>
-
-          <div id="content_box_detail">
-            {/* 상품명 */}
-            <div className="product_name">{product.name}</div>
-            {/* 가격 */}
-            <div className="product_price">
-              <div>&#8361; {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-            </div>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-              {/* 브랜드 */}
-              <span className="product_brand">{product.brand}</span>
-              {/* 사이즈 */}
-              <span className="product_size">size {product.size}</span>
+            <div className="image_box">
+              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
             </div>
 
-            <hr />
-            {/* 상세설명 */}
-            {/* 판매자 */}
-            <div className="product_description_box">
-              <h3>
-                판매자 <span style={{ color: "#558c03", fontWeight: "bold" }}>{product.seller}</span>의 말
-              </h3>
-              <p className="product_description">{product.description}</p>
-            </div>
+            <div id="content_box_detail">
+              {/* 상품명 */}
+              <div className="product_name">{product.name}</div>
+              {/* 가격 */}
+              <div className="product_price">
+                <div>&#8361; {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                {/* 브랜드 */}
+                <span className="product_brand">{product.brand}</span>
+                {/* 사이즈 */}
+                <span className="product_size">size {product.size}</span>
+              </div>
 
-            {/* 등록일 */}
-            <p className="product_createAt">
-              <span>등록일 :&nbsp;</span>
-              {dayjs(product.createdAt).format("YYYY.MM.DD HH:mm")}
-            </p>
-            {/* 구매버튼 */}
-            <button siz="large" type="primary" danger={true} className="btn category_btn category_btn_ani" onClick={onClickPurchase} disabled={product.soldout === 1}>
-              즉시결제하기
-            </button>
-          </div>
+              <hr />
+              {/* 상세설명 */}
+              {/* 판매자 */}
+              <div className="product_description_box">
+                <h3>
+                  판매자 <span style={{ color: "#558c03", fontWeight: "bold" }}>{product.seller}</span>의 말
+                </h3>
+                <p className="product_description">{product.description}</p>
+              </div>
+
+              {/* 등록일 */}
+              <p className="product_createAt">
+                <span>등록일 :&nbsp;</span>
+                {dayjs(product.createdAt).format("YYYY.MM.DD HH:mm")}
+              </p>
+              {/* 구매버튼 */}
+              <button siz="large" type="primary" danger={true} className="btn category_btn category_btn_ani" onClick={onClickPurchase} disabled={product.soldout === 1}>
+                즉시결제하기
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       </div>

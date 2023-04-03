@@ -45,8 +45,8 @@ function BottomNav() {
   return (
     <nav className="nav_bottom">
       <div id="container">
-          <div className="inner">
-            <div className="nav_btns">
+          <motion.div  variants={list} initial="hidden" animate="visible" className="inner">
+            <motion.div variants={item} className="nav_btns">
               <div className="btn_nav">
                 <Link to={`/`}>
                   <Button>
@@ -132,8 +132,8 @@ function BottomNav() {
                     </Collapse>
                   </Drawer>
                   </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
     </nav>
   );

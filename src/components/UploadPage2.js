@@ -5,7 +5,7 @@ import "../scss/Style.scss";
 import axios from "axios";
 import { API_URL } from "../config/constants";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const UploadPage2 = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [messageApi, contextHolder] = message.useMessage();
@@ -59,9 +59,26 @@ const UploadPage2 = () => {
       setImageUrl(imageUrl);
     }
   };
+  const list = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.5,
+      },
+    },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <div id="container">
-      <div className="inner">
+      <motion.div variants={list} initial="hidden" animate="visible"  className="inner">
+        <motion.div variants={item}>
         <div className="upload_h1">
           <div style={{ fontSize: "18px" }}>상품등록</div>
           <div style={{ fontSize: "12px" }}>
@@ -146,7 +163,8 @@ const UploadPage2 = () => {
             </button>
           </Form.Item>
         </Form>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Divider, Upload, message, Input, InputNumber, Select } from "antd";
 import { CameraOutlined } from "@ant-design/icons";
 import "../scss/Style.scss";
-
+import { motion } from "framer-motion";
 import axios from "axios";
 import { API_URL } from "../config/constants";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ const UploadPage = () => {
   const navigate = useNavigate();
 
   const info = () => {
+    
     messageApi.open({
       type: "error",
       content: "상품을 등록할 수 없습니다.",
@@ -61,11 +62,27 @@ const UploadPage = () => {
       setImageUrl(imageUrl);
     }
   };
-
+  const list = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.5,
+      },
+    },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     // <div id="upload-container">
     <div id="container">
-      <div className="inner">
+      <motion.div variants={list} initial="hidden" animate="visible"  className="inner">
+        <motion.div variants={item}>
         <div className="upload_h1">
           <div style={{ fontSize: "18px" }}>상품등록</div>
           <div style={{ fontSize: "12px" }}>
@@ -148,7 +165,8 @@ const UploadPage = () => {
             </button>
           </Form.Item>
         </Form>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

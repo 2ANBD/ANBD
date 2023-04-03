@@ -5,6 +5,7 @@ import { API_URL } from "../config/constants";
 import { useNavigate  } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../scss/Style.scss";
+import { motion } from "framer-motion";
 import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
 
 // import Swiper React components
@@ -47,9 +48,25 @@ const ProductPage2 = () => {
             product.name.toLowerCase().includes(searchText.toLowerCase())
     );
     const productsN = products.filter(product => product.category === "N");
-	
+	const list = {
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+          transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.5,
+          },
+        },
+      };
+      const item = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+      };
     return(
-        <div>
+        <motion.div variants={list} initial="hidden" animate="visible">
+        <motion.div variants={item}>
             <header id="productSearch">
                 <h2 className="ir_so">제품페이지</h2>
                 <div id="container">
@@ -129,7 +146,8 @@ const ProductPage2 = () => {
                     </div>
                 </section>
             </main>
-		</div>
+            </motion.div>
+		</motion.div>
     )
 }
 

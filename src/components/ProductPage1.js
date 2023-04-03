@@ -65,12 +65,13 @@ const ProductPage1 = () => {
         visible: { opacity: 1, y: 0 },
       };
     return(
-        <div>
+        <motion.div variants={list} initial="hidden" animate="visible">
+            <motion.div variants={item}>
             <header id="productSearch">
                 <h2 className="ir_so">제품페이지</h2>
                 <div id="container">
-                    <motion.div variants={list} initial="hidden" animate="visible" className="inner">                    
-                        <motion.div  variants={item} className="header">
+                    <div className="inner">                    
+                        <div  className="header">
                             <button
                                 onClick={() => {
                                     navigate(-1);
@@ -86,24 +87,24 @@ const ProductPage1 = () => {
                                     <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
-                        </motion.div>
+                        </div>
                         <nav className="nav">
-                            <motion.ul  variants={item} className="product_category">
+                            <ul  variants={item} className="product_category">
                                 <li className="categories active"><Link to="/products1">아껴사용</Link></li>
                                 <li className="categories"><Link to="/products2">무료나눔</Link></li>
                                 <li className="categories"><Link to="/products3">바꾸기</Link></li>
                                 <li className="categories"><Link to="/products4">다시쓰기</Link></li>
-                            </motion.ul>
+                            </ul>
                         </nav>
-                    </motion.div>
+                    </div>
                 </div>
             </header>
             <main>
                 <section id="productItem">
-                    <motion.h2  variants={item} className="ir_so">아껴사용</motion.h2>
+                    <h2  variants={item} className="ir_so">아껴사용</h2>
                     <div id="container">
                         <div className="inner">
-                            <motion.div  variants={item} className="product_container">
+                            <div  variants={item} className="product_container">
                                 <Swiper
                                     slidesPerView={5}
                                     direction={"vertical"}
@@ -116,7 +117,7 @@ const ProductPage1 = () => {
                                             
                                             <SwiperSlide className="product_card swiper_slide" key={product.id}>
                                                 {product.soldout === 1 ? <div className="sold_out"><h2>품절</h2></div> : null }
-                                                <motion.div variants={item}>
+                                                
                                                 <Link className="detail_link" to={`/Detail1/${product.id}`}>
                                                     <div className="product_img_box">
                                                         <img className="product_img" src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
@@ -138,17 +139,17 @@ const ProductPage1 = () => {
                                                         </div>
                                                     </div>
                                                 </Link>
-                                                </motion.div>
                                             </SwiperSlide>
                                         )) : <p className="not_have">검색하신 상품이 없습니다.</p>
                                     }
                                 </Swiper> 
-                            </motion.div>
+                            </div>
                         </div>
                     </div>
                 </section>
             </main>
-		</div>
+            </motion.div>
+		</motion.div>
     )
 }
 

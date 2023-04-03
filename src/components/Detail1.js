@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../scss/Style.scss";
+import { motion } from "framer-motion";
 // import relativeTime from "dayjs/plugin/relativeTime";
 import { API_URL } from "../config/constants";
 import { Button, message, Spin } from "antd";
 import dayjs from "dayjs";
 
 const Detail1 = () => {
+  
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -27,8 +29,24 @@ const Detail1 = () => {
   useEffect(() => {
     getProduct();
   }, []);
-
+  const list = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.5,
+      },
+    },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
   if (product == null) {
+   
     return (
       <div style={{ height: "150px", paddingTop: "80px" }}>
         <Spin tip="상품정보를 받아오는 중입니다...." size="large">
@@ -54,8 +72,9 @@ const Detail1 = () => {
   return (
     <div>
       <div id="container">
-        <div className="inner">
+        <motion.div variants={list} initial="hidden" animate="visible"  className="inner">
           {/* 이미지 */}
+          <motion.div variants={item}>
           <div className="image_box">
             <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
           </div>
@@ -94,7 +113,8 @@ const Detail1 = () => {
               즉시결제하기
             </button>
           </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

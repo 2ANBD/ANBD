@@ -29,11 +29,9 @@ function Header() {
         <div className="inner">
           <motion.div variants={list} initial="hidden" animate="visible" className="content_wrap">
             <motion.div variants={item}>
-              <Link to="/Category">
-                <Button size="large">
-                  <BellOutlined />
-                </Button>
-              </Link>
+              <Button size="large" href="https://pf.kakao.com/_tdIxcxj/99360875">
+                <BellOutlined />
+              </Button>
             </motion.div>
 
             <Link to="/">
@@ -43,13 +41,13 @@ function Header() {
             <motion.div variants={item}>
               <Link className="login-link" to={`/LoginPage`}>
                 <Button size="large">
-                <LoginOutlined />
+                  <LoginOutlined />
                 </Button>
               </Link>
             </motion.div>
           </motion.div>
-          </div>
         </div>
+      </div>
     </header>
   );
 }

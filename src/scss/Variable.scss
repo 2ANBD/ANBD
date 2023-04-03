@@ -58,3 +58,10 @@ $inner_padding: 0 15px;
 //중앙정렬.
 @mixin position_center {
 }
+
+// 모바일 media query
+@mixin mobile {
+  @media (max-width: 480px){
+    @content
+  }
+}

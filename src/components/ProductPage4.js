@@ -5,7 +5,7 @@ import { API_URL } from "../config/constants";
 import { useNavigate  } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../scss/Style.scss";
-import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
+import { LeftOutlined } from '@ant-design/icons';
 import { motion } from "framer-motion";
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -82,7 +82,6 @@ const ProductPage4 = () => {
                                 <div className="search_input_wrap">
                                     <label htmlFor="user_search" className="ir_so">품목 검색</label>
                                     <input id="user_search" name="user_search" className="search_input" placeholder="구매하고 싶은 상품을 검색하세요" value={searchText} onChange={(e) =>  setSearchText(e.target.value)} />
-                                    <button className="search_btn"><SearchOutlined style={{fontSize: "16px"}}/></button>
                                 </div>
                             </form>
                         </div>
@@ -104,10 +103,14 @@ const ProductPage4 = () => {
                         <div className="inner">
                             <div className="product_container">
                                 <Swiper
-                                    slidesPerView={5}
+                                    slidesPerView={"auto"}
+                                    spaceBetween={10}
                                     direction={"vertical"}
                                     freeMode={true}
                                     modules={[FreeMode]}
+                                    loop={false}
+                                    allowTouchMove={true}
+                                    resistance={false}
                                     className="swiper_slide_wrap"
                                 >
                                     {productsD.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 

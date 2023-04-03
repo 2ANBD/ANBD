@@ -41,14 +41,6 @@
                         @include fontSizeWeight($font_size_2, 300);
                     }
                 }
-                .search_btn {
-                    position: absolute;
-                    top: 5px;
-                    right: 10px;
-                    padding: 5px 10px;
-                    background-color: transparent;
-                    cursor: pointer;
-                }
             }
         }
     }
@@ -96,14 +88,15 @@
         padding: 20px 0;
 
         .swiper_slide_wrap {
-            height: 874px;
+            height: 60vh;
 
             .not_have {
                 text-align: center;
             }
             .swiper_slide {
                 width: 100% !important;
-                padding: 12px 0 0;
+                height: auto !important;
+                padding-top: 10px;
                 position: relative;
                 border-top: 1px solid #ccc;
                 &:first-child { border-top: none; }
@@ -133,8 +126,8 @@
                     display: flex;
 
                     .product_img_box {
-                        width: 150px;
-                        height: 150px;
+                        width: 130px;
+                        height: 130px;
                         border-radius: 10px;
                         position: relative;
                         border: 1px solid #eee;
@@ -160,8 +153,8 @@
                         padding-top: 5px;
 
                         .product_text_top {
-                            .name { @include fontSizeWeight($font_size_3, 400); } 
-                            .price { @include fontSizeWeight($font_size_4, 500); }
+                            .name { @include fontSizeWeight($font_size_2, 400); } 
+                            .price { @include fontSizeWeight($font_size_3, 500); }
                         }
                         .product_text_center {
                             .brand {
@@ -189,7 +182,7 @@
                             }
                         }
                         .product_text_bottom {           
-                            padding-top: 20px;
+                            padding-top: 10px;
 
                             .time { 
                                 color: #999;

@@ -33,3 +33,8 @@ footer {
   color: $primary;
   border-color: $primary;
 }
+
+// 모바일 media query
+@include mobile {
+  footer { display: none; }
+}

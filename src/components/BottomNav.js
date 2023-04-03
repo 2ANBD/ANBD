@@ -81,42 +81,39 @@ function BottomNav() {
                   </Link>
                   </div>
                   <div className="btn_nav">
-                  <Link className="menu-link" to={`/MenuPage`}>
-                  <Button >
+                  <Button onClick={showDrawer} >
+                    
                   <MenuOutlined/>
                     <br />
                     더보기
                   </Button>
-                  </Link>
                   <Drawer title="더보기" placement="bottom" onClose={onClose} open={open}>
                     <Collapse defaultActiveKey={["1"]} onChange={onChange}>
                       <Panel header="상품카테고리" key="1">
-                        <Link to="/products">
+                        <Link to="/products1">
                           <Button>A : 미개봉 상품 및 A급 물건</Button>
                         </Link>
                         <br />
                         <br />
-                        <Link to="/products">
+                        <Link to="/products2">
                           <Button>N : 무료 나눔</Button>
                         </Link>
                         <br />
                         <br />
-                        <Link to="/products">
+                        <Link to="/products3">
                           <Button>B : 물물교환</Button>
                         </Link>
                         <br />
                         <br />
-                        <Link to="/products">
+                        <Link to="/products4">
                           <Button>D : 사용감있는 중고상품</Button>
                         </Link>
                         <br />
                       </Panel>
                     </Collapse>
                     <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                      <Panel header="소식" key="1">
-                        <Link to="/products">
+                      <Panel header="소식" key="1">         
                           <Button>제휴사 이벤트</Button>
-                        </Link>
                         <br />
                       </Panel>
                     </Collapse>
@@ -130,22 +127,7 @@ function BottomNav() {
                     </Collapse>
                     <Collapse defaultActiveKey={["1"]} onChange={onChange}>
                       <Panel header="최근 본 상품" key="2">
-                        <div className="search_recent">
-                          <Card hoverable style={{ width: 200 }} cover={<img alt="example" src="../../public/images/products/a/img_a11.jpg" />}>
-                            <Meta title="Europe Street beat" description="www.instagram.com" />
-                          </Card>
-                          <Card hoverable style={{ width: 200 }} cover={<img alt="example" src="../../public/images/products/a/img_a11.jpg" />}>
-                            <Meta title="Europe Street beat" description="www.instagram.com" />
-                          </Card>
-                        </div>
-                        <div className="search_recent">
-                          <Card hoverable style={{ width: 200 }} cover={<img alt="example" src="../../public/images/products/a/img_a11.jpg" />}>
-                            <Meta title="Europe Street beat" description="www.instagram.com" />
-                          </Card>
-                          <Card hoverable style={{ width: 200 }} cover={<img alt="example" src="../../public/images/products/a/img_a11.jpg" />}>
-                            <Meta title="Europe Street beat" description="www.instagram.com" />
-                          </Card>
-                        </div>
+                      
                       </Panel>
                     </Collapse>
                   </Drawer>

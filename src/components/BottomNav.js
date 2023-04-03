@@ -2,12 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../scss/Style.scss";
 import { Link } from "react-router-dom";
-import { Button, Drawer,Collapse, Card} from "antd";
-import { HomeOutlined, UploadOutlined,  MenuOutlined, CompassOutlined } from "@ant-design/icons";
-import { useState } from 'react';
+import { Button, Drawer, Collapse, Card } from "antd";
+import { HomeOutlined, UploadOutlined, MenuOutlined, CompassOutlined } from "@ant-design/icons";
+import { useState } from "react";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import { LikeOutlined, SmileOutlined, SyncOutlined, SkinOutlined } from "@ant-design/icons";
 
 function BottomNav() {
   const list = {
@@ -45,96 +46,106 @@ function BottomNav() {
   return (
     <nav className="nav_bottom">
       <div id="container">
-          <motion.div  variants={list} initial="hidden" animate="visible" className="inner">
-            <motion.div variants={item} className="nav_btns">
-              <div className="btn_nav">
-                <Link to={`/`}>
-                  <Button>
-                    <HomeOutlined />
-                    <br />홈
-                  </Button>
-                </Link>
-              </div>
-              {/* <div className="btn_nav">
+        <motion.div variants={list} initial="hidden" animate="visible" className="inner">
+          <motion.div variants={item} className="nav_btns">
+            <div className="btn_nav">
+              <Link to={`/`}>
+                <Button>
+                  <HomeOutlined />
+                  <br />홈
+                </Button>
+              </Link>
+            </div>
+            {/* <div className="btn_nav">
                 <Link className="login-link" to={`/LoginPage`}>
                   <Button>
                   <LoginOutlined /><br />로그인
                   </Button>
                 </Link>
               </div> */}
-              <div className="btn_nav">
-                  <Link className="map-link" to={`/MapPage`}>
-                    <Button>
-                      <CompassOutlined />
-                      <br />
-                      장소찾기
-                    </Button>
-                  </Link>
-              </div>
-                  <div className="btn_nav">
-                  <Link className="upload-link" to={`/Category`}>
-                    <Button>
-                      <UploadOutlined />
-                      <br />
-                      내물건팔기
-                    </Button>
-                  </Link>
-                  </div>
-                  <div className="btn_nav">
-                  <Button onClick={showDrawer} >
-                    
-                  <MenuOutlined/>
+            <div className="btn_nav">
+              <Link className="map-link" to={`/MapPage`}>
+                <Button>
+                  <CompassOutlined />
+                  <br />
+                  장소찾기
+                </Button>
+              </Link>
+            </div>
+            <div className="btn_nav">
+              <Link className="upload-link" to={`/Category`}>
+                <Button>
+                  <UploadOutlined />
+                  <br />
+                  내물건팔기
+                </Button>
+              </Link>
+            </div>
+            <div className="btn_nav">
+              <Button onClick={showDrawer}>
+                <MenuOutlined />
+                <br />
+                더보기
+              </Button>
+              <Drawer title="더보기" placement="bottom" onClose={onClose} open={open}>
+                <img variants={item} src="/images/icons/img_header_logo.png" alt="" className="logo" style={{ width: "90px", marginBottom: "20px" }} />
+                <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                  <Panel header="로그인" key="1">
+                    <Link to="/LoginPage">
+                      <Button>로그인 하러가기</Button>
+                    </Link>
+                  </Panel>
+                </Collapse>
+                <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                  <Panel header="카테고리" key="2">
+                    <Link to="/products1">
+                      <Button>
+                        <LikeOutlined />A : 미개봉 상품 및 A급 물건
+                      </Button>
+                    </Link>
                     <br />
-                    더보기
-                  </Button>
-                  <Drawer title="더보기" placement="bottom" onClose={onClose} open={open}>
-                    <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                      <Panel header="상품카테고리" key="1">
-                        <Link to="/products1">
-                          <Button>A : 미개봉 상품 및 A급 물건</Button>
-                        </Link>
-                        <br />
-                        <br />
-                        <Link to="/products2">
-                          <Button>N : 무료 나눔</Button>
-                        </Link>
-                        <br />
-                        <br />
-                        <Link to="/products3">
-                          <Button>B : 물물교환</Button>
-                        </Link>
-                        <br />
-                        <br />
-                        <Link to="/products4">
-                          <Button>D : 사용감있는 중고상품</Button>
-                        </Link>
-                        <br />
-                      </Panel>
-                    </Collapse>
-                    <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                      <Panel header="소식" key="1">         
-                          <Button>제휴사 이벤트</Button>
-                        <br />
-                      </Panel>
-                    </Collapse>
-                    <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                      <Panel header="고객센터" key="2">
-                        <Button>고객센터 오픈채팅</Button>
-                        <br />
-                        <br />
-                        <Button>자주 묻는 질문</Button>
-                      </Panel>
-                    </Collapse>
-                    <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                      <Panel header="최근 본 상품" key="2">
-                      
-                      </Panel>
-                    </Collapse>
-                  </Drawer>
-                  </div>
-            </motion.div>
+                    <br />
+                    <Link to="/products2">
+                      <Button>
+                        <SmileOutlined />N : 무료 나눔
+                      </Button>
+                    </Link>
+                    <br />
+                    <br />
+                    <Link to="/products3">
+                      <Button>
+                        <SyncOutlined />B : 물물교환
+                      </Button>
+                    </Link>
+                    <br />
+                    <br />
+                    <Link to="/products4">
+                      <Button>
+                        <SkinOutlined />D : 사용감있는 중고상품
+                      </Button>
+                    </Link>
+                    <br />
+                  </Panel>
+                </Collapse>
+                <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                  <Panel header="소식" key="2">
+                    <Button href="https://pf.kakao.com/_tdIxcxj">공지소식</Button>
+                    <br />
+                  </Panel>
+                </Collapse>
+                <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                  <Panel header="고객센터" key="2">
+                    <Button href="https://pf.kakao.com/_tdIxcxj/chat">고객센터 1:1 오픈채팅</Button>
+                    {/*  <br />
+                    <br />
+                    <Button>자주 묻는 질문</Button> */}
+                  </Panel>
+                </Collapse>
+              </Drawer>
+            </div>
           </motion.div>
-        </div>
+        </motion.div>
+      </div>
     </nav>
   );
 }

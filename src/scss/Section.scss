@@ -123,3 +123,7 @@
         }
     }
 }
+
+@include mobile {
+    #section4 { padding-bottom: 50px; }
+}

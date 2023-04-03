@@ -101,27 +101,27 @@ const Detail2 = () => {
   return (
     <div>
       <div id="container">
-        <motion.div  variants={list} initial="hidden" animate="visible"  className="inner">
+        <motion.div variants={list} initial="hidden" animate="visible" className="inner">
           {/* 이미지 */}
           <motion.div variants={item}>
-          <div className="image_box">
-            <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
-          </div>
-
-          <div id="content_box_detail">
-            {/* 상품명 */}
-            <div className="product_name">{product.name}</div>
-            {/* 가격 */}
-            <div className="product_price">
-              <div>&#8361; {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-            </div>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-              {/* 브랜드 */}
-              <span className="product_brand">{product.brand}</span>
-              {/* 사이즈 */}
-              <span className="product_size">size {product.size}</span>
+            <div className="image_box">
+              <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
             </div>
 
+
+            <div id="content_box_detail">
+              {/* 상품명 */}
+              <div className="product_name">{product.name}</div>
+              {/* 가격 */}
+              <div className="product_price">
+                <div>&#8361; {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                {/* 브랜드 */}
+                <span className="product_brand">{product.brand}</span>
+                {/* 사이즈 */}
+                <span className="product_size">size {product.size}</span>
+              </div>
             <hr />
             {/* 상세설명 */}
             {/* 판매자 */}

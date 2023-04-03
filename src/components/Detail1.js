@@ -27,18 +27,18 @@ const Detail1 = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-    // 팝업창 상태 관리
-      const [isPopupOpen, setIsPopupOpen] = useState(false)
-   
-    // 팝업창 열기
-      const openPostCode = () => {
-          setIsPopupOpen(true)
-      }
-   
-    // 팝업창 닫기
-      const closePostCode = () => {
-          setIsPopupOpen(false)
-      }
+  // 팝업창 상태 관리
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // 팝업창 열기
+  const openPostCode = () => {
+    setIsPopupOpen(true);
+  };
+
+  // 팝업창 닫기
+  const closePostCode = () => {
+    setIsPopupOpen(false);
+  };
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -115,18 +115,20 @@ const Detail1 = () => {
               <p className="product_description">{product.description}</p>
             </div>
             <hr />
+            {/* adress */}
             <div className="product_name">배송지</div>
             <div className="inputbox">
-            <input type="text" placeholder="우편번호" className="addres_inputpost" value={zipCode} onChange={(e) => setZipCode(e.target.value)}  />
-              <button className="addres_post_button" onClick={openModal} >주소찾기</button>
+              <input type="text" placeholder="우편번호" className="addres_inputpost" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+              <button className="addres_post_button" onClick={openModal}>
+                주소찾기
+              </button>
+            </div>
+            {isModalOpen && (
+              <div>
+                <DaumPostcode onComplete={handleComplete} />
               </div>
-              {isModalOpen && (
-            <div>
-          <DaumPostcode onComplete={handleComplete} />
-          </div>
             )}
-         
-          <div className="addres-post_box2">
+            <div className="addres-post_box2">
               <input type="text" className="addres_inputpost1" placeholder="기본주소 입력" value={address} onChange={(e) => setAddress(e.target.value)}></input>
               <input type="text" className="addres_inputpost1" placeholder="상세 주소 입력"></input>
             </div>

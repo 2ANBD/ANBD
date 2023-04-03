@@ -1,20 +1,25 @@
-
 # 아나바다 중고 쇼핑몰 프로젝트
+
+[![NPM Version][npm-image]][npm-url]
+[![NODE Version][node-image]][node-url]
+[![React-router-dom Version][react-router-dom-image]][node-url]
+[![axios Version][axios-image]][node-url]
 
 > PWA 앱으로 제작한 react(프론트엔드) + node.js(웹서버) 프로젝트 중고 쇼핑몰 입니다.<br>
 > 프론트는 리액트를 사용하여 제작, 백엔드는 nodejs의 express를 활용하여 구현한 프로젝트입니다.
 
-## 🔗 배포URL
+## 개발기간
 
-[프론트엔드(페이지)][https://anbd.vercel.app/]<br>
-[백엔드(서버)][https://port-0-anbd-db-sever-6g2llfcbue07.sel3.cloudtype.app/]
+2023년 03월 07일 ~ 2023년 03월 31일
+
+## 🔗 배포링크URL
+![vercel-deploy](https://user-images.githubusercontent.com/120350411/229424617-447c8cdd-52d3-4ff4-aa62-1086896f7d18.png)<br>
+### [https://anbd.vercel.app/]<br>
+
 
 ## 깃허브 레파지토리
 
 [https://github.com/orgs/2ANBD/repositories]
-
-[![NPM Version][npm-image]][npm-url]
-[![NODE Version][node-image]][node-url]
 
 <!-- [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url] -->
@@ -23,7 +28,7 @@
 
 ![](https://user-images.githubusercontent.com/120350411/228405190-8f0985dd-098a-42e8-878b-0a9509710038.png) -->
 
-## 설치 방법
+## 사용 예제
 
 리액트 앱 설치:
 
@@ -34,21 +39,8 @@
 npx create-react-app my app
 cd my-app
 
-
-```
-
-## 사용 예제
-
-프론트:
-
-```sh
 npm start
-```
 
-백엔드:
-
-```sh
-node index.js
 ```
 
 <!-- 스크린 샷과 <a href="http://naver.com" target="black">코드 예제를 통해 사용 방법을 자세히 설명합니다.
@@ -92,35 +84,28 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
   - 상품상세페이지
   - 위치찾기페이지
 
-- SERVER
-
-  - sqlite db (create)
-  - [post] "/products" 상품 DB (read)
-  - [post] "/image" 이미지업로드 (read)
-
-  - [post] "/purchase/:id" 상품구매 (update)
-
-  - [get] "/products"
-  - [get] "/products/:id"
-
-✔ 업로드 정보 서버 DB저장 후 프론트 페이지 파싱<br>
+✔ NodeJs 웹 서버 구현<br>
+✔ sqlite3 DB구현<br>
 ✔ 업로드시 카테고리별 메인페이지에 상품 분할 출력 <br>
+✔ 업로드시 업로드시간, 지난시간 구현 <br>
 ✔ 배너 자동 슬라이드<br>
-✔ 상품구매시 솔드아웃 처리<br>
-✔ 카카오, 네이버 로그인API, 카카오오픈채팅API 다음지도 API 가져오기<br>
+✔ 상품 결제 구현 및 솔드아웃 처리<br>
+✔ 카카오 및 네이버 로그인API, 카카오오픈채팅API 다음지도장소찾기 API 구현<br>
 ✔ 전체보기 검색 필터 구현<br>
+✔ 페이지 이동 시 모션 구현<br>
 
 ## 구현중 어려웠던 점
 
 - 팀 프로젝트시 시작시 공동 작업화 ->
   해결) 스타일 가이드 작성 및 SASS작업<br>
-  [스타일가이드][https://docs.google.com/document/d/1c1fspfmk869sq6rewsgcjt_bwontdh4pxxflxpyi3yy/edit]
+  [스타일가이드]<br>[https://docs.google.com/document/d/1c1fspfmk869sq6rewsgcjt_bwontdh4pxxflxpyi3yy/edit]
 
 - NodeJs 웹 서버 파싱 작업
 
 - 지도api javascript코드 react코드로 변경작업.
 
 - 깃허브 공동작업 -> 해결) 각자 branch 만들어서 push 및 에러없으면 main branch에 merge
+
 
 ## 정보 및 담당
 
@@ -145,6 +130,8 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 
 [npm-image]: https://img.shields.io/badge/npm-v8.19.3-important
 [node-image]: https://img.shields.io/badge/node-v16.19.0-blue
+[react-router-dom-image]: https://img.shields.io/badge/React--router--dom-5.3.3-yellowgreen
+[axios-image]: https://img.shields.io/badge/axios-1.3.4-ff69b4
 [npm-url]: https://www.npmjs.com/package/npm/v/8.19.3
 [node-url]: https://nodejs.dev/en/download/
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square

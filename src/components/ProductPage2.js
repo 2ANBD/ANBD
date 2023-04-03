@@ -112,6 +112,7 @@ const ProductPage2 = () => {
                                     modules={[FreeMode]}
                                     loop={false}
                                     allowTouchMove={true}
+                                    resistance={false}
                                     className="swiper_slide_wrap"
                                 >
                                     {productsN.length < 1 ? <p className="not_have">등록된 상품이 없습니다.</p> : filteredProducts.length > 0 ? 

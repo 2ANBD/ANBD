@@ -1,15 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import DaumPostcode from "react-daum-postcode";
 import "../scss/Style.scss";
-import { motion } from "framer-motion";
 // import relativeTime from "dayjs/plugin/relativeTime";
 import { API_URL } from "../config/constants";
 import { Button, message, Spin } from "antd";
 import dayjs from "dayjs";
 
 const Detail1 = () => {
-  
+  const [address, setAddress] = useState(""); // 주소 정보를 저장할 상태
+  const [zipCode, setZipCode] = useState(""); // 우편번호 정보를 저장할 상태
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 창을 열고 닫을 상태
+
+  const handleComplete = (data) => {
+    const { roadAddress, zonecode } = data; // 선택한 주소 정보에서 도로명 주소와 우편번호 추출
+    setAddress(roadAddress); // 상태에 도로명 주소 저장
+    setZipCode(zonecode); // 상태에 우편번호 저장
+    setIsModalOpen(false); // 모달 창 닫기
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+    // 팝업창 상태 관리
+      const [isPopupOpen, setIsPopupOpen] = useState(false)
+   
+    // 팝업창 열기
+      const openPostCode = () => {
+          setIsPopupOpen(true)
+      }
+   
+    // 팝업창 닫기
+      const closePostCode = () => {
+          setIsPopupOpen(false)
+      }
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -29,24 +58,8 @@ const Detail1 = () => {
   useEffect(() => {
     getProduct();
   }, []);
-  const list = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.5,
-      },
-    },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+
   if (product == null) {
-   
     return (
       <div style={{ height: "150px", paddingTop: "80px" }}>
         <Spin tip="상품정보를 받아오는 중입니다...." size="large">
@@ -72,9 +85,8 @@ const Detail1 = () => {
   return (
     <div>
       <div id="container">
-        <motion.div variants={list} initial="hidden" animate="visible"  className="inner">
+        <div className="inner">
           {/* 이미지 */}
-          <motion.div variants={item}>
           <div className="image_box">
             <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
           </div>
@@ -102,7 +114,22 @@ const Detail1 = () => {
               </h3>
               <p className="product_description">{product.description}</p>
             </div>
-
+            <hr />
+            <div className="product_name">배송지</div>
+            <div className="inputbox">
+            <input type="text" placeholder="우편번호" className="addres_inputpost" value={zipCode} onChange={(e) => setZipCode(e.target.value)}  />
+              <button className="addres_post_button" onClick={openModal} >주소찾기</button>
+              </div>
+              {isModalOpen && (
+            <div>
+          <DaumPostcode onComplete={handleComplete} />
+          </div>
+            )}
+         
+          <div className="addres-post_box2">
+              <input type="text" className="addres_inputpost1" placeholder="기본주소 입력" value={address} onChange={(e) => setAddress(e.target.value)}></input>
+              <input type="text" className="addres_inputpost1" placeholder="상세 주소 입력"></input>
+            </div>
             {/* 등록일 */}
             <p className="product_createAt">
               <span>등록일 :&nbsp;</span>
@@ -113,8 +140,7 @@ const Detail1 = () => {
               즉시결제하기
             </button>
           </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

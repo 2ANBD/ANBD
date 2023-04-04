@@ -61,7 +61,7 @@ $inner_padding: 0 15px;
 
 // 모바일 media query
 @mixin mobile {
-  @media (max-width: 480px){
-    @content
+  @media (max-width: 480px) {
+    @content;
   }
 }

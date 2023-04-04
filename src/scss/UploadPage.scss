@@ -122,3 +122,9 @@
 .css-dev-only-do-not-override-mxhywb {
   margin-bottom: 0;
 }
+
+@include mobile {
+  .btn {
+    margin-bottom: 80px;
+  }
+}

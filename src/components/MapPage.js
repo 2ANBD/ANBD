@@ -40,7 +40,7 @@ function LandingPage() {
           <div className="inner">
             <motion.div variants={list} initial="hidden" animate="visible"  className='search'>
       <motion.form variants={item} className="inputForm" onSubmit={handleSubmit}>
-        <input placeholder="검색어를 입력하세요" onChange={onChange} value={InputText} />
+        <input placeholder="지역을 검색해주세요" onChange={onChange} value={InputText} />
         <Button type="submit" shape="circle" className='search_btn' icon={<SearchOutlined />} />
       </motion.form>
       </motion.div>

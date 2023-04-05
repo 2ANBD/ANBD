@@ -38,6 +38,7 @@ function LandingPage() {
     <>
      <div id="container">
           <div className="inner">
+            <div className='title'>지역검색</div>
             <motion.div variants={list} initial="hidden" animate="visible"  className='search'>
       <motion.form variants={item} className="inputForm" onSubmit={handleSubmit}>
         <input placeholder="지역을 검색해주세요" onChange={onChange} value={InputText} />

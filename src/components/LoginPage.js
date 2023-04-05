@@ -8,6 +8,7 @@ function LoginPage() {
   const NAVER_AUTH_URL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Le9ywWBU613n5i0TBz2U&redirect_uri=https://anbd.vercel.app/&response_type=code";
   const NAVER_1_AUTH_URL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=Le9ywWBU613n5i0TBz2U&redirect_uri=http://localhost:8080&response_type=code";
   const list = {
+    
     hidden: {
       opacity: 0,
     },
@@ -23,7 +24,14 @@ function LoginPage() {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
   };
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'This is a success message',
+    });
+  };
   return (
+    
     <div id="container">
       <div className="inner">
         <div className="login_wrap">
@@ -34,7 +42,9 @@ function LoginPage() {
           </motion.div>
           <motion.ul variants={list} initial="hidden" animate="visible" className="login_btn">
             <motion.li variants={item} className="kakao_btn">
-              <a href={KAKAO_AUTH_URL}>카카오 계정으로 로그인</a>
+            <Space>
+              <a href={KAKAO_AUTH_URL}onClick={success} >카카오 계정으로 로그인</a>
+              </Space>
             </motion.li>
             <motion.li variants={item} className="naver_btn">
               <a href={NAVER_AUTH_URL}>

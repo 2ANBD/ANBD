@@ -68,8 +68,8 @@ const Banner0 = () => {
                   <div className="img_banner" style={{ backgroundImage: "url('../images/banner/img_ban5.svg')" }}></div>
                 </SwiperSlide>
               </Swiper>
+              <div className="swiper-pagination"></div> {/* pagination 추가 */}
             </motion.div>
-            <div className="swiper-pagination"></div> {/* pagination 추가 */}
           </div>
         </div>
       </section>

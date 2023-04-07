@@ -20,9 +20,6 @@
 .nav_bottom #container .nav_btns .btn_nav {
   width: 25%;
   height: 75%;
-  /* span{
-    font-size: $font_size_1;
-  } */
 }
 .nav_bottom #container .nav_btns .btn_nav .ant-btn {
   height: 55px;
@@ -39,4 +36,4 @@
 }
 .ant-btn-default:not(:disabled):hover {
   border-color: #fff;
-}/*# sourceMappingURL=BottomNav.css.map */
+} /*# sourceMappingURL=BottomNav.css.map */

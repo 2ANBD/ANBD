@@ -1,7 +1,4 @@
-/* test서버 */
-// export const API_URL = "https://port-0-mango-sever-6g2llfc5dt1p.sel3.cloudtype.app";
-
-/* 본서버 */
+/* vercel 본서버 */
 export const API_URL = "https://port-0-anbd-db-sever-6g2llfcbue07.sel3.cloudtype.app";
 
 /* 로컬서버 */

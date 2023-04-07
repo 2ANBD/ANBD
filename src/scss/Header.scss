@@ -1,12 +1,12 @@
 @import "./Variable";
 
 #header {
-  #container{
-    }
+  #container {
     .inner {
       padding: $inner_padding;
     }
   }
+}
 .inner {
   .content_wrap {
     display: flex;
@@ -18,11 +18,16 @@
     }
   }
 }
-/* 버튼이미지사이즈 */
-.ant-btn.ant-btn-lg {
-  font-size: 19px;
-}
+
 /* 버튼 음영 */
 .ant-btn-default {
   box-shadow: none;
 }
+/* 알림버튼사이즈 */
+.ant-btn.ant-btn-lg {
+  font-size: 19px;
+}
+/* 햄버거메뉴사이즈 */
+/* .ant-btn {
+  font-size: 19px;
+} */

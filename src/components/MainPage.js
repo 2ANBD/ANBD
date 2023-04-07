@@ -6,10 +6,6 @@ import Section2 from "./Section2";
 
 import "../scss/Style.scss";
 
-/* test */
-/* import Testsection from "./Testsection";
-import Testsection2 from "./Testsection2"; */
-
 function MainPage() {
   return (
     <>
@@ -17,8 +13,6 @@ function MainPage() {
       <Section1 />
       <Banner2 />
       <Section2 />
-      {/*       <Testsection />
-      <Testsection2 /> */}
     </>
   );
 }

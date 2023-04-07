@@ -9,15 +9,15 @@ import { Button, message, Spin } from "antd";
 import dayjs from "dayjs";
 
 const Detail2 = () => {
-  const [address, setAddress] = useState(""); // 주소 정보를 저장할 상태
-  const [zipCode, setZipCode] = useState(""); // 우편번호 정보를 저장할 상태
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 창을 열고 닫을 상태
+  const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleComplete = (data) => {
-    const { roadAddress, zonecode } = data; // 선택한 주소 정보에서 도로명 주소와 우편번호 추출
-    setAddress(roadAddress); // 상태에 도로명 주소 저장
-    setZipCode(zonecode); // 상태에 우편번호 저장
-    setIsModalOpen(false); // 모달 창 닫기
+    const { roadAddress, zonecode } = data;
+    setAddress(roadAddress);
+    setZipCode(zonecode);
+    setIsModalOpen(false);
   };
 
   const openModal = () => {
@@ -27,18 +27,18 @@ const Detail2 = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-    // 팝업창 상태 관리
-      const [isPopupOpen, setIsPopupOpen] = useState(false)
-   
-    // 팝업창 열기
-      const openPostCode = () => {
-          setIsPopupOpen(true)
-      }
-   
-    // 팝업창 닫기
-      const closePostCode = () => {
-          setIsPopupOpen(false)
-      }
+  // 팝업창 상태 관리
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // 팝업창 열기
+  const openPostCode = () => {
+    setIsPopupOpen(true);
+  };
+
+  // 팝업창 닫기
+  const closePostCode = () => {
+    setIsPopupOpen(false);
+  };
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -108,7 +108,6 @@ const Detail2 = () => {
               <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
             </div>
 
-
             <div id="content_box_detail">
               {/* 상품명 */}
               <div className="product_name">{product.name}</div>
@@ -122,41 +121,43 @@ const Detail2 = () => {
                 {/* 사이즈 */}
                 <span className="product_size">size {product.size}</span>
               </div>
-            <hr />
-            {/* 상세설명 */}
-            {/* 판매자 */}
-            <div className="product_description_box">
-              <h3>
-                판매자 <span style={{ color: "#558c03", fontWeight: "bold" }}>{product.seller}</span>의 말
-              </h3>
-              <p className="product_description">{product.description}</p>
-            </div>
-            <hr/>
-            <div className="product_name">배송지</div>
-            <div className="inputbox">
-            <input type="text" placeholder="우편번호" className="addres_inputpost" value={zipCode} onChange={(e) => setZipCode(e.target.value)}  />
-              <button className="addres_post_button" onClick={openModal} >주소찾기</button>
+              <hr />
+              {/* 상세설명 */}
+              {/* 판매자 */}
+              <div className="product_description_box">
+                <h3>
+                  판매자 <span style={{ color: "#558c03", fontWeight: "bold" }}>{product.seller}</span>의 말
+                </h3>
+                <p className="product_description">{product.description}</p>
+              </div>
+              <hr />
+              <div className="product_name">배송지</div>
+              <div className="inputbox">
+                <input type="text" placeholder="우편번호" className="addres_inputpost" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+                <button className="addres_post_button" onClick={openModal}>
+                  주소찾기
+                </button>
               </div>
               {isModalOpen && (
-            <div>
-          <DaumPostcode onComplete={handleComplete} />
-          </div>
-            )}
-         
-          <div className="addres-post_box2">
-              <input type="text" className="addres_inputpost1" placeholder="기본주소 입력" value={address} onChange={(e) => setAddress(e.target.value)}></input>
-              <input type="text" className="addres_inputpost1" placeholder="상세 주소 입력"></input>
+                <div>
+                  <DaumPostcode onComplete={handleComplete} />
+                </div>
+              )}
+
+              <div className="addres-post_box2">
+                <input type="text" className="addres_inputpost1" placeholder="기본주소 입력" value={address} onChange={(e) => setAddress(e.target.value)}></input>
+                <input type="text" className="addres_inputpost1" placeholder="상세 주소 입력"></input>
+              </div>
+              {/* 등록일 */}
+              <p className="product_createAt">
+                <span>등록일 :&nbsp;</span>
+                {dayjs(product.createdAt).format("YYYY.MM.DD HH:mm")}
+              </p>
+              {/* 구매버튼 */}
+              <button siz="large" type="primary" danger={true} className="btn category_btn category_btn_ani" onClick={onClickPurchase} disabled={product.soldout === 1}>
+                즉시결제하기
+              </button>
             </div>
-            {/* 등록일 */}
-            <p className="product_createAt">
-              <span>등록일 :&nbsp;</span>
-              {dayjs(product.createdAt).format("YYYY.MM.DD HH:mm")}
-            </p>
-            {/* 구매버튼 */}
-            <button siz="large" type="primary" danger={true} className="btn category_btn category_btn_ani" onClick={onClickPurchase} disabled={product.soldout === 1}>
-              즉시결제하기
-            </button>
-          </div>
           </motion.div>
         </motion.div>
       </div>

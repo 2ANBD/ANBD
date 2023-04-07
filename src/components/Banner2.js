@@ -21,10 +21,7 @@ const Banner2 = () => {
       },
     },
   };
-  const item = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+
   return (
     <motion.section variants={list} initial="hidden" animate="visible" id="banner2" className="banner2">
       <div id="container">

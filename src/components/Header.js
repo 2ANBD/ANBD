@@ -60,14 +60,14 @@ function Header() {
                 </Button>
                 <Drawer title="더보기" placement="right" onClose={onClose} open={open}>
                   <img variants={item} src="/images/icons/img_header_logo.png" alt="" className="logo" style={{ width: "90px", marginBottom: "20px" }} />
-                  <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                  <Collapse defaultActiveKey={["1"]} onChange={onChange} style={{ fontWeight: "bold", fontSize: "15px" }}>
                     <Panel header="로그인" key="1">
                       <Link to="/LoginPage">
                         <Button>로그인 하러가기</Button>
                       </Link>
                     </Panel>
                   </Collapse>
-                  <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                  <Collapse defaultActiveKey={["1"]} onChange={onChange} style={{ fontWeight: "bold", fontSize: "15px" }}>
                     <Panel header="카테고리" key="1">
                       <Link to="/products1">
                         <Button>
@@ -99,13 +99,13 @@ function Header() {
                     </Panel>
                   </Collapse>
                   <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                    <Panel header="소식" key="1">
+                    <Panel header="소식" key="1" style={{ fontWeight: "bold", fontSize: "15px" }}>
                       <Button href="https://pf.kakao.com/_tdIxcxj">공지소식</Button>
                       <br />
                     </Panel>
                   </Collapse>
                   <Collapse defaultActiveKey={["1"]} onChange={onChange}>
-                    <Panel header="고객센터" key="1">
+                    <Panel header="고객센터" key="1" style={{ fontWeight: "bold", fontSize: "15px" }}>
                       <Button href="https://pf.kakao.com/_tdIxcxj/chat">고객센터 1:1 오픈채팅</Button>
                     </Panel>
                   </Collapse>

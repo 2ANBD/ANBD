@@ -11,10 +11,8 @@ import ProductPage4 from "./components/ProductPage4";
 import Footer from "./components/Footer";
 import FloatButton from "./components/FloatBtn";
 import BottomNav from "./components/BottomNav";
-import PaymentPage from "./components/PaymentPage";
 import LoginPage from "./components/LoginPage";
 import MapPage from "./components/MapPage";
-import MenuPage from "./components/MenuPage";
 
 import UploadPage from "./components/UploadPage";
 import UploadPage2 from "./components/UploadPage2";

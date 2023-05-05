@@ -109,10 +109,10 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 
 ## 정보 및 담당
 
-김형섭 – was7894@naver.com / backend<br>
-정선문 – seonmunjeong95@gmail.com / backend<br>
-김준호 – dydgnscc6845@gmail.com / frontend<br>
-김종건 – pouneun@naver.com / frontend<br>
+김형섭 – wa7894@naver.com / 전체기획, 상품업로드, 상품구매, 상품상세, DB서버 설계구현 <br>
+정선문 – seonmunjeong95@gmail.com / 카카오 로그인, 고객센터 오픈채팅 및 공지, 장소찾기, 주소찾기, <br>
+김준호 – dydgnscc6845@gmail.com / 디자인 구성, 카테고리섹션별 분류 및 전체보기, soldout적용, 상품검색기능<br>
+김종건 – pouneun@naver.com / 기획 및 발표자료 수집정리, 광고배너슬라이드<br>
 
 <!-- XYZ 라이센스를 준수하며 `LICENSE`에서 자세한 정보를 확인할 수 있습니다.
 

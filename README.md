@@ -98,7 +98,7 @@ _더 많은 예제와 사용법은 [표시되는글자][http://naver.com]를 참
 
 - 팀 프로젝트시 시작시 공동 작업화 ->
   해결) 스타일 가이드 작성 및 SASS작업<br>
-  [스타일가이드]<br>[https://docs.google.com/document/d/1c1fspfmk869sq6rewsgcjt_bwontdh4pxxflxpyi3yy/edit]
+  [스타일가이드]<br>[https://docs.google.com/document/d/1c1Fspfmk869sQ6reWsgcjT_bwONTDh4PXXFlXpYI3YY/edit?usp=sharing]
 
 - NodeJs 웹 서버 파싱 작업
 
